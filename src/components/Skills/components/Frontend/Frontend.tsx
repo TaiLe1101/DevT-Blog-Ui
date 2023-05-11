@@ -25,6 +25,11 @@ const SKILLS: SkillsType[] = [
     group: 1,
   },
   {
+    name: 'SweetJsAlert',
+    level: 'Advanced',
+    group: 1,
+  },
+  {
     name: 'Bootstrap',
     level: 'Intermediate',
     group: 2,
@@ -39,12 +44,17 @@ const SKILLS: SkillsType[] = [
     level: 'Intermediate',
     group: 2,
   },
+  {
+    name: 'Antd',
+    level: 'Intermediate',
+    group: 2,
+  },
 ];
 
 function Frontend({}: PropsTypeFrontend) {
   return (
     <div className={cx('skills__content')}>
-      <h3 className={cx('skills__title')}>Frontend developer</h3>
+      <h3 className={cx('skills__title')}>Frontend</h3>
 
       <div className={cx('skills__box')}>
         <div className={cx('skills__group')}>

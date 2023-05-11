@@ -29,6 +29,11 @@ const SKILLS: SkillsType[] = [
     group: 1,
   },
   {
+    name: 'Java',
+    level: 'Intermediate',
+    group: 1,
+  },
+  {
     name: 'MySQL',
     level: 'Intermediate',
     group: 2,
@@ -43,12 +48,17 @@ const SKILLS: SkillsType[] = [
     level: 'Intermediate',
     group: 2,
   },
+  {
+    name: 'Fire base',
+    level: 'Intermediate',
+    group: 2,
+  },
 ];
 
 function Backend({}: PropsTypeBackend) {
   return (
     <div className={cx('skills__content')}>
-      <h3 className={cx('skills__title')}>Backend developer</h3>
+      <h3 className={cx('skills__title')}>Backend</h3>
 
       <div className={cx('skills__box')}>
         <div className={cx('skills__group')}>

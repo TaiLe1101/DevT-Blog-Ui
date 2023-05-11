@@ -78,7 +78,7 @@ function Contact({}: PropsTypeContact) {
               <i className={`bx bx-mail-send ${cx('contact__card-icon')}`}></i>
 
               <h3 className={cx('contact__card-title')}>Email</h3>
-              <span className={cx('contact__card-data')}>user@gmail.com</span>
+              <span className={cx('contact__card-data')}>taic21a.th1@gmail.com</span>
 
               <a href="mailto:taic21a.th1@gmail.com" className={cx('contact__button')}>
                 Write me
@@ -90,9 +90,9 @@ function Contact({}: PropsTypeContact) {
               <i className={`bx bx-phone-incoming ${cx('contact__card-icon')}`}></i>
 
               <h3 className={cx('contact__card-title')}>Phone Number</h3>
-              <span className={cx('contact__card-data')}>777-777-777</span>
+              <span className={cx('contact__card-data')}>+84 865-850-073</span>
 
-              <a href="#write-me" className={cx('contact__button')}>
+              <a href="tel:0865850073" className={cx('contact__button')}>
                 Write me
                 <i className={`bx bx-right-arrow-alt ${cx('contact__button-icon')}`}></i>
               </a>
@@ -102,9 +102,14 @@ function Contact({}: PropsTypeContact) {
               <i className={`bx bxl-messenger ${cx('contact__card-icon')}`}></i>
 
               <h3 className={cx('contact__card-title')}>Messenger</h3>
-              <span className={cx('contact__card-data')}>user.fb123</span>
+              <span className={cx('contact__card-data')}>TaiLe1101</span>
 
-              <a href="#write-me" className={cx('contact__button')}>
+              <a
+                href="https://www.messenger.com/t/100011703460148"
+                target="_blank"
+                className={cx('contact__button')}
+                rel="noreferrer"
+              >
                 Write me
                 <i className={`bx bx-right-arrow-alt ${cx('contact__button-icon')}`}></i>
               </a>

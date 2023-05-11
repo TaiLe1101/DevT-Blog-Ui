@@ -1,4 +1,12 @@
 import thumbnail from '~/assets/thumbnail.jpg';
+import keKho from '~/assets/kekho.png';
+import candy from '~/assets/Visual.png';
+import game from '~/assets/game.png';
+import billiardcrypto from '~/assets/billiardcrypto.png';
+import mentden from '~/assets/mentden.png';
+import mentdenApi from '~/assets/mentden-api.png';
+import tr2 from '~/assets/tr2.png';
+import devtApi from '~/assets/devt-api.png';
 
 export type ProjectDataType = {
   id: number;
@@ -15,62 +23,50 @@ export type ProjectNavDataType = {
 const projects: ProjectDataType[] = [
   {
     id: 1,
-    thumbnail: thumbnail,
+    thumbnail: keKho,
     title: 'Kệ kho',
     categoryId: 1,
   },
   {
     id: 2,
-    thumbnail: thumbnail,
-    title: 'Virtual Assistant',
+    thumbnail: candy,
+    title: 'Candy P2E',
     categoryId: 1,
   },
   {
     id: 3,
-    thumbnail: thumbnail,
+    thumbnail: game,
     title: 'Game Tetris',
     categoryId: 3,
   },
   {
     id: 4,
-    thumbnail: thumbnail,
-    title: 'My Music',
+    thumbnail: billiardcrypto,
+    title: 'Billiard Crypto',
     categoryId: 1,
   },
   {
     id: 5,
-    thumbnail: thumbnail,
-    title: 'TR 2',
-    categoryId: 2,
+    thumbnail: tr2,
+    title: 'TR2 International',
+    categoryId: 1,
   },
   {
     id: 6,
-    thumbnail: thumbnail,
+    thumbnail: mentdenApi,
     title: 'Meden API',
     categoryId: 2,
   },
   {
     id: 7,
-    thumbnail: thumbnail,
+    thumbnail: mentden,
     title: 'Meden UI',
     categoryId: 1,
   },
   {
     id: 8,
-    thumbnail: thumbnail,
-    title: 'Universe world cup',
-    categoryId: 2,
-  },
-  {
-    id: 9,
-    thumbnail: thumbnail,
-    title: 'Shoppe',
-    categoryId: 3,
-  },
-  {
-    id: 10,
-    thumbnail: thumbnail,
-    title: 'The band',
+    thumbnail: devtApi,
+    title: 'DevT Blog API',
     categoryId: 2,
   },
 ];

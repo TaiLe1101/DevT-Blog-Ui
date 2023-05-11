@@ -27,7 +27,7 @@ function About() {
           </p>
 
           <a href={CV} className={`${cx('about__download')} ${cxm('button', 'button--flex')}`} download>
-            <span>Tải CV xuống</span> <i className="uil uil-file-download"></i>
+            <span>Download CV</span> <i className="uil uil-file-download"></i>
           </a>
         </div>
       </div>

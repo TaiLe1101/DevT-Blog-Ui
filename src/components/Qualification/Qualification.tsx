@@ -41,11 +41,11 @@ function Qualification({}: PropsTypeQualification) {
           >
             <div className={cx('qualification__data')}>
               <div>
-                <h3 className={cx('qualification__title')}>Web TikTok</h3>
-                <span className={cx('qualification__subtitle')}>TikTok - User Interface</span>
+                <h3 className={cx('qualification__title')}>Hoa Yêu Thương</h3>
+                <span className={cx('qualification__subtitle')}>Bán hoa online</span>
                 <div className={cx('qualification__calendar')}>
                   <i className="uil uil-calendar-alt"></i>
-                  2021 - Present
+                  02/2023 - 03/2023
                 </div>
               </div>
 
@@ -64,22 +64,22 @@ function Qualification({}: PropsTypeQualification) {
               </div>
 
               <div>
-                <h3 className={cx('qualification__title')}>Web TikTok</h3>
-                <span className={cx('qualification__subtitle')}>TikTok - User Interface</span>
+                <h3 className={cx('qualification__title')}>Shoppe</h3>
+                <span className={cx('qualification__subtitle')}>Shoppe - Clone UI</span>
                 <div className={cx('qualification__calendar')}>
                   <i className="uil uil-calendar-alt"></i>
-                  2021 - Present
+                  08/2021 - 09/2021
                 </div>
               </div>
             </div>
 
             <div className={cx('qualification__data')}>
               <div>
-                <h3 className={cx('qualification__title')}>Web TikTok</h3>
+                <h3 className={cx('qualification__title')}>TikTok</h3>
                 <span className={cx('qualification__subtitle')}>TikTok - User Interface</span>
                 <div className={cx('qualification__calendar')}>
                   <i className="uil uil-calendar-alt"></i>
-                  2021 - Present
+                  09/2022 - 10/2022
                 </div>
               </div>
               <div>
@@ -97,16 +97,17 @@ function Qualification({}: PropsTypeQualification) {
               </div>
 
               <div>
-                <h3 className={cx('qualification__title')}>Web TikTok</h3>
-                <span className={cx('qualification__subtitle')}>TikTok - User Interface</span>
+                <h3 className={cx('qualification__title')}>The Band</h3>
+                <span className={cx('qualification__subtitle')}>The Band - User Interface</span>
                 <div className={cx('qualification__calendar')}>
                   <i className="uil uil-calendar-alt"></i>
-                  2021 - Present
+                  07/2021 - 08/2021
                 </div>
               </div>
             </div>
           </div>
 
+          {/* Experience */}
           <div
             className={cx('qualification__content', {
               'qualification__content-active': nav === 2 ? true : false,
@@ -114,11 +115,11 @@ function Qualification({}: PropsTypeQualification) {
           >
             <div className={cx('qualification__data')}>
               <div>
-                <h3 className={cx('qualification__title')}>Web TikTok 3</h3>
-                <span className={cx('qualification__subtitle')}>TikTok - User Interface</span>
+                <h3 className={cx('qualification__title')}>DevT Blog</h3>
+                <span className={cx('qualification__subtitle')}>My Blog</span>
                 <div className={cx('qualification__calendar')}>
                   <i className="uil uil-calendar-alt"></i>
-                  2021 - Present
+                  2023 - Present
                 </div>
               </div>
 
@@ -137,22 +138,22 @@ function Qualification({}: PropsTypeQualification) {
               </div>
 
               <div>
-                <h3 className={cx('qualification__title')}>Web TikTok</h3>
-                <span className={cx('qualification__subtitle')}>TikTok - User Interface</span>
+                <h3 className={cx('qualification__title')}>Kệ Kho</h3>
+                <span className={cx('qualification__subtitle')}>Bán kệ online</span>
                 <div className={cx('qualification__calendar')}>
                   <i className="uil uil-calendar-alt"></i>
-                  2021 - Present
+                  2022
                 </div>
               </div>
             </div>
 
             <div className={cx('qualification__data')}>
               <div>
-                <h3 className={cx('qualification__title')}>Web TikTok</h3>
-                <span className={cx('qualification__subtitle')}>TikTok - User Interface</span>
+                <h3 className={cx('qualification__title')}>Universe World Cup</h3>
+                <span className={cx('qualification__subtitle')}>Blockchain - Landing page</span>
                 <div className={cx('qualification__calendar')}>
                   <i className="uil uil-calendar-alt"></i>
-                  2021 - Present
+                  2022
                 </div>
               </div>
               <div>
@@ -170,11 +171,11 @@ function Qualification({}: PropsTypeQualification) {
               </div>
 
               <div>
-                <h3 className={cx('qualification__title')}>Web TikTok</h3>
-                <span className={cx('qualification__subtitle')}>TikTok - User Interface</span>
+                <h3 className={cx('qualification__title')}>Billiard Staking</h3>
+                <span className={cx('qualification__subtitle')}>Blockchain - Landing page</span>
                 <div className={cx('qualification__calendar')}>
                   <i className="uil uil-calendar-alt"></i>
-                  2021 - Present
+                  2023
                 </div>
               </div>
             </div>
