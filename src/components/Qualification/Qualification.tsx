@@ -20,14 +20,21 @@ function Qualification({}: PropsTypeQualification) {
       <div className={`${cx('qualification__container')} ${cxm('container', 'grid')}`}>
         <div className={cx('qualification__tabs')}>
           <div
-            className={`${cx('qualification__button', 'qualification__active')} ${cxm('button--flex')}`}
+            className={`${cx('qualification__button', {
+              qualification__active: nav === 1,
+            })} ${cxm('button--flex')}`}
             onClick={() => setNav(1)}
           >
             <i className={`uil uil-graduation-cap ${cx('qualification__icon')}`}></i>
             Education
           </div>
 
-          <div className={`${cx('qualification__button')} ${cxm('button--flex')}`} onClick={() => setNav(2)}>
+          <div
+            className={`${cx('qualification__button', {
+              qualification__active: nav === 2,
+            })} ${cxm('button--flex')}`}
+            onClick={() => setNav(2)}
+          >
             <i className={`uil uil-briefcase-alt ${cx('qualification__icon')}`}></i>
             Experience
           </div>
