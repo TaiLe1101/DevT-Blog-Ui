@@ -208,3 +208,14 @@ img {
     margin-right: var(--mb-1);
   }
 }
+
+::-moz-selection {
+  /* Code for Firefox */
+  color: var(--container-color);
+  background: var(--title-color);
+}
+
+::selection {
+  color: var(--container-color);
+  background: var(--title-color);
+}
