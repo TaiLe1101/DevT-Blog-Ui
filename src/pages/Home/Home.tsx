@@ -13,6 +13,7 @@ import Services from '~/components/Services';
 import Qualification from '~/components/Qualification';
 import Testimonial from '~/components/Testimonial';
 import Contact from '~/components/Contact/Contact';
+import Portfolio from '~/components/Portfolio';
 
 const cx = classNames.bind(styles);
 const cxm = classNames.bind(portfolioStyles);
@@ -36,6 +37,7 @@ function Home() {
       <About></About>
       <Skills></Skills>
       <Services></Services>
+      <Portfolio></Portfolio>
       <Qualification></Qualification>
       <Testimonial></Testimonial>
       <Contact></Contact>
