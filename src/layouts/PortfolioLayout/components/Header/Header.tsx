@@ -3,6 +3,8 @@ import { useState, useEffect } from 'react';
 
 import styles from './Header.module.scss';
 import portfolioStyles from '~/layouts/PortfolioLayout/PortfolioLayout.module.scss';
+import routes from '~/configs/route';
+import { Link } from 'react-router-dom';
 
 const cx = classNames.bind(styles);
 const cxm = classNames.bind(portfolioStyles);
@@ -65,9 +67,9 @@ function Header() {
             </li>
 
             <li className={cx('nav__item')}>
-              <a href="#blog" className={cx('nav__link')}>
+              <Link to={routes.blog} className={cx('nav__link')}>
                 <i className={`uil uil-blogger-alt ${cx('nav__icon')}`}></i> Blog
-              </a>
+              </Link>
             </li>
           </ul>
 

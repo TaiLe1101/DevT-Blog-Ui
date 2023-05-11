@@ -18,6 +18,8 @@
     align-items: center;
     column-gap: 1.6rem;
 
+    animation: scrollXPlus 0.3s ease-in;
+
     &__logo,
     &__toggle {
       color: var(--title-color);
@@ -127,5 +129,14 @@
         column-gap: 0;
       }
     }
+  }
+}
+
+@keyframes scrollXPlus {
+  0% {
+    transform: translateX(100%);
+  }
+  100% {
+    transform: translateX(0);
   }
 }

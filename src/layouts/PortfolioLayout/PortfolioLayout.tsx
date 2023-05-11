@@ -1,8 +1,9 @@
 import classNames from 'classnames/bind';
+import { ReactNode } from 'react';
 
 import styles from './PortfolioLayout.module.scss';
-import { ReactNode } from 'react';
-import Header from '../components/Header';
+
+import Header from './components/Header';
 import Footer from '../components/Footer/Footer';
 import ScrollToTop from '~/components/ScrollToTop/ScrollToTop';
 

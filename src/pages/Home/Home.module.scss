@@ -1,101 +1,100 @@
 // Home
+
 .home {
-  .home {
-    &__container {
-      row-gap: 8.2rem;
-    }
-    &__content {
-      grid-template-columns: 116px repeat(2, 1fr);
-      padding-top: 8.8rem;
-      column-gap: 3.2rem;
-      align-items: center;
-    }
+  &__container {
+    row-gap: 8.2rem;
+  }
+  &__content {
+    grid-template-columns: 116px repeat(2, 1fr);
+    padding-top: 8.8rem;
+    column-gap: 3.2rem;
+    align-items: center;
+  }
 
-    &__social {
-      display: grid;
-      grid-template-columns: max-content;
-      row-gap: 1.6rem;
+  &__social {
+    display: grid;
+    grid-template-columns: max-content;
+    row-gap: 1.6rem;
 
-      &-icon {
-        font-size: 2rem;
+    &-icon {
+      font-size: 2rem;
+      color: var(--title-color);
+
+      &:hover {
+        color: var(--title-color-dark);
+      }
+    }
+  }
+
+  &__title {
+    display: flex;
+    align-items: center;
+    gap: 1.6rem;
+
+    font-size: var(--big-font-size);
+    margin-bottom: var(--mb-0-25);
+    > span {
+      font-size: 3.8rem;
+    }
+  }
+
+  &__subtitle {
+    position: relative;
+    font-size: var(--h3-font-size);
+    padding-left: 8.64rem;
+    font-weight: var(--font-normal);
+    margin-bottom: var(--mb-1);
+
+    &::before {
+      content: '';
+      position: absolute;
+      width: 70px;
+      height: 1px;
+      background-color: var(--text-color);
+      left: 0;
+      top: 1.6rem;
+    }
+  }
+
+  &__description {
+    max-width: 400px;
+    margin-bottom: var(--mb-3);
+  }
+
+  &__img {
+    background: url(../../assets/avatar.jpg);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    box-shadow: inset 0 0 0 9px rgb(255 255 255/30%);
+    order: 1;
+    justify-self: center;
+    width: 300px;
+    height: 300px;
+    animation: profile__animate 7s ease-in-out infinite;
+  }
+
+  &__scroll {
+    margin-left: 14.8rem;
+
+    &-button {
+      > i:first-child {
+        font-size: 3rem;
         color: var(--title-color);
-
-        &:hover {
-          color: var(--title-color-dark);
-        }
       }
     }
 
-    &__title {
-      display: flex;
-      align-items: center;
-      gap: 1.6rem;
-
-      font-size: var(--big-font-size);
-      margin-bottom: var(--mb-0-25);
-      > span {
-        font-size: 3.8rem;
-      }
+    &-name {
+      color: var(--title-color);
+      font-weight: var(--font-medium);
+      margin-right: var(--mb-0-25);
+      margin-left: 2px;
     }
 
-    &__subtitle {
-      position: relative;
-      font-size: var(--h3-font-size);
-      padding-left: 8.64rem;
-      font-weight: var(--font-normal);
-      margin-bottom: var(--mb-1);
-
-      &::before {
-        content: '';
-        position: absolute;
-        width: 70px;
-        height: 1px;
-        background-color: var(--text-color);
-        left: 0;
-        top: 1.6rem;
-      }
-    }
-
-    &__description {
-      max-width: 400px;
-      margin-bottom: var(--mb-3);
-    }
-
-    &__img {
-      background: url(../../assets/avatar.jpg);
-      background-repeat: no-repeat;
-      background-position: center;
-      background-size: cover;
-      box-shadow: inset 0 0 0 9px rgb(255 255 255/30%);
-      order: 1;
-      justify-self: center;
-      width: 300px;
-      height: 300px;
-      animation: profile__animate 7s ease-in-out infinite;
-    }
-
-    &__scroll {
-      margin-left: 14.8rem;
-
-      &-button {
-        > i:first-child {
-          font-size: 3rem;
-          color: var(--title-color);
-        }
-      }
-
-      &-name {
-        color: var(--title-color);
-        font-weight: var(--font-medium);
-        margin-right: var(--mb-0-25);
-        margin-left: 2px;
-      }
-
-      &-arrow {
-        font-size: 2rem;
-        color: var(--title-color);
-        animation: scroll 0.3s ease infinite;
-      }
+    &-arrow {
+      font-size: 2rem;
+      color: var(--title-color);
+      animation: scroll 0.3s ease infinite;
     }
   }
 }

@@ -1,8 +1,12 @@
 import { ReactNode } from 'react';
+
 import routes from '~/configs/route';
+
 import PortfolioLayout from '~/layouts/PortfolioLayout/PortfolioLayout';
-import Home from '~/pages/Home/Home';
-import Login from '~/pages/Login/Login';
+
+import Blog from '~/pages/Blog';
+import Home from '~/pages/Home';
+import Login from '~/pages/Login';
 
 type Route = {
   path: string;
@@ -19,6 +23,10 @@ const publicRoutes: Route[] = [
   {
     path: routes.login,
     component: Login,
+  },
+  {
+    path: routes.blog,
+    component: Blog,
   },
 ];
 

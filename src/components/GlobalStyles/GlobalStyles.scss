@@ -1,6 +1,40 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap');
 
+/* Định nghĩa biến */
+$scrollbar-width: 8px;
+$scrollbar-color-thumb: rgba(0, 0, 0, 0.5);
+$scrollbar-color-track: #f1f1f1;
+$scrollbar-color-button: rgba(0, 0, 0, 0.1);
+$scrollbar-color-thumb-hover: rgba(0, 0, 0, 0.7);
+
+/* Định nghĩa mixin */
+@mixin scrollbar {
+  scrollbar-width: thin;
+  scrollbar-color: #{$scrollbar-color-thumb} #{$scrollbar-color-track};
+
+  &::-webkit-scrollbar {
+    width: $scrollbar-width;
+  }
+
+  &::-webkit-scrollbar-button {
+    display: none;
+  }
+
+  &::-webkit-scrollbar-thumb:hover {
+    background-color: $scrollbar-color-thumb-hover;
+  }
+
+  &::-webkit-scrollbar-track {
+    background-color: $scrollbar-color-track;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background-color: $scrollbar-color-thumb;
+    border-radius: 1.6rem;
+  }
+}
+
 :root {
   --header-height: 4.8rem;
 
@@ -61,6 +95,10 @@ textarea {
   font-size: var(--normal-font-size);
 }
 
+body {
+  @include scrollbar;
+}
+
 ul,
 li {
   list-style: none;
@@ -74,6 +112,13 @@ h5,
 h6 {
   padding: 0;
   margin: 0;
+}
+
+h1,
+h2,
+h3 {
+  color: var(--title-color);
+  font-weight: var(--font-semi-bold);
 }
 
 a {
@@ -90,6 +135,38 @@ img {
   height: auto;
 }
 
+// Custom popup
+.swal2-popup {
+  font-size: 1.4rem !important;
+}
+.swal2-confirm {
+  background-color: var(--title-color-dark) !important;
+}
+
+// Component
+.container {
+  max-width: 968px;
+  margin: 0 auto;
+}
+
+.section {
+  padding: 9.6rem 0 3.2rem;
+  &__title {
+    font-size: var(--h1-font-size);
+    color: var(--title-color);
+  }
+  &__subtitle {
+    display: block;
+    font-size: var(--small-font-size);
+    margin-bottom: 6.4rem;
+  }
+
+  &__title,
+  &__subtitle {
+    text-align: center;
+  }
+}
+
 @media screen and (max-width: 992px) {
   :root {
     --big-font-size: 4.4rem;
@@ -100,17 +177,34 @@ img {
     --small-font-size: 1.3008rem;
     --smaller-font-size: 1.2rem;
   }
+
+  .container {
+    margin-left: var(--mb-1-5);
+    margin-right: var(--mb-1-5);
+  }
 }
+
+@media screen and (max-width: 768px) {
+  body {
+    margin: 0 0 var(--header-height) 0;
+  }
+
+  .section {
+    padding: 3.2rem 0 6.4rem;
+
+    &__subtitle {
+      margin-bottom: var(--mb-3);
+    }
+  }
+}
+
 @media screen and (max-width: 350px) {
   :root {
     --big-font-size: 3.6rem;
   }
-}
 
-// Custom popup
-.swal2-popup {
-  font-size: 1.4rem !important;
-}
-.swal2-confirm {
-  background-color: var(--title-color-dark) !important;
+  .container {
+    margin-left: var(--mb-1);
+    margin-right: var(--mb-1);
+  }
 }
