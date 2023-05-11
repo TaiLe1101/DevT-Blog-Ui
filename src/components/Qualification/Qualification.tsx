@@ -13,8 +13,8 @@ function Qualification({}: PropsTypeQualification) {
   const [nav, setNav] = useState<number>(1);
 
   return (
-    <div className={`${cx('qualification')} ${cxm('section')}`} id="portfolio">
-      <h2 className={`${cxm('section__title')}`}>Services</h2>
+    <div className={`${cx('qualification')} ${cxm('section')}`}>
+      <h2 className={`${cxm('section__title')}`}>Qualification</h2>
       <span className={`${cxm('section__subtitle')}`}>What is offer</span>
 
       <div className={`${cx('qualification__container')} ${cxm('container', 'grid')}`}>

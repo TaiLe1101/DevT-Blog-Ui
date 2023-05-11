@@ -6,10 +6,13 @@ import portfolioStyles from '~/layouts/PortfolioLayout/PortfolioLayout.module.sc
 import Social from './components/Social';
 import Data from './components/Data';
 import ScrollDown from './components/ScrollDown';
-import About from '../About';
-import Skills from '../Skills/Skills';
-import Services from '../Services/Services';
-import Qualification from '../Qualification/Qualification';
+
+import About from '~/components/About';
+import Skills from '~/components/Skills';
+import Services from '~/components/Services';
+import Qualification from '~/components/Qualification';
+import Testimonial from '~/components/Testimonial';
+import Contact from '~/components/Contact/Contact';
 
 const cx = classNames.bind(styles);
 const cxm = classNames.bind(portfolioStyles);
@@ -29,10 +32,13 @@ function Home() {
           <ScrollDown></ScrollDown>
         </div>
       </div>
+
       <About></About>
       <Skills></Skills>
       <Services></Services>
       <Qualification></Qualification>
+      <Testimonial></Testimonial>
+      <Contact></Contact>
     </>
   );
 }
