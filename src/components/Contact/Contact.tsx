@@ -1,9 +1,15 @@
+import { useState } from 'react';
 import classNames from 'classnames/bind';
 import emailjs from 'emailjs-com';
 
+import Swal from 'sweetalert2';
+import withReactContent from 'sweetalert2-react-content';
+
 import styles from './Contact.module.scss';
 import portfolioStyles from '~/layouts/PortfolioLayout/PortfolioLayout.module.scss';
-import { LegacyRef, useRef } from 'react';
+import { useRef } from 'react';
+
+const MySwal = withReactContent(Swal);
 
 const cx = classNames.bind(styles);
 const cxm = classNames.bind(portfolioStyles);
@@ -12,18 +18,50 @@ interface PropsTypeContact {}
 
 function Contact({}: PropsTypeContact) {
   const form = useRef<HTMLFormElement>(null);
+  const [dataForm, setDataForm] = useState<{
+    name: string;
+    email: string;
+    project: string;
+  }>({ name: '', email: '', project: '' });
 
   const sendEmail = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     const current = form.current as HTMLFormElement;
-    emailjs.sendForm('service_0qxoex9', 'template_mwjx2aa', current, 'T4RgxTNw6CUz_UxC-').then(
-      (result) => {
-        console.log(result.text);
-      },
-      (error) => {
-        console.log(error.text);
-      }
-    );
+    if (dataForm.name && dataForm.email && dataForm.project && dataForm.email.includes('@')) {
+      MySwal.fire({
+        title: 'Đang gửi',
+        didOpen: () => {
+          MySwal.showLoading();
+          emailjs
+            .sendForm('service_0qxoex9', 'template_mwjx2aa', current, 'T4RgxTNw6CUz_UxC-')
+            .then((result) => {
+              MySwal.hideLoading();
+              MySwal.fire({
+                icon: 'success',
+                title: 'Thành công',
+                text: 'Cảm ơn bạn, chúng tôi sẽ trả lời bạn trong thời gian sớm nhất!',
+              });
+            })
+            .catch(() => {
+              MySwal.hideLoading();
+              MySwal.fire({
+                icon: 'error',
+                title: 'Thất bại',
+                text: 'Xin lỗi, dường như có một số lỗi khuyến bạn không thể gửi thông tin cho chúng tôi',
+              });
+            })
+            .finally(() => {
+              form.current?.reset();
+            });
+        },
+      });
+    } else {
+      MySwal.fire({
+        icon: 'error',
+        title: 'Thất bại',
+        text: 'Vui lòng nhập đủ và đúng thông tin',
+      });
+    }
   };
 
   return (
@@ -80,12 +118,24 @@ function Contact({}: PropsTypeContact) {
           <form onSubmit={sendEmail} ref={form} className={cx('contact__form')}>
             <div className={cx('contact__form-div')}>
               <label className={cx('contact__form-tag')}>Name</label>
-              <input type="text" name="name" className={cx('contact__form-input')} placeholder="Insert your name" />
+              <input
+                type="text"
+                name="name"
+                className={cx('contact__form-input')}
+                placeholder="Insert your name"
+                onChange={(e) => setDataForm((prev) => ({ ...prev, name: e.target.value }))}
+              />
             </div>
 
             <div className={cx('contact__form-div')}>
               <label className={cx('contact__form-tag')}>Email</label>
-              <input type="text" name="email" className={cx('contact__form-input')} placeholder="Insert your mail" />
+              <input
+                type="text"
+                name="email"
+                className={cx('contact__form-input')}
+                placeholder="Insert your mail"
+                onChange={(e) => setDataForm((prev) => ({ ...prev, email: e.target.value }))}
+              />
             </div>
 
             <div className={cx('contact__form-div', 'contact__form-area')}>
@@ -96,6 +146,7 @@ function Contact({}: PropsTypeContact) {
                 rows={10}
                 className={cx('contact__form-input')}
                 placeholder="Insert your project"
+                onChange={(e) => setDataForm((prev) => ({ ...prev, project: e.target.value }))}
               ></textarea>
             </div>
 
