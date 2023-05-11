@@ -19,7 +19,7 @@ interface PropsTypeTestimonial {}
 
 function Testimonial({}: PropsTypeTestimonial) {
   return (
-    <div className={`testimonial-component ${cx('testimonial')} ${cxm('section', 'container')}`}>
+    <div className={`testimonial-component ${cx('testimonial')} ${cxm('section', 'container')}`} id="testimonial">
       <h2 className={`${cxm('section__title')}`}>My client say</h2>
       <span className={`${cxm('section__subtitle')}`}>Testimonial</span>
 

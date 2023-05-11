@@ -1,0 +1,50 @@
+.scroll-up {
+  position: fixed;
+  right: 4rem;
+  bottom: -20%;
+  background-color: var(--title-color);
+
+  opacity: 0.8;
+  padding: 0.48rem 0.8rem;
+  border-radius: 0.64rem;
+  z-index: var(--z-tooltip);
+  transition: 0.4s;
+
+  cursor: pointer;
+
+  &:hover {
+    background-color: var(--title-color-dark);
+  }
+
+  &__icon {
+    font-size: 2.4rem;
+    color: var(--container-color);
+  }
+
+  &.show-scroll {
+    bottom: 4.8rem;
+  }
+}
+
+@media screen and (max-width: 992px) {
+  .scroll-up {
+    right: 2.4rem;
+    padding: 0.4rem 0.64rem;
+
+    &__icon {
+      font-size: 2rem;
+    }
+  }
+}
+@media screen and (max-width: 768px) {
+  .scroll-up {
+    &.show-scroll {
+      bottom: 6.4rem;
+    }
+  }
+}
+@media screen and (max-width: 350px) {
+  .scroll-up {
+    right: 1.6rem;
+  }
+}

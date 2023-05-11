@@ -1,17 +1,24 @@
 import classNames from 'classnames/bind';
+import { useState } from 'react';
 
 import styles from './Header.module.scss';
-import portfolioStyles from '../PortfolioLayout.module.scss';
-import { useState } from 'react';
+import portfolioStyles from '~/layouts/PortfolioLayout/PortfolioLayout.module.scss';
 
 const cx = classNames.bind(styles);
 const cxm = classNames.bind(portfolioStyles);
 
 function Header() {
+  const [showLineHeader, setShowLineHeader] = useState<boolean>(true);
   const [showMenu, setShowMenu] = useState<boolean>(false);
-
+  window.addEventListener('scroll', function (e) {
+    if (this.scrollY >= 560) {
+      setShowLineHeader(true);
+    } else {
+      setShowLineHeader(false);
+    }
+  });
   return (
-    <div className={cx('header')}>
+    <div className={cx('header', { 'scroll-header': showLineHeader })}>
       <div className={`${cx('nav')} ${cxm('container')} `}>
         <a href="/" className={cx('nav__logo')}>
           DevT
@@ -56,7 +63,7 @@ function Header() {
 
             <li className={cx('nav__item')}>
               <a href="#contact" className={cx('nav__link')}>
-                <i className={`uil uil-message ${cx('nav__icon')}`}></i> Blog
+                <i className={`uil uil-blogger-alt ${cx('nav__icon')}`}></i> Blog
               </a>
             </li>
           </ul>
