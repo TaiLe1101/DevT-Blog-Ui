@@ -1,16 +1,25 @@
+import { useEffect, useState } from 'react';
 import classNames from 'classnames/bind';
+import { Link } from 'react-router-dom';
 
 import styles from './Header.module.scss';
-import { Link } from 'react-router-dom';
 import routes from '~/configs/route';
-import { useState } from 'react';
+import { privateRoutes, publicRoutes } from '~/routes';
 
 const cx = classNames.bind(styles);
 
 interface PropsTypeHeader {}
 
 function Header({}: PropsTypeHeader) {
+  const [routeList, setRouteList] = useState(publicRoutes);
   const [showMenu, setShowMenu] = useState<boolean>(false);
+  const currentUser = false;
+
+  useEffect(() => {
+    if (currentUser) {
+      setRouteList((prev) => prev.filter((item) => item.name !== 'Register' && item.name !== 'Login'));
+    }
+  }, [currentUser]);
 
   return (
     <div className={cx('header')}>
@@ -21,21 +30,17 @@ function Header({}: PropsTypeHeader) {
 
         <div className={cx('nav__menu', { 'show-menu': showMenu })}>
           <ul className={cx('nav__list')}>
-            <li className={cx('nav__item')}>
-              <Link to={routes.home} className={cx('nav__link')}>
-                <i className={`uil uil-estate ${cx('nav__icon')}`}></i> Home
-              </Link>
-            </li>
-            <li className={cx('nav__item')}>
-              <Link to={routes.blog} className={cx('nav__link')}>
-                <i className={`uil uil-blogger-alt ${cx('nav__icon')}`}></i> Blog
-              </Link>
-            </li>
-            <li className={cx('nav__item')}>
-              <Link to={routes.login} className={cx('nav__link')}>
-                <i className={`bx bx-lock-alt ${cx('nav__icon')}`}></i>Login
-              </Link>
-            </li>
+            {routeList.map((route, index) => {
+              return (
+                <li className={cx('nav__item')} key={index}>
+                  <Link to={route.path} className={cx('nav__link')}>
+                    {route.icon} {route.name}
+                  </Link>
+                </li>
+              );
+            })}
+
+            {currentUser && <div>Info</div>}
           </ul>
 
           <i className={`uil uil-times ${cx('nav__close')}`} onClick={() => setShowMenu(false)}></i>
