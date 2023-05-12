@@ -2,6 +2,7 @@ import classNames from 'classnames/bind';
 
 import styles from './Footer.module.scss';
 import portfolioStyles from '~/layouts/PortfolioLayout/PortfolioLayout.module.scss';
+import Button from '~/components/Button/Button';
 
 const cx = classNames.bind(styles);
 const cxm = classNames.bind(portfolioStyles);
@@ -35,15 +36,29 @@ function Footer({}: PropsTypeFooter) {
         </ul>
 
         <div className={cx('footer__social')}>
-          <a href="https://www.instagram.com/tai_leeeee" className={cx('footer__social-link')} target="_blank" rel="noreferrer">
-            <i className="bx bxl-facebook"></i>
-          </a>
-          <a href="https://facebook.com/TaiLe1101" className={cx('footer__social-link')} target="_blank" rel="noreferrer">
-            <i className="bx bxl-instagram"></i>
-          </a>
-          <a href="https://github.com/TaiLe1101" className={cx('footer__social-link')} target="_blank" rel="noreferrer">
-            <i className="uil uil-twitter"></i>
-          </a>
+          <Button
+            href="https://facebook.com/TaiLe1101"
+            target="_blank"
+            className={cx('footer__social-link')}
+            size="small"
+            icon={<i className="bx bxl-facebook"></i>}
+          ></Button>
+
+          <Button
+            href="https://instagram.com/tai_leeee"
+            target="_blank"
+            className={cx('footer__social-link')}
+            size="small"
+            icon={<i className="bx bxl-instagram"></i>}
+          ></Button>
+
+          <Button
+            href="#"
+            target="_blank"
+            className={cx('footer__social-link')}
+            size="small"
+            icon={<i className="uil uil-twitter"></i>}
+          ></Button>
         </div>
 
         <span className={cx('footer__copy')}>&#169; DevT</span>

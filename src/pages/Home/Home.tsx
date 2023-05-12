@@ -14,6 +14,7 @@ import Qualification from '~/components/Qualification';
 import Testimonial from '~/components/Testimonial';
 import Contact from '~/components/Contact/Contact';
 import Portfolio from '~/components/Portfolio';
+import { useEffect } from 'react';
 
 const cx = classNames.bind(styles);
 const cxm = classNames.bind(portfolioStyles);
@@ -21,6 +22,10 @@ const cxm = classNames.bind(portfolioStyles);
 document.title = 'Portfolio page';
 
 function Home() {
+  useEffect(() => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }, []);
+
   return (
     <>
       <div className={`${cx('home')} ${cxm('section')}`} id="home">

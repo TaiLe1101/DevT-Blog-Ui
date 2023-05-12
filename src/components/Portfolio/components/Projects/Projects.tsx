@@ -6,6 +6,7 @@ import portfolioStyles from '~/layouts/PortfolioLayout/PortfolioLayout.module.sc
 
 import { projects, projectNav } from '../../Data';
 import ProjectItems from './ProjectItems';
+import Button from '~/components/Button/Button';
 
 const cx = classNames.bind(styles);
 const cxm = classNames.bind(portfolioStyles);
@@ -24,15 +25,24 @@ function Projects({}: PropsTypeProjects) {
       <div className={cx('projects__filters')}>
         {projectNav.map((nav) => {
           return (
-            <span
+            // <span
+            //   key={nav.id}
+            //   className={cx('projects__item', { 'projects__item-active': nav.id === activeNav })}
+            //   onClick={() => {
+            //     handleActiveNav(nav.id);
+            //   }}
+            // >
+            //   {nav.name}
+            // </span>
+            <Button
+              text={nav.name}
               key={nav.id}
+              size="small"
               className={cx('projects__item', { 'projects__item-active': nav.id === activeNav })}
               onClick={() => {
                 handleActiveNav(nav.id);
               }}
-            >
-              {nav.name}
-            </span>
+            ></Button>
           );
         })}
       </div>

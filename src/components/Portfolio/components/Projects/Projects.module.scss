@@ -9,12 +9,8 @@
 
   &__item {
     color: var(--title-color);
-    padding: 0.4rem 1.2rem;
-    font-weight: var(--font-medium);
-    border-radius: 0.8rem;
     text-transform: capitalize;
-    cursor: pointer;
-    transition: 0.2s;
+    background-color: transparent;
     &-active,
     &:hover {
       background-color: var(--title-color);

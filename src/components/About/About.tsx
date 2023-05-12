@@ -6,6 +6,7 @@ import portfolioStyles from '~/layouts/PortfolioLayout/PortfolioLayout.module.sc
 import aboutImg from '~/assets/avatar.jpg';
 import CV from '~/assets/TopDev-Le-Tran-Tan-Tai-CV-1682842713.pdf';
 import Info from './components/Info';
+import Button from '../Button/Button';
 
 const cx = classNames.bind(styles);
 const cxm = classNames.bind(portfolioStyles);
@@ -26,9 +27,13 @@ function About() {
             việc trong lĩnh vực này và nhận lại được rất nhiều phản hồi tích cực về những dự án tôi đã làm.
           </p>
 
-          <a href={CV} className={`${cx('about__download')} ${cxm('button', 'button--flex')}`} download>
-            <span>Download CV</span> <i className="uil uil-file-download"></i>
-          </a>
+          <Button
+            text="Download CV"
+            icon={<i className="uil uil-file-download"></i>}
+            download
+            href={CV}
+            className={cx('about__download')}
+          ></Button>
         </div>
       </div>
     </div>

@@ -21,17 +21,16 @@
 
     animation: scrollXMinus 0.3s ease-in;
 
-    &__logo {
+    &__logo,
+    &__toggle {
       font-weight: var(--font-medium);
+      color: var(--title-color);
     }
 
-    &__menu {
+    &__list {
       display: flex;
       align-items: center;
       column-gap: 3.2rem;
-    }
-
-    &__item {
     }
 
     &__link {
@@ -46,6 +45,17 @@
 
       transition: 0.3s;
     }
+
+    .active-link,
+    &__link:hover {
+      color: var(--title-color-dark);
+    }
+
+    &__icon,
+    &__close,
+    &__toggle {
+      display: none;
+    }
   }
 }
 
@@ -55,5 +65,67 @@
   }
   100% {
     transform: translateX(0);
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .header {
+    top: initial;
+    bottom: 0;
+
+    .nav {
+      height: var(--header-height);
+
+      &__menu {
+        position: fixed;
+        bottom: -100%;
+        left: 0;
+        width: 100%;
+        background-color: var(--body-color);
+        padding: 3.2rem 0 6.4rem;
+        box-shadow: 0 -1px 4px rgba(0, 0, 0, 0.15);
+        border-radius: 2.4rem 2.4rem 0 0;
+        transition: 0.3s;
+      }
+
+      .show-menu {
+        bottom: 0;
+      }
+
+      &__list {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 3.2rem;
+      }
+
+      &__icon {
+        font-size: 1.92rem;
+      }
+
+      &__close {
+        position: absolute;
+        right: 2.08rem;
+        bottom: 0.8rem;
+
+        font-size: 2.4rem;
+        cursor: pointer;
+        color: var(--title-color);
+
+        &:hover {
+          color: var(--title-color-dark);
+        }
+      }
+
+      &__toggle {
+        font-size: 1.76rem;
+        cursor: pointer;
+      }
+
+      &__icon,
+      &__close,
+      &__toggle {
+        display: block;
+      }
+    }
   }
 }

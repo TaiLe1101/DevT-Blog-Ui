@@ -8,6 +8,7 @@ import withReactContent from 'sweetalert2-react-content';
 import styles from './Contact.module.scss';
 import portfolioStyles from '~/layouts/PortfolioLayout/PortfolioLayout.module.scss';
 import { useRef } from 'react';
+import Button from '../Button/Button';
 
 const MySwal = withReactContent(Swal);
 
@@ -51,6 +52,11 @@ function Contact({}: PropsTypeContact) {
               });
             })
             .finally(() => {
+              setDataForm({
+                name: '',
+                email: '',
+                project: '',
+              });
               form.current?.reset();
             });
         },
@@ -155,9 +161,11 @@ function Contact({}: PropsTypeContact) {
               ></textarea>
             </div>
 
-            <button className={`${cx('contact__button-send')} ${cxm('button', 'button--flex')}`}>
-              Send Message <i className={`bx bx-send ${cx('contact__button-send-icon')}`}></i>
-            </button>
+            <Button
+              text="Send Message"
+              icon={<i className={`bx bx-send ${cx('contact__button-send-icon')}`}></i>}
+              className={cx('contact__button-send')}
+            ></Button>
           </form>
         </div>
       </div>
