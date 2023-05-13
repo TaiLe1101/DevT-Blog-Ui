@@ -7,20 +7,14 @@ import mentden from '~/assets/mentden.png';
 import mentdenApi from '~/assets/mentden-api.png';
 import tr2 from '~/assets/tr2.png';
 import devtApi from '~/assets/devt-api.png';
-
-export interface ProjectDataType {
-    id: number;
-    thumbnail: string;
-    title: string;
-    categoryId: number;
-}
+import { ProjectType } from '~/types/project.type';
 
 export interface ProjectNavDataType {
     id: number;
     name: string;
 }
 
-const projects: ProjectDataType[] = [
+const projects: ProjectType[] = [
     {
         id: 1,
         thumbnail: keKho,

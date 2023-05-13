@@ -1,11 +1,5 @@
 import axios, { AxiosRequestConfig } from 'axios';
-
-interface ResponseAPIType<T> {
-    status: number;
-    message: string;
-    error: boolean;
-    data: T;
-}
+import { ResponseAPIType } from '~/types/api.type';
 
 const request = axios.create({
     baseURL: process.env.REACT_APP_URL_API as string,

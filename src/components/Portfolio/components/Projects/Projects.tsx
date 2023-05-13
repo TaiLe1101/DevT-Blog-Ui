@@ -1,21 +1,20 @@
-import { Fragment, useEffect, useState } from 'react';
+import { Fragment, useState } from 'react';
 import classNames from 'classnames/bind';
 
 import styles from './Projects.module.scss';
 import portfolioStyles from '~/layouts/PortfolioLayout/PortfolioLayout.module.scss';
 
-import { projects, projectNav, ProjectDataType } from '../../Data';
+import { projectNav } from '../../Data';
 import ProjectItems from './ProjectItems';
 import Button from '~/components/Button/Button';
 import { useFetch } from '~/hooks/useFetch';
+import { ProjectType } from '~/types/project.type';
 
 const cx = classNames.bind(styles);
 const cxm = classNames.bind(portfolioStyles);
 
-interface PropsTypeProjects {}
-
-function Projects({}: PropsTypeProjects) {
-    const [projectAPI, isLoading, error] = useFetch<ProjectDataType[]>(
+function Projects() {
+    const [projectAPI, isLoading, error] = useFetch<ProjectType[]>(
         '/projects',
         []
     );
@@ -52,7 +51,9 @@ function Projects({}: PropsTypeProjects) {
                     'grid'
                 )}`}
             >
-                {isLoading ? (
+                {error ? (
+                    <p>Lỗi...</p>
+                ) : isLoading ? (
                     <p>Loading...</p>
                 ) : (
                     projectAPI.map((project) => {
