@@ -1,119 +1,119 @@
 .card-blog {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  column-gap: 1.6rem;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    column-gap: 1.6rem;
 
-  background-color: var(--container-color);
-  border-radius: 1.6rem;
-  border: 1px solid rgba(0, 0, 0, 0.1);
-  padding: 1.6rem;
-
-  &-oder &__img {
-    order: 2;
-  }
-
-  &__img {
+    background-color: var(--container-color);
     border-radius: 1.6rem;
-    object-fit: cover;
-  }
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    padding: 1.6rem;
 
-  &__header {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-
-    margin-bottom: var(--mb-0-5);
-  }
-
-  &__title {
-    position: relative;
-    display: inline;
-    text-transform: capitalize;
-    font-size: var(--h3-font-size);
-    font-weight: var(--font-medium);
-
-    &::after {
-      content: '';
-      display: inline;
-      position: absolute;
-      bottom: 0;
-      left: 0;
-      width: 0;
-      height: 2px;
-      background-color: var(--title-color);
-      transition: 0.3s;
+    &-oder &__img {
+        order: 2;
     }
 
-    &:hover {
-      &::after {
-        width: 100%;
-      }
+    &__img {
+        border-radius: 1.6rem;
+        object-fit: cover;
     }
-  }
 
-  &__link {
-    color: var(--title-color);
-  }
+    &__header {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
 
-  &__date {
-    color: var(--text-color);
-    font-size: var(--smaller-font-size);
-
-    > i {
-      margin-right: 0.4rem;
-    }
-  }
-
-  &__content {
-    display: flex;
-    flex-direction: column;
-  }
-
-  &__desc {
-    font-size: var(--small-font-size);
-    color: var(--title-color);
-
-    margin-bottom: var(--mb-0-5);
-
-    display: -webkit-box;
-    -webkit-line-clamp: 7;
-    -webkit-box-orient: vertical;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    word-break: break-word;
-  }
-
-  &__footer {
-    display: flex;
-    align-items: flex-end;
-    flex: 1;
-  }
-}
-
-@media screen and (max-width: 768px) {
-  .card-blog {
-    &__desc {
-      -webkit-line-clamp: 3;
-    }
-  }
-}
-
-@media screen and (max-width: 576px) {
-  .card-blog {
-    grid-template-columns: initial;
-    grid-template-rows: repeat(2, max-content);
-    row-gap: 1.6rem;
-
-    &__desc {
-      text-align: center;
+        margin-bottom: var(--mb-0-5);
     }
 
     &__title {
-      font-size: 2rem;
+        position: relative;
+        display: inline;
+        text-transform: capitalize;
+        font-size: var(--h3-font-size);
+        font-weight: var(--font-medium);
+
+        &::after {
+            content: '';
+            display: inline;
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background-color: var(--title-color);
+            transition: 0.3s;
+        }
+
+        &:hover {
+            &::after {
+                width: 100%;
+            }
+        }
+    }
+
+    &__link {
+        color: var(--title-color);
+    }
+
+    &__date {
+        color: var(--text-color);
+        font-size: var(--smaller-font-size);
+
+        > i {
+            margin-right: 0.4rem;
+        }
+    }
+
+    &__content {
+        display: flex;
+        flex-direction: column;
+    }
+
+    &__desc {
+        font-size: var(--small-font-size);
+        color: var(--title-color);
+
+        margin-bottom: var(--mb-0-5);
+
+        display: -webkit-box;
+        -webkit-line-clamp: 7;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        word-break: break-word;
     }
 
     &__footer {
-      justify-content: center;
+        display: flex;
+        align-items: flex-end;
+        flex: 1;
     }
-  }
+}
+
+@media screen and (max-width: 768px) {
+    .card-blog {
+        &__desc {
+            -webkit-line-clamp: 3;
+        }
+    }
+}
+
+@media screen and (max-width: 576px) {
+    .card-blog {
+        grid-template-columns: initial;
+        grid-template-rows: repeat(2, max-content);
+        row-gap: 1.6rem;
+
+        &__desc {
+            text-align: center;
+        }
+
+        &__title {
+            font-size: 2rem;
+        }
+
+        &__footer {
+            justify-content: center;
+        }
+    }
 }

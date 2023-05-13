@@ -1,9 +1,9 @@
 .testimonial-component {
-  .swiper-pagination-bullet {
-    background-color: var(--text-color) !important;
+    .swiper-pagination-bullet {
+        background-color: var(--text-color) !important;
 
-    &-active {
-      background-color: var(--title-color) !important;
+        &-active {
+            background-color: var(--title-color) !important;
+        }
     }
-  }
 }

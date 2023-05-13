@@ -1,173 +1,173 @@
 .services {
-  &__container {
-    grid-template-columns: repeat(3, 270px);
-    justify-content: center;
-    column-gap: 2.88rem;
-  }
-
-  &__content {
-    position: relative;
-    border: 1px solid rgba(0, 0, 0, 0.1);
-    background-color: var(--container-color);
-    border-radius: 1px;
-    padding: 5.6rem 0 3.2rem 4rem;
-  }
-
-  &__icon {
-    display: block;
-    font-size: 3.2rem;
-    color: var(--title-color);
-    margin-bottom: var(--mb-1);
-  }
-
-  &__title {
-    font-size: var(--h3-font-size);
-    font-weight: var(--font-medium);
-    margin-bottom: var(--mb-1);
-  }
-
-  &__button {
-    display: inline-flex;
-    align-items: center;
-    column-gap: 0.4rem;
-    color: var(--title-color);
-    font-size: var(--small-font-size);
-    cursor: pointer;
-
-    &:hover &-icon {
-      transform: translateX(0.4rem);
-    }
-
-    &-icon {
-      font-size: 1.6rem;
-      transition: 0.3s;
-    }
-  }
-
-  &__modal {
-    position: fixed;
-    top: 0;
-    left: 0;
-    bottom: 0;
-    right: 0;
-    z-index: var(--z-modal);
-    background-color: rgba(0, 0, 0, 0.5);
-
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 0 1.6rem;
-    opacity: 0;
-    visibility: hidden;
-
-    transition: 0.3s;
-
-    &-content {
-      width: 500px;
-      position: relative;
-      background-color: var(--container-color);
-      padding: 7.2rem 4rem 4rem;
-      border-radius: 2.4rem;
-    }
-
-    &-close {
-      position: absolute;
-      top: 2.4rem;
-      right: 2.4rem;
-      font-size: 2.4rem;
-      color: var(--title-color);
-      cursor: pointer;
-    }
-
-    &-title,
-    &-description {
-      text-align: center;
-    }
-
-    &-title {
-      font-size: var(--h3-font-size);
-      font-weight: var(--font-medium);
-      margin-bottom: var(--mb-1);
-    }
-
-    &-description {
-      font-size: var(--small-font-size);
-      padding: 0 5.6rem;
-      margin-bottom: var(--mb-2);
-    }
-
-    &-services {
-      row-gap: 1.2rem;
-    }
-
-    &-service {
-      display: flex;
-      align-items: center;
-      column-gap: 0.8rem;
-    }
-
-    &-icon {
-      color: var(--title-color);
-      font-size: 1.76rem;
-    }
-
-    &-info {
-      font-size: var(--small-font-size);
-    }
-  }
-
-  .active-modal {
-    opacity: 1;
-    visibility: visible;
-  }
-}
-
-@media screen and (max-width: 992px) {
-  .services {
     &__container {
-      grid-template-columns: repeat(3, 218px);
-    }
-  }
-}
-
-@media screen and (max-width: 768px) {
-  .services {
-    &__container {
-      grid-template-columns: repeat(2, 1fr);
+        grid-template-columns: repeat(3, 270px);
+        justify-content: center;
+        column-gap: 2.88rem;
     }
 
     &__content {
-      padding: 5.6rem 0.8rem 2rem 2.4rem;
+        position: relative;
+        border: 1px solid rgba(0, 0, 0, 0.1);
+        background-color: var(--container-color);
+        border-radius: 1px;
+        padding: 5.6rem 0 3.2rem 4rem;
     }
 
     &__icon {
-      font-size: 2.4rem;
+        display: block;
+        font-size: 3.2rem;
+        color: var(--title-color);
+        margin-bottom: var(--mb-1);
     }
-  }
+
+    &__title {
+        font-size: var(--h3-font-size);
+        font-weight: var(--font-medium);
+        margin-bottom: var(--mb-1);
+    }
+
+    &__button {
+        display: inline-flex;
+        align-items: center;
+        column-gap: 0.4rem;
+        color: var(--title-color);
+        font-size: var(--small-font-size);
+        cursor: pointer;
+
+        &:hover &-icon {
+            transform: translateX(0.4rem);
+        }
+
+        &-icon {
+            font-size: 1.6rem;
+            transition: 0.3s;
+        }
+    }
+
+    &__modal {
+        position: fixed;
+        top: 0;
+        left: 0;
+        bottom: 0;
+        right: 0;
+        z-index: var(--z-modal);
+        background-color: rgba(0, 0, 0, 0.5);
+
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 0 1.6rem;
+        opacity: 0;
+        visibility: hidden;
+
+        transition: 0.3s;
+
+        &-content {
+            width: 500px;
+            position: relative;
+            background-color: var(--container-color);
+            padding: 7.2rem 4rem 4rem;
+            border-radius: 2.4rem;
+        }
+
+        &-close {
+            position: absolute;
+            top: 2.4rem;
+            right: 2.4rem;
+            font-size: 2.4rem;
+            color: var(--title-color);
+            cursor: pointer;
+        }
+
+        &-title,
+        &-description {
+            text-align: center;
+        }
+
+        &-title {
+            font-size: var(--h3-font-size);
+            font-weight: var(--font-medium);
+            margin-bottom: var(--mb-1);
+        }
+
+        &-description {
+            font-size: var(--small-font-size);
+            padding: 0 5.6rem;
+            margin-bottom: var(--mb-2);
+        }
+
+        &-services {
+            row-gap: 1.2rem;
+        }
+
+        &-service {
+            display: flex;
+            align-items: center;
+            column-gap: 0.8rem;
+        }
+
+        &-icon {
+            color: var(--title-color);
+            font-size: 1.76rem;
+        }
+
+        &-info {
+            font-size: var(--small-font-size);
+        }
+    }
+
+    .active-modal {
+        opacity: 1;
+        visibility: visible;
+    }
+}
+
+@media screen and (max-width: 992px) {
+    .services {
+        &__container {
+            grid-template-columns: repeat(3, 218px);
+        }
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .services {
+        &__container {
+            grid-template-columns: repeat(2, 1fr);
+        }
+
+        &__content {
+            padding: 5.6rem 0.8rem 2rem 2.4rem;
+        }
+
+        &__icon {
+            font-size: 2.4rem;
+        }
+    }
 }
 
 @media screen and (max-width: 576px) {
-  .services {
-    &__modal {
-      &-content {
-        padding: 7.2rem 2.4rem 4rem;
-      }
+    .services {
+        &__modal {
+            &-content {
+                padding: 7.2rem 2.4rem 4rem;
+            }
 
-      &-description {
-        padding: 0;
-      }
+            &-description {
+                padding: 0;
+            }
+        }
     }
-  }
 }
 
 @media screen and (max-width: 350px) {
-  .services {
-    &__container {
-      grid-template-columns: max-content;
-    }
+    .services {
+        &__container {
+            grid-template-columns: max-content;
+        }
 
-    &__content {
-      padding-right: 9.6rem;
+        &__content {
+            padding-right: 9.6rem;
+        }
     }
-  }
 }

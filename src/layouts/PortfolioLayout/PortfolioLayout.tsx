@@ -10,18 +10,18 @@ import ScrollToTop from '~/components/ScrollToTop/ScrollToTop';
 const cx = classNames.bind(styles);
 
 interface PropsTypePortfolioLayout {
-  children: ReactNode;
+    children: ReactNode;
 }
 
 function PortfolioLayout({ children }: PropsTypePortfolioLayout) {
-  return (
-    <div className={cx('wrapper')}>
-      <Header></Header>
-      {children}
-      <Footer></Footer>
-      <ScrollToTop></ScrollToTop>
-    </div>
-  );
+    return (
+        <div className={cx('wrapper')}>
+            <Header></Header>
+            {children}
+            <Footer></Footer>
+            <ScrollToTop></ScrollToTop>
+        </div>
+    );
 }
 
 export default PortfolioLayout;

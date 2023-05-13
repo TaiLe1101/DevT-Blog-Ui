@@ -1,110 +1,110 @@
 .projects {
-  &__filters {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    column-gap: 1.2rem;
-    margin-bottom: var(--mb-2);
-  }
-
-  &__item {
-    color: var(--title-color);
-    text-transform: capitalize;
-    background-color: transparent;
-    &-active,
-    &:hover {
-      background-color: var(--title-color);
-      color: var(--container-color);
-    }
-  }
-
-  &__container {
-    grid-template-columns: repeat(2, max-content);
-    gap: 4.8rem;
-    justify-content: center;
-  }
-
-  &__card {
-    background-color: var(--container-color);
-    border: 1px solid rgba(0, 0, 0, 0.1);
-    padding: 2rem;
-    border-radius: 1.6rem;
-  }
-
-  &__title {
-    font-size: var(--normal-font-size);
-    font-weight: var(--font-medium);
-    margin-bottom: var(--mb-0-5);
-  }
-
-  &__button {
-    color: var(--text-color);
-    font-size: var(--small-font-size);
-    display: flex;
-    align-items: center;
-    column-gap: 0.4rem;
-
-    &:hover &-icon {
-      transform: translateX(0.4rem);
+    &__filters {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        column-gap: 1.2rem;
+        margin-bottom: var(--mb-2);
     }
 
-    &-icon {
-      font-size: 1.6rem;
-      transition: 0.3s;
+    &__item {
+        color: var(--title-color);
+        text-transform: capitalize;
+        background-color: transparent;
+        &-active,
+        &:hover {
+            background-color: var(--title-color);
+            color: var(--container-color);
+        }
     }
-  }
 
-  &__img {
-    width: 295px;
-    border-radius: 1.6rem;
-    margin-bottom: var(--mb-1);
-  }
-}
-
-@media screen and (max-width: 992px) {
-  .projects {
     &__container {
-      gap: 2rem;
+        grid-template-columns: repeat(2, max-content);
+        gap: 4.8rem;
+        justify-content: center;
     }
 
     &__card {
-      padding: 1.6rem;
-    }
-
-    &__img {
-      margin-bottom: 1.2rem;
+        background-color: var(--container-color);
+        border: 1px solid rgba(0, 0, 0, 0.1);
+        padding: 2rem;
+        border-radius: 1.6rem;
     }
 
     &__title {
-      margin-bottom: 0.4rem;
+        font-size: var(--normal-font-size);
+        font-weight: var(--font-medium);
+        margin-bottom: var(--mb-0-5);
     }
-  }
-}
-@media screen and (max-width: 768px) {
-  .projects {
-    &__container {
-      grid-template-columns: max-content;
-    }
-  }
-}
-@media screen and (max-width: 576px) {
-  .projects {
-    &__container {
-      grid-template-columns: 1fr;
+
+    &__button {
+        color: var(--text-color);
+        font-size: var(--small-font-size);
+        display: flex;
+        align-items: center;
+        column-gap: 0.4rem;
+
+        &:hover &-icon {
+            transform: translateX(0.4rem);
+        }
+
+        &-icon {
+            font-size: 1.6rem;
+            transition: 0.3s;
+        }
     }
 
     &__img {
-      width: 100%;
+        width: 295px;
+        border-radius: 1.6rem;
+        margin-bottom: var(--mb-1);
     }
-  }
+}
+
+@media screen and (max-width: 992px) {
+    .projects {
+        &__container {
+            gap: 2rem;
+        }
+
+        &__card {
+            padding: 1.6rem;
+        }
+
+        &__img {
+            margin-bottom: 1.2rem;
+        }
+
+        &__title {
+            margin-bottom: 0.4rem;
+        }
+    }
+}
+@media screen and (max-width: 768px) {
+    .projects {
+        &__container {
+            grid-template-columns: max-content;
+        }
+    }
+}
+@media screen and (max-width: 576px) {
+    .projects {
+        &__container {
+            grid-template-columns: 1fr;
+        }
+
+        &__img {
+            width: 100%;
+        }
+    }
 }
 @media screen and (max-width: 350px) {
-  .projects {
-    &__item {
-      font-size: var(--small-font-size);
+    .projects {
+        &__item {
+            font-size: var(--small-font-size);
+        }
+        &__filters {
+            column-gap: 0.4rem;
+        }
     }
-    &__filters {
-      column-gap: 0.4rem;
-    }
-  }
 }

@@ -8,24 +8,24 @@ const cx = classNames.bind(styles);
 interface PropsTypeScrollToTop {}
 
 function ScrollToTop({}: PropsTypeScrollToTop) {
-  const [showScrollUp, setShowScrollUp] = useState<boolean>(false);
+    const [showScrollUp, setShowScrollUp] = useState<boolean>(false);
 
-  window.addEventListener('scroll', function (e) {
-    if (this.scrollY >= 560) {
-      setShowScrollUp(true);
-    } else {
-      setShowScrollUp(false);
-    }
-  });
+    window.addEventListener('scroll', function (e) {
+        if (this.scrollY >= 560) {
+            setShowScrollUp(true);
+        } else {
+            setShowScrollUp(false);
+        }
+    });
 
-  return (
-    <span
-      className={cx('scroll-up', { 'show-scroll': showScrollUp })}
-      onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
-    >
-      <i className={`uil uil-arrow-up ${cx('scroll-up__icon')}`}></i>
-    </span>
-  );
+    return (
+        <span
+            className={cx('scroll-up', { 'show-scroll': showScrollUp })}
+            onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
+        >
+            <i className={`uil uil-arrow-up ${cx('scroll-up__icon')}`}></i>
+        </span>
+    );
 }
 
 export default ScrollToTop;

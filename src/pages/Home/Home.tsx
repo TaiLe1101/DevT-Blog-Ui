@@ -22,32 +22,37 @@ const cxm = classNames.bind(portfolioStyles);
 document.title = 'Portfolio page';
 
 function Home() {
-  useEffect(() => {
-    window.scrollTo({ top: 0, behavior: 'smooth' });
-  }, []);
+    useEffect(() => {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+    }, []);
 
-  return (
-    <>
-      <div className={`${cx('home')} ${cxm('section')}`} id="home">
-        <div className={`${cx('home__container')} ${cxm('container', 'grid')}`}>
-          <div className={`${cx('home__content')} ${cxm('grid')}`}>
-            <Social></Social>
-            <div className={cx('home__img')}></div>
-            <Data></Data>
-          </div>
-          <ScrollDown></ScrollDown>
-        </div>
-      </div>
+    return (
+        <>
+            <div className={`${cx('home')} ${cxm('section')}`} id="home">
+                <div
+                    className={`${cx('home__container')} ${cxm(
+                        'container',
+                        'grid'
+                    )}`}
+                >
+                    <div className={`${cx('home__content')} ${cxm('grid')}`}>
+                        <Social></Social>
+                        <div className={cx('home__img')}></div>
+                        <Data></Data>
+                    </div>
+                    <ScrollDown></ScrollDown>
+                </div>
+            </div>
 
-      <About></About>
-      <Skills></Skills>
-      <Services></Services>
-      <Portfolio></Portfolio>
-      <Qualification></Qualification>
-      <Testimonial></Testimonial>
-      <Contact></Contact>
-    </>
-  );
+            <About></About>
+            <Skills></Skills>
+            <Services></Services>
+            <Portfolio></Portfolio>
+            <Qualification></Qualification>
+            <Testimonial></Testimonial>
+            <Contact></Contact>
+        </>
+    );
 }
 
 export default Home;

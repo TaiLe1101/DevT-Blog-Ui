@@ -11,14 +11,14 @@ const cxm = classNames.bind(portfolioStyles);
 interface PropsTypePortfolio {}
 
 function Portfolio({}: PropsTypePortfolio) {
-  return (
-    <div className={`${cx('portfolio')} ${cxm('section')}`} id="portfolio">
-      <h2 className={`${cxm('section__title')}`}>Projects</h2>
-      <span className={`${cxm('section__subtitle')}`}>My projects</span>
+    return (
+        <div className={`${cx('portfolio')} ${cxm('section')}`} id="portfolio">
+            <h2 className={`${cxm('section__title')}`}>Projects</h2>
+            <span className={`${cxm('section__subtitle')}`}>My projects</span>
 
-      <Projects></Projects>
-    </div>
-  );
+            <Projects></Projects>
+        </div>
+    );
 }
 
 export default Portfolio;

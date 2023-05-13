@@ -11,42 +11,57 @@ const cx = classNames.bind(styles);
 interface PropsTypeBlog {}
 
 function Blog({}: PropsTypeBlog) {
-  const location = useLocation();
-  const [orderPost, setOrderPost] = useState<boolean>(true);
+    const location = useLocation();
+    const [orderPost, setOrderPost] = useState<boolean>(true);
 
-  window.addEventListener('resize', (e) => {
-    if (window.innerWidth <= 576) {
-      setOrderPost(false);
-    }
-  });
+    window.addEventListener('resize', (e) => {
+        if (window.innerWidth <= 576) {
+            setOrderPost(false);
+        }
+    });
 
-  useEffect(() => {
-    window.scrollTo({ top: 0, behavior: 'smooth' });
-  }, [location]);
+    useEffect(() => {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+    }, [location]);
 
-  return (
-    <div className={cx('blog', 'section')}>
-      <div className={cx('blog__container', 'container')}>
-        <CardBlog date="12/12/2012" desc="Tuyệt vời làm sao luôn á" thumbnail={blogTest} title="1 Ngày đẹp trời"></CardBlog>
-        <CardBlog
-          order={orderPost}
-          date="12/12/2012"
-          desc="Tuyệt vời làm sao luôn á"
-          thumbnail={blogTest}
-          title="1 Ngày đẹp trời"
-        ></CardBlog>
-        <CardBlog date="12/12/2012" desc="Tuyệt vời làm sao luôn á " thumbnail={blogTest} title="1 Ngày đẹp trời"></CardBlog>
-        <CardBlog
-          order={orderPost}
-          date="12/12/2012"
-          desc="Tuyệt vời làm sao luôn á"
-          thumbnail={blogTest}
-          title="1 Ngày đẹp trời"
-        ></CardBlog>
-        <CardBlog date="12/12/2012" desc="Tuyệt vời làm sao luôn á" thumbnail={blogTest} title="1 Ngày đẹp trời"></CardBlog>
-      </div>
-    </div>
-  );
+    return (
+        <div className={cx('blog', 'section')}>
+            <div className={cx('blog__container', 'container')}>
+                <CardBlog
+                    date="12/12/2012"
+                    desc="Tuyệt vời làm sao luôn á"
+                    thumbnail={blogTest}
+                    title="1 Ngày đẹp trời"
+                ></CardBlog>
+                <CardBlog
+                    order={orderPost}
+                    date="12/12/2012"
+                    desc="Tuyệt vời làm sao luôn á"
+                    thumbnail={blogTest}
+                    title="1 Ngày đẹp trời"
+                ></CardBlog>
+                <CardBlog
+                    date="12/12/2012"
+                    desc="Tuyệt vời làm sao luôn á "
+                    thumbnail={blogTest}
+                    title="1 Ngày đẹp trời"
+                ></CardBlog>
+                <CardBlog
+                    order={orderPost}
+                    date="12/12/2012"
+                    desc="Tuyệt vời làm sao luôn á"
+                    thumbnail={blogTest}
+                    title="1 Ngày đẹp trời"
+                ></CardBlog>
+                <CardBlog
+                    date="12/12/2012"
+                    desc="Tuyệt vời làm sao luôn á"
+                    thumbnail={blogTest}
+                    title="1 Ngày đẹp trời"
+                ></CardBlog>
+            </div>
+        </div>
+    );
 }
 
 export default Blog;

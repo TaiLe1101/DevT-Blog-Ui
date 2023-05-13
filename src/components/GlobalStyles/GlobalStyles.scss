@@ -10,99 +10,99 @@ $scrollbar-color-thumb-hover: rgba(0, 0, 0, 0.7);
 
 /* Định nghĩa mixin */
 @mixin scrollbar {
-  scrollbar-width: thin;
-  scrollbar-color: #{$scrollbar-color-thumb} #{$scrollbar-color-track};
+    scrollbar-width: thin;
+    scrollbar-color: #{$scrollbar-color-thumb} #{$scrollbar-color-track};
 
-  &::-webkit-scrollbar {
-    width: $scrollbar-width;
-  }
+    &::-webkit-scrollbar {
+        width: $scrollbar-width;
+    }
 
-  &::-webkit-scrollbar-button {
-    display: none;
-  }
+    &::-webkit-scrollbar-button {
+        display: none;
+    }
 
-  &::-webkit-scrollbar-thumb:hover {
-    background-color: $scrollbar-color-thumb-hover;
-  }
+    &::-webkit-scrollbar-thumb:hover {
+        background-color: $scrollbar-color-thumb-hover;
+    }
 
-  &::-webkit-scrollbar-track {
-    background-color: $scrollbar-color-track;
-  }
+    &::-webkit-scrollbar-track {
+        background-color: $scrollbar-color-track;
+    }
 
-  &::-webkit-scrollbar-thumb {
-    background-color: $scrollbar-color-thumb;
-    border-radius: 1.6rem;
-  }
+    &::-webkit-scrollbar-thumb {
+        background-color: $scrollbar-color-thumb;
+        border-radius: 1.6rem;
+    }
 }
 
 :root {
-  --header-height: 4.8rem;
+    --header-height: 4.8rem;
 
-  --hue: 0;
-  --sat: 0%;
-  --title-color: hsl(var(--hue), var(--sat), 20%);
-  --title-color-dark: hsl(var(--hue), var(--sat), 0%);
-  --text-color: hsl(var(--hue), var(--sat), 46%);
-  --body-color: hsl(var(--hue), var(--sat), 98%);
-  --container-color: #fff;
-  --disable-color: #888;
+    --hue: 0;
+    --sat: 0%;
+    --title-color: hsl(var(--hue), var(--sat), 20%);
+    --title-color-dark: hsl(var(--hue), var(--sat), 0%);
+    --text-color: hsl(var(--hue), var(--sat), 46%);
+    --body-color: hsl(var(--hue), var(--sat), 98%);
+    --container-color: #fff;
+    --disable-color: #888;
 
-  --body-font: 'Poppins', sans-serif;
+    --body-font: 'Poppins', sans-serif;
 
-  // 1rem = 1px
-  --big-font-size: 5.6rem;
-  --h1-font-size: 3.6rem;
-  --h2-font-size: 2.4rem;
-  --h3-font-size: 2rem;
-  --normal-font-size: 1.6rem;
-  --small-font-size: 1.4rem;
-  --smaller-font-size: 1.3008rem;
-  --tiny-font-size: 1rem;
+    // 1rem = 1px
+    --big-font-size: 5.6rem;
+    --h1-font-size: 3.6rem;
+    --h2-font-size: 2.4rem;
+    --h3-font-size: 2rem;
+    --normal-font-size: 1.6rem;
+    --small-font-size: 1.4rem;
+    --smaller-font-size: 1.3008rem;
+    --tiny-font-size: 1rem;
 
-  --font-normal: 400;
-  --font-medium: 500;
-  --font-semi-bold: 600;
+    --font-normal: 400;
+    --font-medium: 500;
+    --font-semi-bold: 600;
 
-  --mb-0-25: 0.4rem;
-  --mb-0-5: 0.8rem;
-  --mb-0-75: 1.2rem;
-  --mb-1: 1.6rem;
-  --mb-1-5: 2.4rem;
-  --mb-2: 3.2rem;
-  --mb-2-5: 4rem;
-  --mb-3: 4.8rem;
+    --mb-0-25: 0.4rem;
+    --mb-0-5: 0.8rem;
+    --mb-0-75: 1.2rem;
+    --mb-1: 1.6rem;
+    --mb-1-5: 2.4rem;
+    --mb-2: 3.2rem;
+    --mb-2-5: 4rem;
+    --mb-3: 4.8rem;
 
-  --z-tooltip: 10;
-  --z-fixed: 100;
-  --z-modal: 1000;
+    --z-tooltip: 10;
+    --z-fixed: 100;
+    --z-modal: 1000;
 }
 
 * {
-  margin: 0;
-  padding: 0;
-  border: 0;
-  box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    border: 0;
+    box-sizing: border-box;
 }
 html {
-  font-size: 62.5%;
-  scroll-behavior: smooth;
+    font-size: 62.5%;
+    scroll-behavior: smooth;
 }
 
 body,
 button,
 input,
 textarea {
-  font-family: var(--body-font);
-  font-size: var(--normal-font-size);
+    font-family: var(--body-font);
+    font-size: var(--normal-font-size);
 }
 
 body {
-  @include scrollbar;
+    @include scrollbar;
 }
 
 ul,
 li {
-  list-style: none;
+    list-style: none;
 }
 
 h1,
@@ -111,112 +111,112 @@ h3,
 h4,
 h5,
 h6 {
-  padding: 0;
-  margin: 0;
+    padding: 0;
+    margin: 0;
 }
 
 h1,
 h2,
 h3 {
-  color: var(--title-color);
-  font-weight: var(--font-semi-bold);
+    color: var(--title-color);
+    font-weight: var(--font-semi-bold);
 }
 
 a {
-  text-decoration: none;
+    text-decoration: none;
 }
 button {
-  outline: none;
-  border: none;
-  cursor: pointer;
+    outline: none;
+    border: none;
+    cursor: pointer;
 }
 
 img {
-  max-width: 100%;
-  height: auto;
+    max-width: 100%;
+    height: auto;
 }
 
 // Custom popup
 .swal2-popup {
-  font-size: 1.4rem !important;
+    font-size: 1.4rem !important;
 }
 .swal2-confirm {
-  background-color: var(--title-color-dark) !important;
+    background-color: var(--title-color-dark) !important;
 }
 
 // Component
 .container {
-  max-width: 968px;
-  margin: 0 auto;
+    max-width: 968px;
+    margin: 0 auto;
 }
 
 .section {
-  padding: 9.6rem 0 3.2rem;
-  &__title {
-    font-size: var(--h1-font-size);
-    color: var(--title-color);
-  }
-  &__subtitle {
-    display: block;
-    font-size: var(--small-font-size);
-    margin-bottom: 6.4rem;
-  }
+    padding: 9.6rem 0 3.2rem;
+    &__title {
+        font-size: var(--h1-font-size);
+        color: var(--title-color);
+    }
+    &__subtitle {
+        display: block;
+        font-size: var(--small-font-size);
+        margin-bottom: 6.4rem;
+    }
 
-  &__title,
-  &__subtitle {
-    text-align: center;
-  }
+    &__title,
+    &__subtitle {
+        text-align: center;
+    }
 }
 
 @media screen and (max-width: 992px) {
-  :root {
-    --big-font-size: 4.4rem;
-    --h1-font-size: 2.4rem;
-    --h2-font-size: 2rem;
-    --h3-font-size: 1.6rem;
-    --normal-font-size: 1.5008rem;
-    --small-font-size: 1.3008rem;
-    --smaller-font-size: 1.2rem;
-  }
+    :root {
+        --big-font-size: 4.4rem;
+        --h1-font-size: 2.4rem;
+        --h2-font-size: 2rem;
+        --h3-font-size: 1.6rem;
+        --normal-font-size: 1.5008rem;
+        --small-font-size: 1.3008rem;
+        --smaller-font-size: 1.2rem;
+    }
 
-  .container {
-    margin-left: var(--mb-1-5);
-    margin-right: var(--mb-1-5);
-  }
+    .container {
+        margin-left: var(--mb-1-5);
+        margin-right: var(--mb-1-5);
+    }
 }
 
 @media screen and (max-width: 768px) {
-  body {
-    margin: 0 0 var(--header-height) 0;
-  }
-
-  .section {
-    padding: 3.2rem 0 6.4rem;
-
-    &__subtitle {
-      margin-bottom: var(--mb-3);
+    body {
+        margin: 0 0 var(--header-height) 0;
     }
-  }
+
+    .section {
+        padding: 3.2rem 0 6.4rem;
+
+        &__subtitle {
+            margin-bottom: var(--mb-3);
+        }
+    }
 }
 
 @media screen and (max-width: 350px) {
-  :root {
-    --big-font-size: 3.6rem;
-  }
+    :root {
+        --big-font-size: 3.6rem;
+    }
 
-  .container {
-    margin-left: var(--mb-1);
-    margin-right: var(--mb-1);
-  }
+    .container {
+        margin-left: var(--mb-1);
+        margin-right: var(--mb-1);
+    }
 }
 
 ::-moz-selection {
-  /* Code for Firefox */
-  color: var(--container-color);
-  background: var(--title-color);
+    /* Code for Firefox */
+    color: var(--container-color);
+    background: var(--title-color);
 }
 
 ::selection {
-  color: var(--container-color);
-  background: var(--title-color);
+    color: var(--container-color);
+    background: var(--title-color);
 }

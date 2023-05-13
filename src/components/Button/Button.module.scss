@@ -1,40 +1,40 @@
 .button {
-  display: inline-block;
-  background-color: var(--title-color);
-  color: var(--container-color);
-  padding: 1rem 3.2rem;
-  border-radius: 1.6rem;
-  font-weight: var(--font-medium);
+    display: inline-block;
+    background-color: var(--title-color);
+    color: var(--container-color);
+    padding: 1rem 3.2rem;
+    border-radius: 1.6rem;
+    font-weight: var(--font-medium);
 
-  transition: 0.3s;
-
-  &:hover {
-    background-color: var(--title-color-dark);
-    cursor: pointer;
-  }
-
-  > i {
-    margin-left: var(--mb-0-5);
-  }
-
-  &--flex {
-    display: inline-flex;
-    align-items: center;
-  }
-
-  &--small {
-    padding: 0.4rem 1.2rem;
-    border-radius: 0.8rem;
-  }
-
-  &--disable {
-    background-color: var(--disable-color);
-    user-select: none;
-    pointer-events: none;
+    transition: 0.3s;
 
     &:hover {
-      background-color: var(--disable-color);
-      cursor: default;
+        background-color: var(--title-color-dark);
+        cursor: pointer;
     }
-  }
+
+    > i {
+        margin-left: var(--mb-0-5);
+    }
+
+    &--flex {
+        display: inline-flex;
+        align-items: center;
+    }
+
+    &--small {
+        padding: 0.4rem 1.2rem;
+        border-radius: 0.8rem;
+    }
+
+    &--disable {
+        background-color: var(--disable-color);
+        user-select: none;
+        pointer-events: none;
+
+        &:hover {
+            background-color: var(--disable-color);
+            cursor: default;
+        }
+    }
 }

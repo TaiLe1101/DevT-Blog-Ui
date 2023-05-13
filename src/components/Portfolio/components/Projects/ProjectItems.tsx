@@ -6,20 +6,27 @@ import { ProjectDataType } from '../../Data';
 const cx = classNames.bind(styles);
 
 interface PropsTypeProjectItems {
-  data: ProjectDataType;
+    data: ProjectDataType;
 }
 
-function ProjectItems({ data: { title, categoryId, id, thumbnail } }: PropsTypeProjectItems) {
-  return (
-    <div className={cx('projects__card')}>
-      <img src={thumbnail} alt={title} className={cx('projects__img')} />
-      <h3 className={cx('projects__title')}>{title}</h3>
+function ProjectItems({
+    data: { title, categoryId, id, thumbnail },
+}: PropsTypeProjectItems) {
+    return (
+        <div className={cx('projects__card')}>
+            <img src={thumbnail} alt={title} className={cx('projects__img')} />
+            <h3 className={cx('projects__title')}>{title}</h3>
 
-      <a href="#!" className={cx('projects__button')}>
-        Demo <i className={`bx bx-right-arrow-alt ${cx('projects__button-icon')}`}></i>
-      </a>
-    </div>
-  );
+            <a href="#!" className={cx('projects__button')}>
+                Demo{' '}
+                <i
+                    className={`bx bx-right-arrow-alt ${cx(
+                        'projects__button-icon'
+                    )}`}
+                ></i>
+            </a>
+        </div>
+    );
 }
 
 export default ProjectItems;

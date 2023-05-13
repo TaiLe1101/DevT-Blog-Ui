@@ -8,17 +8,17 @@ import Footer from '../components/Footer/Footer';
 const cx = classNames.bind(styles);
 
 interface PropsTypeDefaultLayout {
-  children: ReactNode;
+    children: ReactNode;
 }
 
 function DefaultLayout({ children }: PropsTypeDefaultLayout) {
-  return (
-    <div className={cx('wrapper')}>
-      <Header></Header>
-      {children}
-      <Footer></Footer>
-    </div>
-  );
+    return (
+        <div className={cx('wrapper')}>
+            <Header></Header>
+            {children}
+            <Footer></Footer>
+        </div>
+    );
 }
 
 export default DefaultLayout;
