@@ -1,10 +1,16 @@
 import { Fragment } from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 
-import { publicRoutes } from './routes';
+import { publicRoutes, privateRoutes } from './routes';
 import DefaultLayout from './layouts/DefaultLayout';
+import { useSelector } from 'react-redux';
+import { RootState } from './redux/store';
 
 function App() {
+    const currentUser = useSelector(
+        (state: RootState) => state.auth.login.data
+    );
+
     return (
         <Router>
             <div className="App">
@@ -32,6 +38,30 @@ function App() {
                             />
                         );
                     })}
+                    {currentUser &&
+                        privateRoutes.map((route, index) => {
+                            const Page = route.component;
+
+                            let Layout: any = DefaultLayout;
+
+                            if (route.layout) {
+                                Layout = route.layout;
+                            } else if (route.layout === null) {
+                                Layout = Fragment;
+                            }
+
+                            return (
+                                <Route
+                                    key={index}
+                                    path={route.path}
+                                    element={
+                                        <Layout>
+                                            <Page />
+                                        </Layout>
+                                    }
+                                />
+                            );
+                        })}
                 </Routes>
             </div>
         </Router>

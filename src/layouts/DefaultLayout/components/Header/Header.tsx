@@ -15,6 +15,7 @@ interface PropsTypeHeader {}
 
 function Header({}: PropsTypeHeader) {
     const [routeList, setRouteList] = useState(publicRoutes);
+
     const [showMenu, setShowMenu] = useState<boolean>(false);
     const currentUser = useSelector(
         (state: RootState) => state.auth.login.data?.data
@@ -27,10 +28,10 @@ function Header({}: PropsTypeHeader) {
                     (item) => item.name !== 'Register' && item.name !== 'Login'
                 )
             );
+        } else {
+            setRouteList(publicRoutes);
         }
     }, [currentUser]);
-
-    console.log('re-render');
 
     return (
         <div className={cx('header')}>
@@ -55,7 +56,11 @@ function Header({}: PropsTypeHeader) {
                         })}
 
                         {currentUser && (
-                            <UserInfo avatar={currentUser.avatar}></UserInfo>
+                            <>
+                                <UserInfo
+                                    avatar={currentUser.avatar}
+                                ></UserInfo>
+                            </>
                         )}
                     </ul>
 

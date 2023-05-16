@@ -8,7 +8,7 @@ import {
     logoutStart,
     logoutSuccess,
 } from '../AuthSlice';
-import request, { post } from '~/utils/request';
+import { post } from '~/utils/request';
 import { UserType } from '~/types/user.type';
 
 export interface DataLoginType {
@@ -23,10 +23,7 @@ export const handleLoginUser = async (
 ) => {
     dispatch(loginStart());
     try {
-        const response = await post<DataLoginType, UserType>(
-            '/auth/login',
-            data
-        );
+        const response = await post<UserType>('/auth/login', data);
         dispatch(loginSuccess(response));
         navigate('/');
     } catch (error) {

@@ -30,6 +30,11 @@ function UserInfo({ avatar }: PropsTypeUserInfo) {
                         <PopperWrapper>
                             <div {...attr}>
                                 <UserInfoItem
+                                    classIcon={cx('bx', 'bxs-cube-alt')}
+                                    href="/admin"
+                                    text="Admin"
+                                />
+                                <UserInfoItem
                                     text="Info"
                                     classIcon={cx('bx', 'bx-face')}
                                 />

@@ -6,21 +6,22 @@ const request = axios.create({
     withCredentials: true,
 });
 
-export const get = async <T>(
+/// R = Response
+export const get = async <R>(
     url: string,
     options?: AxiosRequestConfig<any>
-): Promise<ResponseAPIType<T>> => {
-    const response = await request.get<ResponseAPIType<T>>(url, options);
+): Promise<ResponseAPIType<R>> => {
+    const response = await request.get<ResponseAPIType<R>>(url, options);
 
     return response.data;
 };
 
-export const post = async <A, T>(
+export const post = async <R>(
     url: string,
-    data: A,
+    data: any,
     options?: AxiosRequestConfig<any>
-): Promise<ResponseAPIType<T>> => {
-    const response = await request.post<ResponseAPIType<T>>(url, data, options);
+): Promise<ResponseAPIType<R>> => {
+    const response = await request.post<ResponseAPIType<R>>(url, data, options);
 
     return response.data;
 };

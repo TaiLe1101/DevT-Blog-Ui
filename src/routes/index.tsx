@@ -11,6 +11,8 @@ import Home from '~/pages/Home';
 import Login from '~/pages/Login';
 import Register from '~/pages/Register';
 
+import Admin from '~/pages/Admin';
+
 const cx = classNames.bind(styles);
 
 type Route = {
@@ -51,6 +53,14 @@ const publicRoutes: Route[] = [
     },
 ];
 
-const privateRoutes: Route[] = [];
+const privateRoutes: Route[] = [
+    {
+        name: 'Admin',
+        icon: <i className={cx('uil', 'uil-estate', 'nav__icon')}></i>,
+        path: routes.admin,
+        component: Admin,
+        layout: null,
+    },
+];
 
 export { publicRoutes, privateRoutes };
