@@ -5,6 +5,8 @@ import CardBlog from '~/components/CardBlog';
 import blogTest from '~/assets/billiardcrypto.png';
 import { useEffect, useState } from 'react';
 import { useLocation } from 'react-router-dom';
+import { useSelector } from 'react-redux';
+import { RootState } from '~/redux/store';
 
 const cx = classNames.bind(styles);
 

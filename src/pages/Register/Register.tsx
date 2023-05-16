@@ -12,11 +12,16 @@ function Register({}: PropsTypeRegister) {
             <div className={cx('container')}>
                 <div className={cx('register__container')}>
                     <Form
+                        onSubmit={() => {}}
                         title="Register"
                         formControls={[
-                            { title: 'Họ và tên' },
-                            { title: 'Tên đăng nhập' },
-                            { title: 'Mật khẩu', type: 'password' },
+                            { title: 'Họ và tên', name: 'fullName' },
+                            { title: 'Tên đăng nhập', name: 'username' },
+                            {
+                                title: 'Mật khẩu',
+                                type: 'password',
+                                name: 'password',
+                            },
                         ]}
                         linkLeft="Back to home"
                         linkRight="Register ?"

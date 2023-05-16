@@ -5,6 +5,9 @@ import { Link } from 'react-router-dom';
 import styles from './Header.module.scss';
 import routes from '~/configs/route';
 import { privateRoutes, publicRoutes } from '~/routes';
+import { useSelector } from 'react-redux';
+import { RootState } from '~/redux/store';
+import UserInfo from '../UserInfo/UserInfo';
 
 const cx = classNames.bind(styles);
 
@@ -13,7 +16,9 @@ interface PropsTypeHeader {}
 function Header({}: PropsTypeHeader) {
     const [routeList, setRouteList] = useState(publicRoutes);
     const [showMenu, setShowMenu] = useState<boolean>(false);
-    const currentUser = false;
+    const currentUser = useSelector(
+        (state: RootState) => state.auth.login.data?.data
+    );
 
     useEffect(() => {
         if (currentUser) {
@@ -24,6 +29,8 @@ function Header({}: PropsTypeHeader) {
             );
         }
     }, [currentUser]);
+
+    console.log('re-render');
 
     return (
         <div className={cx('header')}>
@@ -47,7 +54,9 @@ function Header({}: PropsTypeHeader) {
                             );
                         })}
 
-                        {currentUser && <div>Info</div>}
+                        {currentUser && (
+                            <UserInfo avatar={currentUser.avatar}></UserInfo>
+                        )}
                     </ul>
 
                     <i

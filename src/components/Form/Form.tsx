@@ -5,7 +5,9 @@ import FormControl, { PropsTypeFormControl } from './FormControl';
 import Button from '../Button';
 import { Link } from 'react-router-dom';
 import routes from '~/configs/route';
-import { ReactNode } from 'react';
+import { ChangeEvent, FormEvent, ReactNode, useState } from 'react';
+import { useSelector } from 'react-redux';
+import { RootState } from '~/redux/store';
 
 const cx = classNames.bind(styles);
 
@@ -17,6 +19,8 @@ interface PropsTypeForm {
 
     textButton: string;
     iconButton?: ReactNode;
+    setValues?: any;
+    onSubmit: (formData: any) => void;
 }
 
 function Form({
@@ -26,18 +30,38 @@ function Form({
     linkRight,
     textButton,
     iconButton,
+    onSubmit,
 }: PropsTypeForm) {
+    const [formData, setFormData] = useState<any>({});
+    const isLoading = useSelector(
+        (state: RootState) => state.auth.login.isLoading
+    );
+
+    const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
+        e.preventDefault();
+        onSubmit(formData);
+    };
+
+    const handleChangeValue = (e: ChangeEvent<HTMLInputElement>) => {
+        setFormData({
+            ...formData,
+            [e.target.name]: e.target.value,
+        });
+    };
+
     return (
         <div className={cx('form')}>
             <h3 className={cx('form__title')}>{title}</h3>
 
-            <form className={cx('form__box')}>
+            <form onSubmit={handleSubmit} className={cx('form__box')}>
                 <div className={cx('form__group-control')}>
                     {formControls.map((control, index) => (
                         <FormControl
+                            name={control.name}
                             key={index}
                             title={control.title}
                             type={control.type}
+                            onChange={handleChangeValue}
                         ></FormControl>
                     ))}
                 </div>
@@ -58,6 +82,7 @@ function Form({
                 </div>
 
                 <Button
+                    loading={isLoading}
                     text={textButton}
                     className={cx('form__button')}
                     icon={iconButton}

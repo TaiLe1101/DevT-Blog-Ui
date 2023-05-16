@@ -16,6 +16,7 @@ interface PropsTypeButton {
     target?: '_blank' | '_parent' | '_self' | '_top';
     download?: boolean;
     className?: string;
+    loading?: boolean;
 
     onClick?: MouseEventHandler<
         HTMLButtonElement | HTMLSpanElement | HTMLAnchorElement
@@ -31,9 +32,22 @@ function Button({
     disable,
     target,
     download,
+    loading,
     className,
     onClick,
 }: PropsTypeButton) {
+    let Comp: any = 'button';
+
+    const classes = cx(
+        'button',
+        'button--flex',
+        {
+            'button--small': size === 'small',
+            'button--disable': disable || loading,
+        },
+        className
+    );
+
     if (href) {
         if (
             href.includes('http://') ||
@@ -41,63 +55,32 @@ function Button({
             download ||
             target
         ) {
-            return (
-                <a
-                    href={disable ? '#!' : href}
-                    className={`${className} ${cx('button', 'button--flex', {
-                        'button--small': size === 'small',
-                        'button--disable': disable,
-                    })}`}
-                    target={target}
-                    onClick={onClick}
-                    download={download}
-                >
-                    {text}
-                    {icon && icon}
-                </a>
-            );
+            Comp = 'a';
         } else {
-            return (
-                <Link
-                    to={disable ? '#' : href}
-                    className={`${className} ${cx('button', 'button--flex', {
-                        'button--small': size === 'small',
-                        'button--disable': disable,
-                    })}`}
-                    onClick={onClick}
-                >
-                    {text}
-                    {icon && icon}
-                </Link>
-            );
+            Comp = Link;
         }
     } else if (type === 'span') {
-        return (
-            <span
-                className={`${className} ${cx('button', 'button--flex', {
-                    'button--small': size === 'small',
-                    'button--disable': disable,
-                })}`}
-                onClick={onClick}
-            >
-                {text}
-                {icon && icon}
-            </span>
-        );
+        Comp = 'span';
     }
 
     return (
-        <button
-            disabled={disable}
-            className={`${className} ${cx('button', 'button--flex', {
-                'button--small': size === 'small',
-                'button--disable': disable,
-            })}`}
+        <Comp
+            href={href}
+            to={href}
+            disabled={loading || disable}
+            className={classes}
             onClick={onClick}
+            download={download}
+            target={target}
         >
-            {text}
-            {icon && icon}
-        </button>
+            {loading ? (
+                <span>Loading...</span>
+            ) : (
+                <>
+                    {text} {icon && icon}
+                </>
+            )}
+        </Comp>
     );
 }
 

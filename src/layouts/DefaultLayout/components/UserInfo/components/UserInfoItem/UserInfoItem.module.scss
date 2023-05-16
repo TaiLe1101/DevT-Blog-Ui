@@ -1,0 +1,41 @@
+.user-info-item {
+    &--order {
+        .user-info-item__icon {
+            order: 2;
+        }
+
+        .user-info-item__button {
+            &:hover .user-info-item__icon {
+                transform: translateX(0.3rem) scale(1.1);
+            }
+        }
+    }
+
+    &__button {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        column-gap: 0.8rem;
+
+        width: 100%;
+        padding: 1.2rem 1rem;
+
+        font-weight: var(--font-medium);
+
+        background-color: transparent;
+
+        transition: 0.3s;
+        &:hover {
+            background-color: rgba(0, 0, 0, 0.4);
+            color: var(--container-color);
+        }
+
+        &:hover .user-info-item__icon {
+            transform: translateX(-0.3rem) scale(1.1);
+        }
+    }
+
+    &__icon {
+        transition: 0.3s;
+    }
+}

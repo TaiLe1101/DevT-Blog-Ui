@@ -1,11 +1,9 @@
 import classNames from 'classnames/bind';
 
 import styles from '../../Home.module.scss';
-import portfolioStyles from '~/layouts/PortfolioLayout/PortfolioLayout.module.scss';
 import Button from '~/components/Button/Button';
 
 const cx = classNames.bind(styles);
-const cxm = classNames.bind(portfolioStyles);
 
 function Data() {
     return (
