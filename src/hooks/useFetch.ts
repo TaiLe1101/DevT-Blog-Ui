@@ -14,11 +14,9 @@ export const useFetch = <T>(
             try {
                 setIsLoading(true);
 
-                setTimeout(async () => {
-                    const result = await request.get<T>(url);
-                    setData(result.data);
-                    setIsLoading(false);
-                }, 10000);
+                const result = await request.get<T>(url);
+                setData(result.data);
+                setIsLoading(false);
             } catch (error) {
                 setError(true);
                 setIsLoading(false);

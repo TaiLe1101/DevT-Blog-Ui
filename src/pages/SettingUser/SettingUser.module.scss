@@ -1,0 +1,105 @@
+.setting-user {
+    &__top {
+        display: flex;
+        align-items: center;
+        column-gap: 4rem;
+
+        margin-bottom: var(--mb-2-5);
+    }
+
+    &__group-avatar {
+        position: relative;
+
+        &-img {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            object-fit: cover;
+        }
+
+        &-icon {
+            position: absolute;
+            bottom: 10px;
+            right: 5px;
+
+            text-align: center;
+            font-size: 1.4rem;
+            line-height: 3rem;
+            color: var(--container-color);
+            cursor: pointer;
+
+            width: 3rem;
+            height: 3rem;
+            background-color: green;
+            border-radius: 50%;
+        }
+    }
+
+    &__info {
+        &-name {
+            font-size: var(--h3-font-size);
+        }
+
+        &-sub-name {
+            font-size: var(--small-font-size);
+            color: var(--text-color);
+        }
+    }
+
+    &__content {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        column-gap: 4rem;
+    }
+    &__control {
+        margin-bottom: var(--mb-1);
+
+        &-label {
+            display: block;
+            font-size: var(--small-font-size);
+            color: var(--title-color);
+            transform: translateX(10px);
+        }
+        &-input {
+            display: block;
+            background-color: var(--read-only-input);
+            padding: 0.8rem 1rem;
+            border-radius: 0.4rem;
+            width: 100%;
+
+            outline: none;
+        }
+    }
+}
+
+@media screen and (max-width: 576px) {
+    .setting-user {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        &__content {
+            display: block;
+        }
+
+        &__group-avatar {
+            &-img {
+                width: 80px;
+                height: 80px;
+            }
+
+            &-icon {
+                $size: 1.8rem;
+                text-align: center;
+                font-size: 1rem;
+                line-height: $size;
+                color: var(--container-color);
+                cursor: pointer;
+
+                width: $size;
+                height: $size;
+                background-color: green;
+                border-radius: 50%;
+            }
+        }
+    }
+}

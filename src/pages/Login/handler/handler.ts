@@ -25,7 +25,7 @@ export const handleLoginUser = async (
     try {
         const response = await post<UserType>('/auth/login', data);
         dispatch(loginSuccess(response));
-        navigate('/');
+        navigate('/blog');
     } catch (error) {
         dispatch(loginFailed());
     }
@@ -33,13 +33,15 @@ export const handleLoginUser = async (
 
 export const handleLogoutUser = async (
     id: number,
-    dispatch: Dispatch<AnyAction>
+    dispatch: Dispatch<AnyAction>,
+    navigate: NavigateFunction
 ) => {
     dispatch(logoutStart());
 
     try {
         await post('/auth/logout', { id: id });
         dispatch(logoutSuccess());
+        navigate('/');
     } catch (error) {
         dispatch(logoutFailed());
     }

@@ -3,7 +3,7 @@ import { ReactNode } from 'react';
 
 import routes from '~/configs/route';
 
-import PortfolioLayout from '~/layouts/PortfolioLayout/PortfolioLayout';
+import PortfolioLayout from '~/layouts/PortfolioLayout';
 import styles from '~/layouts/DefaultLayout/components/Header/Header.module.scss';
 
 import Blog from '~/pages/Blog';
@@ -12,6 +12,9 @@ import Login from '~/pages/Login';
 import Register from '~/pages/Register';
 
 import Admin from '~/pages/Admin';
+
+import SettingUser from '~/pages/SettingUser';
+import UserLayout from '~/layouts/UserLayout';
 
 const cx = classNames.bind(styles);
 
@@ -59,7 +62,14 @@ const privateRoutes: Route[] = [
         icon: <i className={cx('uil', 'uil-estate', 'nav__icon')}></i>,
         path: routes.admin,
         component: Admin,
-        layout: null,
+        layout: UserLayout,
+    },
+    {
+        name: 'UserInfo',
+        icon: <i className={cx('uil', 'uil-estate', 'nav__icon')}></i>,
+        path: routes.userInfo,
+        component: SettingUser,
+        layout: UserLayout,
     },
 ];
 

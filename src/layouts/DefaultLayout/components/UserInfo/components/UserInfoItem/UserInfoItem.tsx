@@ -1,18 +1,10 @@
 import classNames from 'classnames/bind';
 
 import styles from './UserInfoItem.module.scss';
-import { MouseEventHandler } from 'react';
 import { Link } from 'react-router-dom';
+import { PropsTypeUserInfoItem } from '~/types/prop.type';
 
 const cx = classNames.bind(styles);
-
-interface PropsTypeUserInfoItem {
-    text: string;
-    classIcon?: string;
-    order?: boolean;
-    onClick?: MouseEventHandler<HTMLButtonElement>;
-    href?: string;
-}
 
 function UserInfoItem({
     text,

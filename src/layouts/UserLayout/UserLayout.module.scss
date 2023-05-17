@@ -1,0 +1,32 @@
+.user-layout {
+    .container {
+        max-width: 968px;
+        margin: 0 auto;
+    }
+    &__container {
+        padding-top: 52px;
+    }
+
+    &__content {
+        width: 100%;
+        padding: 2rem 1.6rem 0 1.6rem;
+
+        transition: 0.3s;
+        &--show {
+            padding: 2rem 12rem 0 12rem;
+        }
+    }
+}
+
+@media screen and (max-width: 992px) {
+    .user-layout {
+        &__content {
+            &--show {
+                padding: 2rem 1rem 0 22rem;
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 320px) {
+}

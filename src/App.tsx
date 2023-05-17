@@ -5,6 +5,7 @@ import { publicRoutes, privateRoutes } from './routes';
 import DefaultLayout from './layouts/DefaultLayout';
 import { useSelector } from 'react-redux';
 import { RootState } from './redux/store';
+import NotFound from './pages/NotFound';
 
 function App() {
     const currentUser = useSelector(
@@ -59,9 +60,11 @@ function App() {
                                             <Page />
                                         </Layout>
                                     }
-                                />
+                                ></Route>
                             );
                         })}
+
+                    <Route path="*" element={<NotFound />}></Route>
                 </Routes>
             </div>
         </Router>

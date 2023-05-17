@@ -3,6 +3,9 @@ const routes = {
     login: '/login',
     blog: '/blog',
     register: '/register',
+
+    userInfo: '/user',
+
     admin: '/admin',
     adminPost: '/admin/post',
 };
