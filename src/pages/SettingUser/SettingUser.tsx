@@ -3,6 +3,8 @@ import classNames from 'classnames/bind';
 import styles from './SettingUser.module.scss';
 import { useSelector } from 'react-redux';
 import { RootState } from '~/redux/store';
+import Button from '~/components/Button';
+import { useState } from 'react';
 
 const cx = classNames.bind(styles);
 
@@ -12,6 +14,11 @@ function SettingUser({}: PropsTypeSettingUser) {
     const currentUser = useSelector(
         (state: RootState) => state.auth.login.data?.data
     );
+
+    const [fullName, setFullName] = useState<string | undefined>(
+        currentUser?.fullName
+    );
+
     return (
         <div className={cx('setting-user')}>
             <div className={cx('setting-user__top')}>
@@ -68,8 +75,7 @@ function SettingUser({}: PropsTypeSettingUser) {
                         <input
                             className={cx('setting-user__control-input')}
                             type="text"
-                            value="Taic21a.th1@gmail.com"
-                            readOnly={true}
+                            defaultValue={currentUser?.email}
                         />
                     </div>
                     <div className={cx('setting-user__control')}>
@@ -82,8 +88,7 @@ function SettingUser({}: PropsTypeSettingUser) {
                         <input
                             className={cx('setting-user__control-input')}
                             type="text"
-                            value="B22/10 Ấp 2 xã Bình Chánh, Huyện Bình Chánh, TP.HCM"
-                            readOnly={true}
+                            defaultValue={currentUser?.address}
                         />
                     </div>
                 </div>
@@ -99,8 +104,8 @@ function SettingUser({}: PropsTypeSettingUser) {
                         <input
                             className={cx('setting-user__control-input')}
                             type="text"
-                            value={currentUser?.fullName}
-                            readOnly={true}
+                            value={fullName}
+                            onChange={(e) => setFullName(e.target.value)}
                         />
                     </div>
                     <div className={cx('setting-user__control')}>
@@ -113,11 +118,17 @@ function SettingUser({}: PropsTypeSettingUser) {
                         <input
                             className={cx('setting-user__control-input')}
                             type="text"
-                            value="086 5850 073"
-                            readOnly={true}
+                            defaultValue={currentUser?.phoneNumber}
                         />
                     </div>
                 </div>
+            </div>
+
+            <div className={cx('setting-user__bot')}>
+                <Button
+                    text="Update"
+                    className={cx('setting-user__bot-button')}
+                ></Button>
             </div>
         </div>
     );

@@ -3,5 +3,8 @@ export interface UserType {
     fullName: string;
     avatar: string;
     username: string;
+    address: string;
+    phoneNumber: string;
+    email: string;
     accessToken: string;
 }
