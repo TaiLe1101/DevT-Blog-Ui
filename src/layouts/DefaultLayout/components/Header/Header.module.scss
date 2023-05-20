@@ -6,7 +6,7 @@
     right: 0;
     z-index: var(--z-fixed);
     background-color: var(--container-color);
-    border: 1px solid rgba(0, 0, 0, 0.1);
+    border: 1px solid var(--read-only-input);
 
     a {
         color: var(--title-color);

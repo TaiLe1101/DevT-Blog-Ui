@@ -4,6 +4,7 @@ import { Provider } from 'react-redux';
 
 import GlobalStyles from '~/components/GlobalStyles/GlobalStyles';
 import 'tippy.js/dist/tippy.css';
+import 'tippy.js/animations/scale.css';
 
 import App from '~/App';
 import { store } from './redux/store';

@@ -7,7 +7,7 @@
     overflow-y: auto;
 
     background-color: var(--container-color);
-    box-shadow: rgba(0, 0, 0, 0.1) 0px 2px 12px;
+    box-shadow: var(--read-only-input) 0px 2px 12px;
     border-radius: 1rem;
     padding: 1rem;
 }

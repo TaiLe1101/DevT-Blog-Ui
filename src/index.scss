@@ -1,0 +1,53 @@
+:root {
+    --header-height: 4.8rem;
+
+    --hue: 0;
+    --sat: 0%;
+    --title-color: hsl(var(--hue), var(--sat), 20%);
+    --title-color-dark: hsl(var(--hue), var(--sat), 0%);
+    --text-color: hsl(var(--hue), var(--sat), 46%);
+    --body-color: hsl(var(--hue), var(--sat), 98%);
+    --container-color: #fff;
+    --disable-color: #888;
+    --read-only-input: rgba(0, 0, 0, 0.1);
+    --border-box-color: rgba(0, 0, 0, 0.2);
+
+    --body-font: 'Poppins', sans-serif;
+
+    // 1rem = 1px
+    --big-font-size: 5.6rem;
+    --h1-font-size: 3.6rem;
+    --h2-font-size: 2.4rem;
+    --h3-font-size: 2rem;
+    --normal-font-size: 1.6rem;
+    --small-font-size: 1.4rem;
+    --smaller-font-size: 1.3008rem;
+    --tiny-font-size: 1rem;
+
+    --font-normal: 400;
+    --font-medium: 500;
+    --font-semi-bold: 600;
+
+    --mb-0-25: 0.4rem;
+    --mb-0-5: 0.8rem;
+    --mb-0-75: 1.2rem;
+    --mb-1: 1.6rem;
+    --mb-1-5: 2.4rem;
+    --mb-2: 3.2rem;
+    --mb-2-5: 4rem;
+    --mb-3: 4.8rem;
+
+    --z-tooltip: 10;
+    --z-fixed: 100;
+    --z-modal: 1000;
+}
+
+.App.dark {
+    --body-color: #0d1018;
+    --title-color: #fff;
+    --title-color-dark: #a687e3;
+    --text-color: #868f99;
+    --border-box-color: rgba(255, 255, 255, 0.2);
+
+    --container-color: #161b22;
+}

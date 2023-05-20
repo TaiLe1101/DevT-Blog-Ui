@@ -5,7 +5,7 @@
 
     &__card {
         background-color: var(--container-color);
-        border: 1px solid rgba(0, 0, 0, 0.1);
+        border: 1px solid var(--read-only-input);
         padding: 2.4rem 3.2rem;
         border-radius: 2rem;
         margin-bottom: var(--mb-3);

@@ -3,10 +3,26 @@ import { InitStateAPIType, ResponseAPIType } from '~/types/api.type';
 
 import { UserType } from '~/types/user.type';
 
+import avatar from '~/assets/avatar.jpg';
+
 const initLoginState: InitStateAPIType<ResponseAPIType<UserType>> = {
     isLoading: false,
     isError: false,
-    data: null,
+    data: {
+        status: 200,
+        message: 'Success',
+        error: false,
+        data: {
+            id: 1,
+            accessToken: '1',
+            address: 'Hồ Chí Minh',
+            avatar: avatar,
+            email: 'Contact.DevT.1101@gmail.com',
+            fullName: 'Lê Trần Tấn Tài',
+            phoneNumber: '0865850073',
+            username: 'admin',
+        },
+    },
 };
 
 const initLogoutState = {

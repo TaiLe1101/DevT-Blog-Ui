@@ -1,4 +1,4 @@
-import { Fragment } from 'react';
+import { Fragment, useState } from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 
 import { publicRoutes, privateRoutes } from './routes';
@@ -6,15 +6,17 @@ import DefaultLayout from './layouts/DefaultLayout';
 import { useSelector } from 'react-redux';
 import { RootState } from './redux/store';
 import NotFound from './pages/NotFound';
+import './index.scss';
 
 function App() {
+    const [theme, setTheme] = useState<'light' | 'dark'>('light');
     const currentUser = useSelector(
         (state: RootState) => state.auth.login.data
     );
 
     return (
         <Router>
-            <div className="App">
+            <div className={`App ${theme}`}>
                 <Routes>
                     {publicRoutes.map((route, index) => {
                         const Page = route.component;

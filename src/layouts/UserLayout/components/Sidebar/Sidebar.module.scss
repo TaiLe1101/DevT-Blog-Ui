@@ -8,7 +8,7 @@
     left: 0;
     bottom: 0;
     width: 200px;
-    border-right: 1px solid rgba(0, 0, 0, 0.1);
+    border-right: 1px solid var(--read-only-input);
     padding-top: 2rem;
 
     overflow-x: hidden;

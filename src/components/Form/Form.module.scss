@@ -53,7 +53,7 @@
         &:valid ~ i,
         &:focus ~ i {
             height: 4.4rem;
-            background-color: rgba(0, 0, 0, 0.1);
+            background-color: var(--read-only-input);
         }
     }
 
