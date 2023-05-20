@@ -1,4 +1,7 @@
 .user-layout {
+    background-color: var(--container-color);
+    min-height: 100vh;
+
     .container {
         max-width: 968px;
         margin: 0 auto;

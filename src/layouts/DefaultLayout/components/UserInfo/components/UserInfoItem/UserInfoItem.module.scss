@@ -27,8 +27,8 @@
 
         transition: 0.3s;
         &:hover {
-            background-color: rgba(0, 0, 0, 0.4);
-            color: var(--container-color);
+            background-color: var(--border-box-color);
+            color: var(--title-color-dark);
         }
 
         &:hover .user-info-item__icon {
