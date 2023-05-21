@@ -1,10 +1,10 @@
-import { useEffect, useState } from 'react';
+import { Fragment, useEffect, useState } from 'react';
 import classNames from 'classnames/bind';
 import { Link } from 'react-router-dom';
 
 import styles from './Header.module.scss';
 import routes from '~/configs/route';
-import { privateRoutes, publicRoutes } from '~/routes';
+import { publicRoutes } from '~/routes';
 import { useSelector } from 'react-redux';
 import { RootState } from '~/redux/store';
 import UserInfo from '../UserInfo/UserInfo';
@@ -15,7 +15,6 @@ interface PropsTypeHeader {}
 
 function Header({}: PropsTypeHeader) {
     const [routeList, setRouteList] = useState(publicRoutes);
-
     const [showMenu, setShowMenu] = useState<boolean>(false);
     const currentUser = useSelector(
         (state: RootState) => state.auth.login.data?.data
@@ -43,16 +42,20 @@ function Header({}: PropsTypeHeader) {
                 <div className={cx('nav__menu', { 'show-menu': showMenu })}>
                     <ul className={cx('nav__list')}>
                         {routeList.map((route, index) => {
-                            return (
-                                <li className={cx('nav__item')} key={index}>
-                                    <Link
-                                        to={route.path}
-                                        className={cx('nav__link')}
-                                    >
-                                        {route.icon} {route.name}
-                                    </Link>
-                                </li>
-                            );
+                            if (route.path !== routes.register) {
+                                return (
+                                    <li className={cx('nav__item')} key={index}>
+                                        <Link
+                                            to={route.path}
+                                            className={cx('nav__link')}
+                                        >
+                                            {route.icon} {route.name}
+                                        </Link>
+                                    </li>
+                                );
+                            } else {
+                                return <Fragment key={index}></Fragment>;
+                            }
                         })}
 
                         {currentUser && (

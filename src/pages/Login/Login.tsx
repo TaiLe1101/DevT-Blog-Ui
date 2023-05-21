@@ -4,12 +4,11 @@ import Form from '~/components/Form';
 import { DataLoginType, handleLoginUser } from './handler';
 import { useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
+import routes from '~/configs/route';
 
 const cx = classNames.bind(styles);
 
-interface PropsTypeLogin {}
-
-function Login({}: PropsTypeLogin) {
+function Login() {
     const dispatch = useDispatch();
     const navigate = useNavigate();
 
@@ -32,8 +31,14 @@ function Login({}: PropsTypeLogin) {
                                 name: 'password',
                             },
                         ]}
-                        linkLeft="Back to home"
-                        linkRight="Register ?"
+                        linkLeft={{
+                            path: routes.blog,
+                            title: 'Trở về trang chủ',
+                        }}
+                        linkRight={{
+                            path: routes.register,
+                            title: 'Đăng ký ?',
+                        }}
                         textButton="Đăng nhập"
                         iconButton={<i className="bx bx-lock-open-alt"></i>}
                     ></Form>

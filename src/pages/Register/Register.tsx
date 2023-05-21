@@ -1,6 +1,7 @@
 import classNames from 'classnames/bind';
 import styles from './Register.module.scss';
 import Form from '~/components/Form';
+import routes from '~/configs/route';
 
 const cx = classNames.bind(styles);
 
@@ -23,9 +24,12 @@ function Register({}: PropsTypeRegister) {
                                 name: 'password',
                             },
                         ]}
-                        linkLeft="Back to home"
-                        linkRight="Register ?"
-                        textButton="Đăng nhập"
+                        linkLeft={{
+                            path: routes.blog,
+                            title: 'Trở về trang chủ',
+                        }}
+                        linkRight={{ path: routes.login, title: 'Đăng nhập ?' }}
+                        textButton="Đăng ký"
                         iconButton={<i className="bx bx-lock-open-alt"></i>}
                     ></Form>
                 </div>

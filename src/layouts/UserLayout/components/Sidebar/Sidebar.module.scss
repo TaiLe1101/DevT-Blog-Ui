@@ -34,12 +34,13 @@
 
         width: 95%;
         margin-left: auto;
+        padding: 1.2rem 1.6rem;
 
         border-top-left-radius: 20px;
         border-bottom-left-radius: 20px;
 
-        padding: 1.2rem 1.6rem;
         cursor: pointer;
+        user-select: none;
 
         &--active.sidebar__button {
             &::after {

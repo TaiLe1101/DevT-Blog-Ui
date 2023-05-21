@@ -14,8 +14,14 @@ const cx = classNames.bind(styles);
 interface PropsTypeForm {
     title: string;
     formControls: PropsTypeFormControl[];
-    linkLeft: string;
-    linkRight: string;
+    linkLeft: {
+        title: string;
+        path: string;
+    };
+    linkRight: {
+        title: string;
+        path: string;
+    };
 
     textButton: string;
     iconButton?: ReactNode;
@@ -67,17 +73,17 @@ function Form({
                 </div>
 
                 <div className={cx('form__nav')}>
-                    <Link className={cx('form__nav-link')} to={routes.blog}>
+                    <Link className={cx('form__nav-link')} to={linkLeft.path}>
                         <i
                             className={`bx bx-arrow-back ${cx(
                                 'form__nav-icon'
                             )}`}
                         ></i>{' '}
-                        {linkLeft}
+                        {linkLeft.title}
                     </Link>
 
-                    <Link className={cx('form__nav-link')} to={'#'}>
-                        {linkRight}
+                    <Link className={cx('form__nav-link')} to={linkRight.path}>
+                        {linkRight.title}
                     </Link>
                 </div>
 

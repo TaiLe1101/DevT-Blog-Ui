@@ -5,7 +5,6 @@ import ControlNav from './ControlNav';
 import { useDispatch, useSelector } from 'react-redux';
 import routes from '~/configs/route';
 import { useNavigate } from 'react-router-dom';
-import { useState } from 'react';
 import { RootState } from '~/redux/store';
 import { changeNav } from './SidebarSlice';
 
