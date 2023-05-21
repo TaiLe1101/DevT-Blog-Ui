@@ -33,6 +33,8 @@
         column-gap: 0.4rem;
         color: var(--title-color);
 
+        text-transform: capitalize;
+
         width: 95%;
         margin-left: auto;
         padding: 1.2rem 1.6rem;
@@ -44,10 +46,19 @@
         user-select: none;
         transition: 0.3s;
 
+        &--dropdown {
+            margin-left: auto;
+        }
+
         &--active.sidebar__button {
             &::after {
                 height: 100%;
             }
+        }
+
+        &--children.sidebar__button {
+            width: 85%;
+            animation: scrollRight 0.2s ease-in;
         }
 
         &:hover {
@@ -67,5 +78,20 @@
 
             transition: 0.3s;
         }
+    }
+}
+
+@keyframes scrollRight {
+    0% {
+        transform: translateX(-100%);
+    }
+    40% {
+        transform: translateX(0);
+    }
+    50% {
+        transform: translateX(20px);
+    }
+    41% {
+        transform: translateX(0);
     }
 }

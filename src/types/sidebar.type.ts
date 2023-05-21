@@ -4,4 +4,5 @@ export interface ControlNavType {
     classIcon: string;
     path: string;
     children?: ControlNavType[];
+    level: number;
 }
