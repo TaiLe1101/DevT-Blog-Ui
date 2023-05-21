@@ -8,9 +8,7 @@ import Backend from './components/Backend/Backend';
 const cx = classNames.bind(styles);
 const cxm = classNames.bind(portfolioStyles);
 
-interface PropsTypeSkills {}
-
-function Skills({}: PropsTypeSkills) {
+function Skills() {
     return (
         <div className={`${cx('skills')} ${cxm('section')}`} id="skills">
             <h2 className={`${cxm('section__title')}`}>Skills</h2>

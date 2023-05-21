@@ -1,15 +1,11 @@
 import classNames from 'classnames/bind';
 
 import styles from './Footer.module.scss';
-import portfolioStyles from '~/layouts/PortfolioLayout/PortfolioLayout.module.scss';
 import Button from '~/components/Button/Button';
 
 const cx = classNames.bind(styles);
-const cxm = classNames.bind(portfolioStyles);
 
-interface PropsTypeFooter {}
-
-function Footer({}: PropsTypeFooter) {
+function Footer() {
     return (
         <div className={cx('footer')}>
             <div className={cx('footer__container')}>

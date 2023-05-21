@@ -14,6 +14,7 @@ function SettingUser() {
     const currentUser = useSelector(
         (state: RootState) => state.auth.login.data?.data
     );
+    const [isLoadingUpdate, setIsLoadingUpdate] = useState<boolean>(false);
     const [fileUpload, setFileUpload] = useState<File | undefined | null>(null);
     const [fullName, setFullName] = useState<string | undefined>(
         currentUser?.fullName
@@ -29,7 +30,7 @@ function SettingUser() {
     const dispatch = useDispatch();
 
     const handleSubmit = () => {
-        console.log('fileUpload ->', fileUpload);
+        setIsLoadingUpdate(true);
         handleUpdateUser(
             {
                 accessToken: currentUser ? currentUser.accessToken : '',
@@ -40,7 +41,7 @@ function SettingUser() {
                 phoneNumber,
             },
             dispatch
-        );
+        ).finally(() => setIsLoadingUpdate(false));
     };
 
     return (
@@ -145,6 +146,7 @@ function SettingUser() {
                     text="Update"
                     className={cx('setting-user__bot-button')}
                     onClick={handleSubmit}
+                    loading={isLoadingUpdate}
                 ></Button>
             </div>
         </div>

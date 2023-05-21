@@ -8,9 +8,7 @@ import Projects from './components/Projects/Projects';
 const cx = classNames.bind(styles);
 const cxm = classNames.bind(portfolioStyles);
 
-interface PropsTypePortfolio {}
-
-function Portfolio({}: PropsTypePortfolio) {
+function Portfolio() {
     return (
         <div className={`${cx('portfolio')} ${cxm('section')}`} id="portfolio">
             <h2 className={`${cxm('section__title')}`}>Projects</h2>

@@ -7,9 +7,7 @@ import portfolioStyles from '~/layouts/PortfolioLayout/PortfolioLayout.module.sc
 const cx = classNames.bind(styles);
 const cxm = classNames.bind(portfolioStyles);
 
-interface PropsTypeServices {}
-
-function Services({}: PropsTypeServices) {
+function Services() {
     const [showModal, setShowModal] = useState<number>(0);
 
     const handleShowModal = (index: number) => {

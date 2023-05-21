@@ -4,9 +4,7 @@ import styles from './NotFound.module.scss';
 
 const cx = classNames.bind(styles);
 
-interface PropsTypeNotFound {}
-
-function NotFound({}: PropsTypeNotFound) {
+function NotFound() {
     return <div className={cx('wrapper')}>NotFound component</div>;
 }
 

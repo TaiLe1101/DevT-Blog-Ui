@@ -9,7 +9,7 @@ import NotFound from './pages/NotFound';
 import './index.scss';
 
 function App() {
-    const [theme, setTheme] = useState<'light' | 'dark'>('light');
+    const [theme] = useState<'light' | 'dark'>('light');
     const currentUser = useSelector(
         (state: RootState) => state.auth.login.data
     );

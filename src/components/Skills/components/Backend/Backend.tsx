@@ -4,8 +4,6 @@ import styles from '../../Skills.module.scss';
 
 const cx = classNames.bind(styles);
 
-interface PropsTypeBackend {}
-
 export type SkillsType = {
     name: string;
     level: 'Basic' | 'Intermediate' | 'Advanced';
@@ -55,7 +53,7 @@ const SKILLS: SkillsType[] = [
     },
 ];
 
-function Backend({}: PropsTypeBackend) {
+function Backend() {
     return (
         <div className={cx('skills__content')}>
             <h3 className={cx('skills__title')}>Backend</h3>

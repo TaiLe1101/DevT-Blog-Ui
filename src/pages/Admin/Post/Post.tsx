@@ -4,9 +4,7 @@ import styles from './Post.module.scss';
 
 const cx = classNames.bind(styles);
 
-interface PropsTypePost {}
-
-function Post({}: PropsTypePost) {
+function Post() {
     return <div className={cx('wrapper')}>Post component</div>;
 }
 

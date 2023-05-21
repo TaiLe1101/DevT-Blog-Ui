@@ -15,9 +15,7 @@ import { Customers } from './Data';
 const cx = classNames.bind(styles);
 const cxm = classNames.bind(portfolioStyles);
 
-interface PropsTypeTestimonial {}
-
-function Testimonial({}: PropsTypeTestimonial) {
+function Testimonial() {
     return (
         <div
             className={`testimonial-component ${cx('testimonial')} ${cxm(

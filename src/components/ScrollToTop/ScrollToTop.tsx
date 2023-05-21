@@ -1,13 +1,11 @@
-import { useState, useRef } from 'react';
+import { useState } from 'react';
 import classNames from 'classnames/bind';
 
 import styles from './ScrollToTop.module.scss';
 
 const cx = classNames.bind(styles);
 
-interface PropsTypeScrollToTop {}
-
-function ScrollToTop({}: PropsTypeScrollToTop) {
+function ScrollToTop() {
     const [showScrollUp, setShowScrollUp] = useState<boolean>(false);
 
     window.addEventListener('scroll', function (e) {

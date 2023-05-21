@@ -1,12 +1,10 @@
 import classNames from 'classnames/bind';
+import { Dispatch } from 'react';
+import { useSelector } from 'react-redux';
 
 import styles from './Header.module.scss';
-import { Link } from 'react-router-dom';
-import routes from '~/configs/route';
 import UserInfo from '~/layouts/DefaultLayout/components/UserInfo';
-import { useSelector } from 'react-redux';
 import { RootState } from '~/redux/store';
-import { Dispatch } from 'react';
 
 const cx = classNames.bind(styles);
 

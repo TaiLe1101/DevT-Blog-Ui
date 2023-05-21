@@ -15,9 +15,7 @@ const MySwal = withReactContent(Swal);
 const cx = classNames.bind(styles);
 const cxm = classNames.bind(portfolioStyles);
 
-interface PropsTypeContact {}
-
-function Contact({}: PropsTypeContact) {
+function Contact() {
     const form = useRef<HTMLFormElement>(null);
     const [dataForm, setDataForm] = useState<{
         name: string;

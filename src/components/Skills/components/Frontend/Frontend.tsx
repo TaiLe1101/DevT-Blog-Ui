@@ -6,8 +6,6 @@ import { SkillsType } from '../Backend/Backend';
 
 const cx = classNames.bind(styles);
 
-interface PropsTypeFrontend {}
-
 const SKILLS: SkillsType[] = [
     {
         name: 'HTML',
@@ -51,7 +49,7 @@ const SKILLS: SkillsType[] = [
     },
 ];
 
-function Frontend({}: PropsTypeFrontend) {
+function Frontend() {
     return (
         <div className={cx('skills__content')}>
             <h3 className={cx('skills__title')}>Frontend</h3>

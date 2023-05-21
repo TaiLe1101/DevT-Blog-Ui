@@ -17,7 +17,7 @@ function Data() {
                 Hồ Chí Minh
             </p>
 
-            <Button text="Xin Chàooo"></Button>
+            <Button text="Xin Chào"></Button>
         </div>
     );
 }

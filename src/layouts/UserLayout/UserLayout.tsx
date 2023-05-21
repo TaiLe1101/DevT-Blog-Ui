@@ -1,12 +1,10 @@
-import { ReactNode, useEffect, useState } from 'react';
+import { ReactNode, useState } from 'react';
 import classNames from 'classnames/bind';
 
 import styles from './UserLayout.module.scss';
 
 import Header from './components/Header';
 import Sidebar from './components/Sidebar';
-import { useSelector } from 'react-redux';
-import { RootState } from '~/redux/store';
 
 const cx = classNames.bind(styles);
 

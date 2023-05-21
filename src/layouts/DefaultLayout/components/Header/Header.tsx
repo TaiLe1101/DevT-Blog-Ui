@@ -11,9 +11,7 @@ import UserInfo from '../UserInfo/UserInfo';
 
 const cx = classNames.bind(styles);
 
-interface PropsTypeHeader {}
-
-function Header({}: PropsTypeHeader) {
+function Header() {
     const [routeList, setRouteList] = useState(publicRoutes);
     const [showMenu, setShowMenu] = useState<boolean>(false);
     const currentUser = useSelector(

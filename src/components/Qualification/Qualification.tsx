@@ -7,9 +7,7 @@ import portfolioStyles from '~/layouts/PortfolioLayout/PortfolioLayout.module.sc
 const cx = classNames.bind(styles);
 const cxm = classNames.bind(portfolioStyles);
 
-interface PropsTypeQualification {}
-
-function Qualification({}: PropsTypeQualification) {
+function Qualification() {
     const [nav, setNav] = useState<number>(1);
 
     return (

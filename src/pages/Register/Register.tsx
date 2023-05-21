@@ -5,9 +5,7 @@ import routes from '~/configs/route';
 
 const cx = classNames.bind(styles);
 
-interface PropsTypeRegister {}
-
-function Register({}: PropsTypeRegister) {
+function Register() {
     return (
         <div className={cx('register', 'section')}>
             <div className={cx('container')}>

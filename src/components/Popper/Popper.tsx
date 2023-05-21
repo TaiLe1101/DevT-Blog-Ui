@@ -4,9 +4,7 @@ import styles from './Popper.module.scss';
 
 const cx = classNames.bind(styles);
 
-interface PropsTypePopper {}
-
-function Popper({}: PropsTypePopper) {
+function Popper() {
     return <div className={cx('wrapper')}>Popper component</div>;
 }
 

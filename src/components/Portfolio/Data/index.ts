@@ -1,4 +1,3 @@
-import thumbnail from '~/assets/thumbnail.jpg';
 import keKho from '~/assets/kekho.png';
 import candy from '~/assets/Visual.png';
 import game from '~/assets/game.png';

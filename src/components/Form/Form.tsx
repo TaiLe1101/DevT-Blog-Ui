@@ -4,7 +4,6 @@ import styles from './Form.module.scss';
 import FormControl, { PropsTypeFormControl } from './FormControl';
 import Button from '../Button';
 import { Link } from 'react-router-dom';
-import routes from '~/configs/route';
 import { ChangeEvent, FormEvent, ReactNode, useState } from 'react';
 import { useSelector } from 'react-redux';
 import { RootState } from '~/redux/store';

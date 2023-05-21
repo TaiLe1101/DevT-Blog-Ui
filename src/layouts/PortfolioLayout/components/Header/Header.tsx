@@ -1,5 +1,5 @@
 import classNames from 'classnames/bind';
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 
 import styles from './Header.module.scss';
 import portfolioStyles from '~/layouts/PortfolioLayout/PortfolioLayout.module.scss';
