@@ -19,6 +19,7 @@ function ControlNav({
     onClick,
 }: PropsTypeControlNav) {
     const classes = cx(classIcon, 'sidebar__icon');
+
     return (
         <div
             className={cx('sidebar__button', {
