@@ -38,6 +38,7 @@
     &__info {
         &-name {
             font-size: var(--h3-font-size);
+            text-transform: capitalize;
         }
 
         &-sub-name {
@@ -64,10 +65,14 @@
         }
         &-input {
             display: block;
-            padding: 0.8rem 1rem;
-            border-radius: 0.4rem;
+
+            text-transform: capitalize;
+
             width: 100%;
+            padding: 0.8rem 1rem;
+
             border: 1px solid var(--read-only-input);
+            border-radius: 0.4rem;
 
             outline: none;
 

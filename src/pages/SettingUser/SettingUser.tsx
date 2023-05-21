@@ -1,46 +1,59 @@
 import classNames from 'classnames/bind';
+import { useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 
 import styles from './SettingUser.module.scss';
-import { useSelector } from 'react-redux';
 import { RootState } from '~/redux/store';
 import Button from '~/components/Button';
-import { useState } from 'react';
+import AvatarUser from './AvatarUser';
+import { handleUpdateUser } from '../Login/handler';
 
 const cx = classNames.bind(styles);
 
-interface PropsTypeSettingUser {}
-
-function SettingUser({}: PropsTypeSettingUser) {
+function SettingUser() {
     const currentUser = useSelector(
         (state: RootState) => state.auth.login.data?.data
     );
-
+    const [fileUpload, setFileUpload] = useState<File | undefined | null>(null);
     const [fullName, setFullName] = useState<string | undefined>(
         currentUser?.fullName
     );
+    const [email, setEmail] = useState<string | undefined>(currentUser?.email);
+    const [phoneNumber, setPhoneNumber] = useState<string | undefined>(
+        currentUser?.phoneNumber
+    );
+    const [address, setAddress] = useState<string | undefined>(
+        currentUser?.address
+    );
+
+    const dispatch = useDispatch();
+
+    const handleSubmit = () => {
+        console.log('fileUpload ->', fileUpload);
+        handleUpdateUser(
+            {
+                accessToken: currentUser ? currentUser.accessToken : '',
+                address,
+                email,
+                avatar: fileUpload,
+                fullName,
+                phoneNumber,
+            },
+            dispatch
+        );
+    };
 
     return (
         <div className={cx('setting-user')}>
             <div className={cx('setting-user__top')}>
-                <div className={cx('setting-user__group-avatar')}>
-                    <img
-                        src={currentUser?.avatar}
-                        alt={currentUser?.fullName}
-                        className={cx('setting-user__group-avatar-img')}
-                    />
-
-                    <i
-                        className={cx(
-                            'bx',
-                            'bx-pencil',
-                            'setting-user__group-avatar-icon'
-                        )}
-                    ></i>
-                </div>
+                <AvatarUser
+                    avatar={currentUser ? currentUser.avatar : ''}
+                    setFileUpload={setFileUpload}
+                />
 
                 <div className={cx('setting-user__info')}>
                     <h3 className={cx('setting-user__info-name')}>
-                        {currentUser?.fullName}
+                        {fullName}
                     </h3>
 
                     <p className={cx('setting-user__info-sub-name')}>
@@ -75,7 +88,8 @@ function SettingUser({}: PropsTypeSettingUser) {
                         <input
                             className={cx('setting-user__control-input')}
                             type="text"
-                            defaultValue={currentUser?.email}
+                            value={email}
+                            onChange={(e) => setEmail(e.target.value)}
                         />
                     </div>
                     <div className={cx('setting-user__control')}>
@@ -88,7 +102,8 @@ function SettingUser({}: PropsTypeSettingUser) {
                         <input
                             className={cx('setting-user__control-input')}
                             type="text"
-                            defaultValue={currentUser?.address}
+                            value={address}
+                            onChange={(e) => setAddress(e.target.value)}
                         />
                     </div>
                 </div>
@@ -118,7 +133,8 @@ function SettingUser({}: PropsTypeSettingUser) {
                         <input
                             className={cx('setting-user__control-input')}
                             type="text"
-                            defaultValue={currentUser?.phoneNumber}
+                            value={phoneNumber}
+                            onChange={(e) => setPhoneNumber(e.target.value)}
                         />
                     </div>
                 </div>
@@ -128,6 +144,7 @@ function SettingUser({}: PropsTypeSettingUser) {
                 <Button
                     text="Update"
                     className={cx('setting-user__bot-button')}
+                    onClick={handleSubmit}
                 ></Button>
             </div>
         </div>
