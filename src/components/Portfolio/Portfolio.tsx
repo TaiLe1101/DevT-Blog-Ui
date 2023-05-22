@@ -11,8 +11,8 @@ const cxm = classNames.bind(portfolioStyles);
 function Portfolio() {
     return (
         <div className={`${cx('portfolio')} ${cxm('section')}`} id="portfolio">
-            <h2 className={`${cxm('section__title')}`}>Projects</h2>
-            <span className={`${cxm('section__subtitle')}`}>My projects</span>
+            <h2 className={`${cxm('section__title')}`}>Dự án</h2>
+            <span className={`${cxm('section__subtitle')}`}>Dự án của tôi</span>
 
             <Projects></Projects>
         </div>

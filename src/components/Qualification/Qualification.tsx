@@ -12,8 +12,10 @@ function Qualification() {
 
     return (
         <div className={`${cx('qualification')} ${cxm('section')}`}>
-            <h2 className={`${cxm('section__title')}`}>Qualification</h2>
-            <span className={`${cxm('section__subtitle')}`}>What is offer</span>
+            <h2 className={`${cxm('section__title')}`}>Trình độ chuyên môn</h2>
+            <span className={`${cxm('section__subtitle')}`}>
+                Trình độ của tôi
+            </span>
 
             <div
                 className={`${cx('qualification__container')} ${cxm(

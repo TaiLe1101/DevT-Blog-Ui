@@ -80,8 +80,10 @@ function Contact() {
 
     return (
         <div className={`${cx('contact')} ${cxm('section')}`} id="contact">
-            <h2 className={`${cxm('section__title')}`}>Get in touch</h2>
-            <span className={`${cxm('section__subtitle')}`}>Contact me</span>
+            <h2 className={`${cxm('section__title')}`}>Liên lạc</h2>
+            <span className={`${cxm('section__subtitle')}`}>
+                Liên hệ đặt hàng với tôi
+            </span>
 
             <div
                 className={`${cx('contact__container')} ${cxm(
@@ -90,7 +92,9 @@ function Contact() {
                 )}`}
             >
                 <div className={cx('contact__content')}>
-                    <h3 className={cx('contact__title')}>Talk to me</h3>
+                    <h3 className={cx('contact__title')}>
+                        Phương thức liên hệ
+                    </h3>
 
                     <div className={cx('contact__info')}>
                         <div className={cx('contact__card')}>
@@ -178,7 +182,7 @@ function Contact() {
 
                 <div className={cx('contact__content')}>
                     <h3 className={cx('contact__title')}>
-                        Write me your project
+                        Mô tả dự án của bạn
                     </h3>
 
                     <form
@@ -188,13 +192,13 @@ function Contact() {
                     >
                         <div className={cx('contact__form-div')}>
                             <label className={cx('contact__form-tag')}>
-                                Name
+                                Họ và Tên
                             </label>
                             <input
                                 type="text"
                                 name="name"
                                 className={cx('contact__form-input')}
-                                placeholder="Insert your name"
+                                placeholder="Họ và tên của bạn..."
                                 onChange={(e) =>
                                     setDataForm((prev) => ({
                                         ...prev,
@@ -212,7 +216,7 @@ function Contact() {
                                 type="text"
                                 name="email"
                                 className={cx('contact__form-input')}
-                                placeholder="Insert your mail"
+                                placeholder="customer@gmail.com"
                                 onChange={(e) =>
                                     setDataForm((prev) => ({
                                         ...prev,
@@ -229,14 +233,14 @@ function Contact() {
                             )}
                         >
                             <label className={cx('contact__form-tag')}>
-                                Project
+                                Mô tả về dự án
                             </label>
                             <textarea
                                 name="project"
                                 cols={30}
                                 rows={10}
                                 className={cx('contact__form-input')}
-                                placeholder="Insert your project"
+                                placeholder="Mô tả về dự án của bạn..."
                                 onChange={(e) =>
                                     setDataForm((prev) => ({
                                         ...prev,
@@ -247,7 +251,7 @@ function Contact() {
                         </div>
 
                         <Button
-                            text="Send Message"
+                            text="Gửi yêu cầu"
                             icon={
                                 <i
                                     className={`bx bx-send ${cx(

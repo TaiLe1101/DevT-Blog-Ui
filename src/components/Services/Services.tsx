@@ -20,8 +20,8 @@ function Services() {
 
     return (
         <div className={`${cx('services')} ${cxm('section')}`} id="services">
-            <h2 className={`${cxm('section__title')}`}>Services</h2>
-            <span className={`${cxm('section__subtitle')}`}>What is offer</span>
+            <h2 className={`${cxm('section__title')}`}>Dịch vụ</h2>
+            <span className={`${cxm('section__subtitle')}`}>Bạn sẽ được</span>
 
             <div
                 className={`${cx('services__container')} ${cxm(
@@ -37,7 +37,7 @@ function Services() {
                             )}`}
                         ></i>
                         <h3 className={cx('services__title')}>
-                            Product <br /> Development
+                            Frontend <br /> Development
                         </h3>
                     </div>
 
@@ -47,7 +47,7 @@ function Services() {
                             handleShowModal(1);
                         }}
                     >
-                        View More
+                        Xem chi tiết
                         <i
                             className={`uil uil-arrow-right ${cx(
                                 'services__button-icon'
@@ -68,10 +68,11 @@ function Services() {
                                 onClick={handleCloseModal}
                             ></i>
                             <h3 className={cx('services__modal-title')}>
-                                Website đầu tiên
+                                Các ưu đãi
                             </h3>
                             <p className={cx('services__modal-description')}>
-                                Sản phẩm đầu tay
+                                Phục vụ tận tâm, làm việc thoải mái,giá cả phải
+                                chăng
                             </p>
 
                             <ul
@@ -86,7 +87,7 @@ function Services() {
                                         )}`}
                                     ></i>
                                     <p className={cx('services__modal-info')}>
-                                        I develop user interface
+                                        Thiết kế website theo yêu cầu
                                     </p>
                                 </li>
 
@@ -97,7 +98,7 @@ function Services() {
                                         )}`}
                                     ></i>
                                     <p className={cx('services__modal-info')}>
-                                        I develop user interface
+                                        Xây dụng website theo yêu cầu
                                     </p>
                                 </li>
 
@@ -108,7 +109,8 @@ function Services() {
                                         )}`}
                                     ></i>
                                     <p className={cx('services__modal-info')}>
-                                        I develop user interface
+                                        Hoàn trả 100% tiền nếu không hoàn thành
+                                        dự án
                                     </p>
                                 </li>
                             </ul>
@@ -118,12 +120,12 @@ function Services() {
                 <div className={cx('services__content')}>
                     <div>
                         <i
-                            className={`uil uil-web-grid ${cx(
+                            className={`uil uil-servers ${cx(
                                 'services__icon'
                             )}`}
                         ></i>
                         <h3 className={cx('services__title')}>
-                            Product <br /> Development
+                            Backend <br /> Development
                         </h3>
                     </div>
 
@@ -131,7 +133,7 @@ function Services() {
                         className={cx('services__button')}
                         onClick={() => handleShowModal(2)}
                     >
-                        View More
+                        Xem chi tiết
                         <i
                             className={`uil uil-arrow-right ${cx(
                                 'services__button-icon'
@@ -152,10 +154,11 @@ function Services() {
                                 onClick={handleCloseModal}
                             ></i>
                             <h3 className={cx('services__modal-title')}>
-                                Website thứ 2
+                                Các ưu đãi
                             </h3>
                             <p className={cx('services__modal-description')}>
-                                Sản phẩm thứ 2
+                                Phục vụ tận tâm, làm việc thoải mái,giá cả phải
+                                chăng
                             </p>
 
                             <ul
@@ -170,7 +173,7 @@ function Services() {
                                         )}`}
                                     ></i>
                                     <p className={cx('services__modal-info')}>
-                                        I develop user interface
+                                        Phát triển chức năng theo yêu cầu
                                     </p>
                                 </li>
 
@@ -181,18 +184,8 @@ function Services() {
                                         )}`}
                                     ></i>
                                     <p className={cx('services__modal-info')}>
-                                        I develop user interface
-                                    </p>
-                                </li>
-
-                                <li className={cx('services__modal-service')}>
-                                    <i
-                                        className={`uil uil-check-circle ${cx(
-                                            'services__modal-icon'
-                                        )}`}
-                                    ></i>
-                                    <p className={cx('services__modal-info')}>
-                                        I develop user interface
+                                        Phân tích và đưa ra chức năng hợp lý cho
+                                        sản phẩm
                                     </p>
                                 </li>
                             </ul>
@@ -202,12 +195,12 @@ function Services() {
                 <div className={cx('services__content')}>
                     <div>
                         <i
-                            className={`uil uil-web-grid ${cx(
+                            className={`uil uil-palette ${cx(
                                 'services__icon'
                             )}`}
                         ></i>
                         <h3 className={cx('services__title')}>
-                            Product <br /> Development
+                            Design <br /> UX/UI
                         </h3>
                     </div>
 
@@ -215,7 +208,7 @@ function Services() {
                         className={cx('services__button')}
                         onClick={() => handleShowModal(3)}
                     >
-                        View More
+                        Xem chi tiết
                         <i
                             className={`uil uil-arrow-right ${cx(
                                 'services__button-icon'
@@ -236,10 +229,11 @@ function Services() {
                                 onClick={handleCloseModal}
                             ></i>
                             <h3 className={cx('services__modal-title')}>
-                                Website thứ 3
+                                Các ưu đãi
                             </h3>
                             <p className={cx('services__modal-description')}>
-                                Sản phẩm thứ 3
+                                Phục vụ tận tâm, làm việc thoải mái,giá cả phải
+                                chăng
                             </p>
 
                             <ul
@@ -254,7 +248,7 @@ function Services() {
                                         )}`}
                                     ></i>
                                     <p className={cx('services__modal-info')}>
-                                        I develop user interface
+                                        Xây dựng và thiết kế website chuẩn UX
                                     </p>
                                 </li>
 
@@ -265,7 +259,7 @@ function Services() {
                                         )}`}
                                     ></i>
                                     <p className={cx('services__modal-info')}>
-                                        I develop user interface
+                                        UI hợp với thời đại phát triển công nghệ
                                     </p>
                                 </li>
 
@@ -276,7 +270,8 @@ function Services() {
                                         )}`}
                                     ></i>
                                     <p className={cx('services__modal-info')}>
-                                        I develop user interface
+                                        Kết hợp Responsive tăng trả nghiệm người
+                                        dùng ở mọi thiết bị
                                     </p>
                                 </li>
                             </ul>
