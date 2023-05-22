@@ -26,13 +26,19 @@ function ControlNav({
     isParent,
     onClick,
 }: PropsTypeControlNav) {
-    const classes = cx(classIcon, 'sidebar__icon');
-
+    let optionsTippy = {};
     let ToolTip: any = Fragment;
-    if (tooltip) ToolTip = Tippy;
+
+    if (tooltip) {
+        ToolTip = Tippy;
+        optionsTippy = {
+            content: tooltip,
+            placement: 'right',
+        };
+    }
 
     return (
-        <ToolTip content={tooltip} placement="right">
+        <ToolTip {...optionsTippy}>
             <div
                 className={cx('sidebar__button', {
                     'sidebar__button--active': isActive,
@@ -40,7 +46,7 @@ function ControlNav({
                 })}
                 onClick={onClick}
             >
-                <i className={classes}></i>
+                <i className={cx(classIcon, 'sidebar__icon')}></i>
                 <span className={cx('sidebar__button-title')}>{title}</span>
                 {isParent && (
                     <i

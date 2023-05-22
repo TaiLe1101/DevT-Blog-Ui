@@ -24,8 +24,12 @@ function Testimonial() {
             )}`}
             id="testimonial"
         >
-            <h2 className={`${cxm('section__title')}`}>My client say</h2>
-            <span className={`${cxm('section__subtitle')}`}>Testimonial</span>
+            <h2 className={`${cxm('section__title')}`}>
+                Nhận xét của khách hàng
+            </h2>
+            <span className={`${cxm('section__subtitle')}`}>
+                Tất cả nhận xét
+            </span>
 
             <Swiper
                 className={`${cx('testimonial__container')}`}
@@ -45,7 +49,7 @@ function Testimonial() {
                     },
                     768: {
                         slidesPerView: 2,
-                        spaceBetween: 48,
+                        spaceBetween: 16,
                     },
                 }}
                 modules={[Pagination, Autoplay]}
