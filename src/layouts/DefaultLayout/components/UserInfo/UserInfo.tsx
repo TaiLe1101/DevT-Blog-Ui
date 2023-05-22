@@ -31,7 +31,7 @@ const USER_ITEM_LIST: PropsTypeUserInfoItem[] = [
     },
     {
         text: 'Setting',
-        href: routes.admin,
+        href: routes.adminSetting,
         classIcon: cx('bx', 'bx-cog'),
     },
 ];

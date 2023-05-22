@@ -12,12 +12,9 @@
 
     &__content {
         width: 100%;
-        padding: 2rem 1.6rem 0 1.6rem;
+        padding: 2rem 1.6rem 0 7.6rem;
 
         transition: 0.3s;
-        &--show {
-            padding: 2rem 12rem 0 12rem;
-        }
     }
 }
 

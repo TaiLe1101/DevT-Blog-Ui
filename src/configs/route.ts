@@ -8,6 +8,7 @@ const routes = {
 
     admin: '/admin',
     adminPost: '/admin/post',
+    adminSetting: '/admin/setting',
 };
 
 export default routes;

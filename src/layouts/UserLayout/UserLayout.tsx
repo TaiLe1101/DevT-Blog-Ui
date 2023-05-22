@@ -13,14 +13,7 @@ interface PropsTypeUserLayout {
 }
 
 function UserLayout({ children }: PropsTypeUserLayout) {
-    const [showSidebar, setShowSidebar] = useState<boolean>(true);
-    window.addEventListener('resize', () => {
-        if (window.innerWidth <= 576) {
-            setShowSidebar(false);
-        } else {
-            setShowSidebar(true);
-        }
-    });
+    const [showSidebar, setShowSidebar] = useState<boolean>(false);
 
     return (
         <div className={cx('user-layout')}>
@@ -30,11 +23,7 @@ function UserLayout({ children }: PropsTypeUserLayout) {
             ></Header>
             <div className={cx('user-layout__container')}>
                 <Sidebar showSidebar={showSidebar}></Sidebar>
-                <div
-                    className={cx('user-layout__content', 'container', {
-                        'user-layout__content--show': showSidebar,
-                    })}
-                >
+                <div className={cx('user-layout__content', 'container', {})}>
                     {children}
                 </div>
             </div>

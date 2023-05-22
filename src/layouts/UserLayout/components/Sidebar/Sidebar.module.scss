@@ -1,9 +1,8 @@
 .sidebar {
     position: fixed;
     z-index: var(--z-fixed);
-    transform: translateX(-100%);
+    transform: translateX(-70%);
     transition: 0.3s;
-    opacity: 0;
     top: 52px;
     left: 0;
     bottom: 0;
@@ -19,6 +18,17 @@
     &--show {
         opacity: 1;
         transform: translateX(0);
+
+        .sidebar__button {
+            justify-content: start;
+            width: 95%;
+        }
+
+        .sidebar__button-title {
+            width: initial;
+            visibility: visible;
+            opacity: 1;
+        }
     }
 
     &__title {
@@ -30,12 +40,13 @@
         position: relative;
         display: flex;
         align-items: center;
+        justify-content: center;
         column-gap: 0.4rem;
         color: var(--title-color);
 
         text-transform: capitalize;
 
-        width: 95%;
+        width: 30%;
         margin-left: auto;
         padding: 1.2rem 1.6rem;
 
@@ -76,6 +87,13 @@
             border-radius: 20px;
             background-color: var(--title-color-dark);
 
+            transition: 0.3s;
+        }
+
+        &-title {
+            visibility: hidden;
+            opacity: 0;
+            width: 0;
             transition: 0.3s;
         }
     }

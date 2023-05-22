@@ -26,54 +26,6 @@ const CONTROL_NAV_LIST: ControlNavType[] = [
         classIcon: cx('bx', 'bx-wrench'),
         path: routes.admin,
         level: 0,
-        children: [
-            {
-                id: 21,
-                title: 'Post',
-                classIcon: cx('uil', 'uil-postcard', 'nav__icon'),
-                level: 1,
-                path: routes.adminPost,
-                children: [
-                    {
-                        id: 211,
-                        title: 'Create',
-                        classIcon: cx('uil', 'uil-arrow', 'nav__icon'),
-                        level: 2,
-                        path: routes.adminPost,
-                    },
-                    {
-                        id: 212,
-                        title: 'Edit',
-                        classIcon: cx('uil', 'uil-arrow', 'nav__icon'),
-                        level: 2,
-                        path: routes.adminPost,
-                    },
-                ],
-            },
-            {
-                id: 22,
-                title: 'Product',
-                classIcon: cx('uil', 'uil-postcard', 'nav__icon'),
-                level: 1,
-                path: routes.adminPost,
-                children: [
-                    {
-                        id: 221,
-                        title: 'Create',
-                        classIcon: cx('uil', 'uil-arrow', 'nav__icon'),
-                        level: 2,
-                        path: routes.adminPost,
-                    },
-                    {
-                        id: 222,
-                        title: 'Edit',
-                        classIcon: cx('uil', 'uil-arrow', 'nav__icon'),
-                        level: 2,
-                        path: routes.adminPost,
-                    },
-                ],
-            },
-        ],
     },
     {
         id: 3,
@@ -87,7 +39,7 @@ const CONTROL_NAV_LIST: ControlNavType[] = [
         title: 'Setting',
         classIcon: cx('bx', 'bx-cog', 'sidebar__icon'),
         level: 0,
-        path: '/',
+        path: routes.adminSetting,
     },
 ];
 
@@ -95,7 +47,10 @@ function Sidebar({ showSidebar }: PropsTypeSidebar) {
     return (
         <div className={cx('sidebar', { 'sidebar--show': showSidebar })}>
             <h3 className={cx('sidebar__title')}>Menu</h3>
-            <SidebarMenu items={CONTROL_NAV_LIST}></SidebarMenu>
+            <SidebarMenu
+                showSidebar={showSidebar}
+                items={CONTROL_NAV_LIST}
+            ></SidebarMenu>
         </div>
     );
 }

@@ -1,0 +1,52 @@
+.admin {
+    &-card {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+
+        font-family: var(--body-font);
+
+        padding: 1.6rem;
+        width: 100%;
+        height: 150px;
+
+        border: 1px solid var(--read-only-input);
+        border-radius: 2.4rem;
+
+        background-color: #79e0ee;
+
+        &--semi-blue {
+            background-color: #98eecc;
+        }
+
+        &-top {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+
+            &__title {
+                font-size: var(--h3-font-size);
+            }
+
+            &__icon {
+                font-size: var(--h3-font-size);
+            }
+        }
+
+        &-bot {
+            padding: 1.6rem 0 0 0;
+
+            border-top: 1px solid var(--read-only-input);
+            &__link {
+                color: var(--title-color);
+                display: flex;
+                align-items: center;
+                column-gap: 0.8rem;
+
+                &:hover {
+                    color: var(--title-color-dark);
+                }
+            }
+        }
+    }
+}

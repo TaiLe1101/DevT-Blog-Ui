@@ -16,6 +16,7 @@ import Admin from '~/pages/Admin';
 import SettingUser from '~/pages/SettingUser';
 import UserLayout from '~/layouts/UserLayout';
 import Post from '~/pages/Admin/Post';
+import Setting from '~/pages/Admin/Setting';
 
 const cx = classNames.bind(styles);
 
@@ -77,6 +78,13 @@ const privateRoutes: Route[] = [
         icon: <i className={cx('uil', 'uil-airplay', 'nav__icon')}></i>,
         path: routes.adminPost,
         component: Post,
+        layout: UserLayout,
+    },
+    {
+        name: 'Setting',
+        icon: <i className={cx('uil', 'uil-cog', 'nav__icon')}></i>,
+        path: routes.adminSetting,
+        component: Setting,
         layout: UserLayout,
     },
 ];
