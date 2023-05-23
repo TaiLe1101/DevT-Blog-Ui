@@ -46,6 +46,7 @@ function UserInfo({ avatar }: PropsTypeUserInfo) {
     return (
         <div className={cx('user-info')}>
             <Tippy
+                hideOnClick={false}
                 interactive
                 delay={[0, 500]}
                 render={(attr) => {
