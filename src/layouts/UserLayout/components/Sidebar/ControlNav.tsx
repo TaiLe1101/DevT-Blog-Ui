@@ -4,6 +4,7 @@ import { MouseEventHandler } from 'react';
 import { Fragment } from 'react';
 
 import styles from './Sidebar.module.scss';
+import { NavLink } from 'react-router-dom';
 
 const cx = classNames.bind(styles);
 
@@ -11,8 +12,8 @@ interface PropsTypeControlNav {
     classIcon: string;
     title: string;
     level: number;
+    to: string;
     tooltip: string | undefined;
-    isActive?: boolean;
     isParent?: boolean;
     onClick?: MouseEventHandler<HTMLDivElement>;
 }
@@ -22,7 +23,7 @@ function ControlNav({
     title,
     level,
     tooltip,
-    isActive,
+    to,
     isParent,
     onClick,
 }: PropsTypeControlNav) {
@@ -39,12 +40,14 @@ function ControlNav({
 
     return (
         <ToolTip {...optionsTippy}>
-            <div
-                className={cx('sidebar__button', {
-                    'sidebar__button--active': isActive,
-                    'sidebar__button--children': level > 0,
-                })}
-                onClick={onClick}
+            <NavLink
+                className={(nav) => {
+                    return cx('sidebar__button', {
+                        'sidebar__button--active': nav.isActive,
+                        'sidebar__button--children': level > 0,
+                    });
+                }}
+                to={to}
             >
                 <i className={cx(classIcon, 'sidebar__icon')}></i>
                 <span className={cx('sidebar__button-title')}>{title}</span>
@@ -57,7 +60,7 @@ function ControlNav({
                         )}
                     ></i>
                 )}
-            </div>
+            </NavLink>
         </ToolTip>
     );
 }

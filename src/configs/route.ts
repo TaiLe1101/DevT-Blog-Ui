@@ -5,10 +5,11 @@ const routes = {
     register: '/register',
 
     userInfo: '/user',
+    setting: '/setting',
 
     admin: '/admin',
     adminPost: '/admin/post',
-    adminSetting: '/admin/setting',
+    adminPostDetail: '/admin/post/:id',
 };
 
 export default routes;

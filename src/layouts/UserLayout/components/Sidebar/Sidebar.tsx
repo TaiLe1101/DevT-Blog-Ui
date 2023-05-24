@@ -39,7 +39,7 @@ const CONTROL_NAV_LIST: ControlNavType[] = [
         title: 'Setting',
         classIcon: cx('bx', 'bx-cog', 'sidebar__icon'),
         level: 0,
-        path: routes.adminSetting,
+        path: routes.setting,
     },
 ];
 

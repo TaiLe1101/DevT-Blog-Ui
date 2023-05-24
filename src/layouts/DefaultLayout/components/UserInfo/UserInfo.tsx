@@ -10,7 +10,6 @@ import { useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import routes from '~/configs/route';
 import { PropsTypeUserInfoItem } from '~/types/prop.type';
-import { changeNav } from '~/layouts/UserLayout/components/Sidebar/SidebarSlice';
 
 const cx = classNames.bind(styles);
 
@@ -31,7 +30,7 @@ const USER_ITEM_LIST: PropsTypeUserInfoItem[] = [
     },
     {
         text: 'Setting',
-        href: routes.adminSetting,
+        href: routes.setting,
         classIcon: cx('bx', 'bx-cog'),
     },
 ];
@@ -61,9 +60,7 @@ function UserInfo({ avatar }: PropsTypeUserInfo) {
                                             href={item.href}
                                             classIcon={item.classIcon}
                                             onClick={() =>
-                                                dispatch(
-                                                    changeNav({ id: index + 2 })
-                                                )
+                                                navigate(`${item.href}`)
                                             }
                                         ></UserInfoItem>
                                     );

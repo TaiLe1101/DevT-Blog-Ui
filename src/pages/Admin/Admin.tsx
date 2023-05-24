@@ -76,7 +76,7 @@ function Admin() {
                                     )}
                                 ></i>
                             }
-                            path="#"
+                            path={routes.adminPost}
                             title="Post"
                         ></CardAdmin>
                     </Col>
