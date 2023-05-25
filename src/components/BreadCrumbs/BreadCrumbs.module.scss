@@ -1,0 +1,22 @@
+.bread-crumbs {
+    display: flex;
+    align-items: center;
+    column-gap: 0.4 rem;
+
+    margin-bottom: var(--mb-0-5);
+    &__item {
+        padding: 0.4rem 1.2rem;
+        color: var(--title-color);
+        text-transform: uppercase;
+        font-weight: var(--font-medium);
+
+        border-radius: 0.8rem;
+        transition: 0.3s;
+
+        &--active,
+        &:hover {
+            color: var(--title-color-dark);
+            background-color: var(--border-box-color);
+        }
+    }
+}

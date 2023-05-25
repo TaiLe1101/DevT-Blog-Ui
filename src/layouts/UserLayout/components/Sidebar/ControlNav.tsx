@@ -1,31 +1,19 @@
 import classNames from 'classnames/bind';
 import Tippy from '@tippyjs/react';
-import { MouseEventHandler } from 'react';
 import { Fragment } from 'react';
-
-import styles from './Sidebar.module.scss';
 import { NavLink } from 'react-router-dom';
 
-const cx = classNames.bind(styles);
+import styles from './Sidebar.module.scss';
+import { PropsTypeControlNav } from '~/types/sidebar.type';
 
-interface PropsTypeControlNav {
-    classIcon: string;
-    title: string;
-    level: number;
-    to: string;
-    tooltip: string | undefined;
-    isParent?: boolean;
-    onClick?: MouseEventHandler<HTMLDivElement>;
-}
+const cx = classNames.bind(styles);
 
 function ControlNav({
     classIcon,
     title,
     level,
     tooltip,
-    to,
-    isParent,
-    onClick,
+    path,
 }: PropsTypeControlNav) {
     let optionsTippy = {};
     let ToolTip: any = Fragment;
@@ -47,19 +35,10 @@ function ControlNav({
                         'sidebar__button--children': level > 0,
                     });
                 }}
-                to={to}
+                to={path}
             >
                 <i className={cx(classIcon, 'sidebar__icon')}></i>
                 <span className={cx('sidebar__button-title')}>{title}</span>
-                {isParent && (
-                    <i
-                        className={cx(
-                            'bx',
-                            'bx-chevron-down',
-                            'sidebar__button--dropdown'
-                        )}
-                    ></i>
-                )}
             </NavLink>
         </ToolTip>
     );

@@ -1,79 +1,70 @@
 import classNames from 'classnames/bind';
-
-import styles from './Post.module.scss';
 import { Col, Row } from 'antd';
-import CardAdminPost from '~/components/CardAdminPost';
 import { useNavigate } from 'react-router-dom';
+
+import CardAdminPost from '~/components/CardAdminPost';
+import styles from './Post.module.scss';
+import { CardAdminPostType } from '~/types/cardPostAdmin.type';
 
 const cx = classNames.bind(styles);
 
+const CARD_ADMIN_POST_LIST: CardAdminPostType[] = [
+    {
+        id: 1,
+        title: 'Post1',
+        thumbnail:
+            'https://devt-blog.onrender.com/uploads/projects/1683914446489-kekho.png',
+        desc: 'Et fugiat consequat cupidatat amet nisi in quis consectetur amet ea eu.',
+    },
+    {
+        id: 2,
+        title: 'Post2',
+        thumbnail:
+            'https://devt-blog.onrender.com/uploads/projects/1683914446489-kekho.png',
+        desc: 'Et fugiat consequat cupidatat amet nisi in quis consectetur amet ea eu.',
+    },
+    {
+        id: 3,
+        title: 'Post3',
+        thumbnail:
+            'https://devt-blog.onrender.com/uploads/projects/1683914446489-kekho.png',
+        desc: 'Et fugiat consequat cupidatat amet nisi in quis consectetur amet ea eu.',
+    },
+    {
+        id: 4,
+        title: 'Post4',
+        thumbnail:
+            'https://devt-blog.onrender.com/uploads/projects/1683914446489-kekho.png',
+        desc: 'Et fugiat consequat cupidatat amet nisi in quis consectetur amet ea eu.',
+    },
+];
+
 function Post() {
     const navigate = useNavigate();
-
+    const handleChangeNav = (id: number) => {
+        navigate(`${id}`, {
+            state: {
+                id,
+            },
+        });
+    };
     return (
         <div className={cx('wrapper')}>
             <Row gutter={[16, 16]}>
-                <Col
-                    span={24}
-                    lg={{ span: 6 }}
-                    md={{ span: 12 }}
-                    sm={{ span: 12 }}
-                >
-                    <CardAdminPost
-                        thumbnail="https://devt-blog.onrender.com/uploads/projects/1683914446489-kekho.png"
-                        title="Quá đã"
-                        desc="Pariatur commodo est fugiat aliqua sint incididunt ullamco."
-                        onNavigate={() => navigate(`id`)}
-                    />
-                </Col>
-                <Col
-                    span={24}
-                    lg={{ span: 6 }}
-                    md={{ span: 12 }}
-                    sm={{ span: 12 }}
-                >
-                    <CardAdminPost
-                        thumbnail="https://devt-blog.onrender.com/uploads/projects/1683914446489-kekho.png"
-                        title="Quá đã"
-                        desc="Pariatur commodo est fugiat aliqua sint incididunt ullamco."
-                    />
-                </Col>
-                <Col
-                    span={24}
-                    lg={{ span: 6 }}
-                    md={{ span: 12 }}
-                    sm={{ span: 12 }}
-                >
-                    <CardAdminPost
-                        thumbnail="https://devt-blog.onrender.com/uploads/projects/1683914446489-kekho.png"
-                        title="Quá đã"
-                        desc="Pariatur commodo est fugiat aliqua sint incididunt ullamco."
-                    />
-                </Col>
-                <Col
-                    span={24}
-                    lg={{ span: 6 }}
-                    md={{ span: 12 }}
-                    sm={{ span: 12 }}
-                >
-                    <CardAdminPost
-                        thumbnail="https://devt-blog.onrender.com/uploads/projects/1683914446489-kekho.png"
-                        title="Quá đã"
-                        desc="Pariatur commodo est fugiat aliqua sint incididunt ullamco."
-                    />
-                </Col>
-                <Col
-                    span={24}
-                    lg={{ span: 6 }}
-                    md={{ span: 12 }}
-                    sm={{ span: 12 }}
-                >
-                    <CardAdminPost
-                        thumbnail="https://devt-blog.onrender.com/uploads/projects/1683914446489-kekho.png"
-                        title="Quá đã"
-                        desc="Pariatur commodo est fugiat aliqua sint incididunt ullamco."
-                    />
-                </Col>
+                {CARD_ADMIN_POST_LIST.map((card) => (
+                    <Col
+                        key={card.id}
+                        span={24}
+                        lg={{ span: 6 }}
+                        md={{ span: 12 }}
+                        sm={{ span: 12 }}
+                    >
+                        <CardAdminPost
+                            {...card}
+                            onNavigate={() => handleChangeNav(card.id)}
+                        />
+                    </Col>
+                ))}
             </Row>
         </div>
     );

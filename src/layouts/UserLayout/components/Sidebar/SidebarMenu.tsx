@@ -22,9 +22,8 @@ function SidebarMenu({ showSidebar, items }: PropsTypeSidebarMenu) {
                         title={item.title}
                         classIcon={item.classIcon}
                         level={item.level}
-                        tooltip={!showSidebar ? item.title : undefined}
-                        isParent={item.level >= 0 && !!item.children}
-                        to={item.path}
+                        tooltip={!showSidebar ? item.tooltip : undefined}
+                        path={item.path}
                     />
                 );
             })}

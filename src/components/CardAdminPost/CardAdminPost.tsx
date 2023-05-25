@@ -1,19 +1,12 @@
 import classNames from 'classnames/bind';
 import { Link } from 'react-router-dom';
-
-import styles from './CardAdminPost.module.scss';
-
-import avatar from '~/assets/avatar.jpg';
 import Tippy from '@tippyjs/react';
 
-const cx = classNames.bind(styles);
+import styles from './CardAdminPost.module.scss';
+import avatar from '~/assets/avatar.jpg';
+import { PropsTypeCardAdminPost } from '~/types/cardPostAdmin.type';
 
-interface PropsTypeCardAdminPost {
-    thumbnail: string;
-    title: string;
-    desc?: string;
-    onNavigate?: React.MouseEventHandler<HTMLButtonElement>;
-}
+const cx = classNames.bind(styles);
 
 function CardAdminPost({
     thumbnail,

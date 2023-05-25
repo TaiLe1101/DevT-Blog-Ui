@@ -5,6 +5,7 @@ import styles from './UserLayout.module.scss';
 
 import Header from './components/Header';
 import Sidebar from './components/Sidebar';
+import BreadCrumbs from '~/components/BreadCrumbs';
 
 const cx = classNames.bind(styles);
 
@@ -24,6 +25,7 @@ function UserLayout({ children }: PropsTypeUserLayout) {
             <div className={cx('user-layout__container')}>
                 <Sidebar showSidebar={showSidebar}></Sidebar>
                 <div className={cx('user-layout__content', 'container', {})}>
+                    <BreadCrumbs />
                     {children}
                 </div>
             </div>

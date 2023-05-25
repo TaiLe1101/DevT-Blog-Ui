@@ -1,4 +1,6 @@
-const routes = {
+import { RouteConfigType } from '~/types/route.type';
+
+const routes: RouteConfigType = {
     home: '/',
     login: '/login',
     blog: '/blog',

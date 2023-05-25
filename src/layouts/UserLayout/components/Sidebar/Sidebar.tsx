@@ -16,6 +16,7 @@ const CONTROL_NAV_LIST: ControlNavType[] = [
     {
         id: 1,
         title: 'Home',
+        tooltip: 'Back to home',
         classIcon: cx('bx', 'bx-home-alt-2'),
         path: routes.home,
         level: 0,
@@ -23,6 +24,7 @@ const CONTROL_NAV_LIST: ControlNavType[] = [
     {
         id: 2,
         title: 'Admin',
+        tooltip: 'Admin',
         classIcon: cx('bx', 'bx-wrench'),
         path: routes.admin,
         level: 0,
@@ -30,6 +32,7 @@ const CONTROL_NAV_LIST: ControlNavType[] = [
     {
         id: 3,
         title: 'Info',
+        tooltip: 'Info',
         classIcon: cx('bx', 'bx-face', 'sidebar__icon'),
         level: 0,
         path: routes.userInfo,
@@ -37,6 +40,7 @@ const CONTROL_NAV_LIST: ControlNavType[] = [
     {
         id: 4,
         title: 'Setting',
+        tooltip: 'Setting',
         classIcon: cx('bx', 'bx-cog', 'sidebar__icon'),
         level: 0,
         path: routes.setting,
