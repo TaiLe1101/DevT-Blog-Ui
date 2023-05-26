@@ -13,10 +13,27 @@
         border-radius: 0.8rem;
         transition: 0.3s;
 
+        cursor: pointer;
+
+        user-select: none;
+
         &--active,
         &:hover {
             color: var(--title-color-dark);
             background-color: var(--border-box-color);
+        }
+
+        &--active {
+            cursor: default;
+        }
+
+        &--del-hover {
+            &:hover {
+                color: var(--title-color);
+                background-color: transparent;
+
+                cursor: default;
+            }
         }
     }
 }

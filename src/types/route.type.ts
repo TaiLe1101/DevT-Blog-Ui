@@ -7,7 +7,3 @@ export interface RouteType {
     component: React.FC<any>;
     layout?: React.FC<any> | null;
 }
-
-export interface RouteConfigType {
-    [key: string]: string;
-}

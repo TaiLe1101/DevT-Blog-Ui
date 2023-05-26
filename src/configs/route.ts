@@ -1,6 +1,4 @@
-import { RouteConfigType } from '~/types/route.type';
-
-const routes: RouteConfigType = {
+const routes = {
     home: '/',
     login: '/login',
     blog: '/blog',
@@ -11,7 +9,8 @@ const routes: RouteConfigType = {
 
     admin: '/admin',
     adminPost: '/admin/post',
-    adminPostDetail: '/admin/post/:id',
+    adminPostEdit: '/admin/post/edit/:id',
+    adminPostCreate: '/admin/post/create',
 };
 
 export default routes;

@@ -8,3 +8,7 @@ export interface PropsTypeCardAdminPost {
 export interface CardAdminPostType extends PropsTypeCardAdminPost {
     id: number;
 }
+
+export type ParamsPostAdminType = {
+    id: string;
+};

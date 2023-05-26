@@ -4,7 +4,9 @@ import { useNavigate } from 'react-router-dom';
 
 import CardAdminPost from '~/components/CardAdminPost';
 import styles from './Post.module.scss';
-import { CardAdminPostType } from '~/types/cardPostAdmin.type';
+import { CardAdminPostType } from '~/types/postAdmin.type';
+import Button from '~/components/Button';
+import routes from '~/configs/route';
 
 const cx = classNames.bind(styles);
 
@@ -42,14 +44,23 @@ const CARD_ADMIN_POST_LIST: CardAdminPostType[] = [
 function Post() {
     const navigate = useNavigate();
     const handleChangeNav = (id: number) => {
-        navigate(`${id}`, {
+        navigate(`edit/${id}`, {
             state: {
                 id,
             },
         });
     };
     return (
-        <div className={cx('wrapper')}>
+        <div className={cx('post')}>
+            <div className={cx('post__controls')}>
+                <Button
+                    backColor="#06b6d4"
+                    href={routes.adminPostCreate}
+                    text="Tạo mới"
+                    icon={<i className={cx('uil', 'uil-plus')}></i>}
+                ></Button>
+            </div>
+
             <Row gutter={[16, 16]}>
                 {CARD_ADMIN_POST_LIST.map((card) => (
                     <Col

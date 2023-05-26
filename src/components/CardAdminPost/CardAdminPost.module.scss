@@ -7,7 +7,7 @@
     overflow: hidden;
 
     &:hover {
-        box-shadow: 0 0 8px var(--read-only-input);
+        box-shadow: 4px 8px 12px var(--border-box-color);
     }
 
     &__img {
@@ -82,8 +82,17 @@
                 color: var(--title-color-dark);
             }
 
+            &--left {
+                &:hover {
+                    background-color: #5eead4;
+                }
+            }
+
             &--right {
                 border-left: 1px solid var(--read-only-input);
+                &:hover {
+                    background-color: #fca5a5;
+                }
             }
         }
 

@@ -17,7 +17,7 @@ interface PropsTypeButton {
     download?: boolean;
     className?: string;
     loading?: boolean;
-
+    backColor?: string;
     onClick?: MouseEventHandler<
         HTMLButtonElement | HTMLSpanElement | HTMLAnchorElement
     >;
@@ -34,6 +34,7 @@ function Button({
     download,
     loading,
     className,
+    backColor,
     onClick,
 }: PropsTypeButton) {
     let Comp: any = 'button';
@@ -65,6 +66,7 @@ function Button({
 
     return (
         <Comp
+            style={{ backgroundColor: backColor }}
             href={href}
             to={href}
             disabled={loading || disable}

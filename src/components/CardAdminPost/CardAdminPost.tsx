@@ -4,7 +4,7 @@ import Tippy from '@tippyjs/react';
 
 import styles from './CardAdminPost.module.scss';
 import avatar from '~/assets/avatar.jpg';
-import { PropsTypeCardAdminPost } from '~/types/cardPostAdmin.type';
+import { PropsTypeCardAdminPost } from '~/types/postAdmin.type';
 
 const cx = classNames.bind(styles);
 
@@ -38,7 +38,10 @@ function CardAdminPost({
             <div className={cx('card__controls')}>
                 <Tippy content="Edit">
                     <button
-                        className={cx('card__controls-control')}
+                        className={cx(
+                            'card__controls-control',
+                            'card__controls-control--left'
+                        )}
                         onClick={onNavigate}
                     >
                         <i
@@ -50,7 +53,7 @@ function CardAdminPost({
                         ></i>
                     </button>
                 </Tippy>
-                <Tippy content="Options">
+                <Tippy content="Delete ?">
                     <button
                         className={cx(
                             'card__controls-control',
@@ -60,7 +63,7 @@ function CardAdminPost({
                         <i
                             className={cx(
                                 'uil',
-                                'uil-ellipsis-v',
+                                'uil-trash-alt',
                                 'card__controls-icon'
                             )}
                         ></i>

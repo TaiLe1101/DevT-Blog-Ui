@@ -1,0 +1,8 @@
+.post-edit {
+    &__text-editor {
+        outline: 1px solid red;
+        min-height: 100vh;
+
+        border-radius: 1rem;
+    }
+}

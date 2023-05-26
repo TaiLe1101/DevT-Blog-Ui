@@ -14,7 +14,7 @@ import SettingUser from '~/pages/SettingUser';
 import Admin from '~/pages/Admin';
 import Post from '~/pages/Admin/Post';
 import Setting from '~/pages/Admin/Setting';
-import PostDetail from '~/pages/Admin/Post/PostDetail';
+import { PostCreate, PostEdit } from '~/pages/Admin/Post/PostControl';
 import { RouteType } from '~/types/route.type';
 
 const cx = classNames.bind(styles);
@@ -72,10 +72,17 @@ const privateRoutes: RouteType[] = [
         layout: UserLayout,
     },
     {
-        name: 'Post Detail',
+        name: 'Post Edit',
         icon: <i className={cx('uil', 'uil-cog', 'nav__icon')}></i>,
-        path: routes.adminPostDetail,
-        component: PostDetail,
+        path: routes.adminPostEdit,
+        component: PostEdit,
+        layout: UserLayout,
+    },
+    {
+        name: 'Post Create',
+        icon: <i className={cx('uil', 'uil-cog', 'nav__icon')}></i>,
+        path: routes.adminPostCreate,
+        component: PostCreate,
         layout: UserLayout,
     },
     {

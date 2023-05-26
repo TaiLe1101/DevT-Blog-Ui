@@ -26,6 +26,7 @@ function UserLayout({ children }: PropsTypeUserLayout) {
                 <Sidebar showSidebar={showSidebar}></Sidebar>
                 <div className={cx('user-layout__content', 'container', {})}>
                     <BreadCrumbs />
+                    <br />
                     {children}
                 </div>
             </div>

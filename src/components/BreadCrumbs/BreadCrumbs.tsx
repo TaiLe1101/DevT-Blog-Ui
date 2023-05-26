@@ -1,6 +1,6 @@
 import classNames from 'classnames/bind';
 import { Fragment } from 'react';
-import { useLocation, Link, NavLink } from 'react-router-dom';
+import { useLocation, Link } from 'react-router-dom';
 
 import styles from './BreadCrumbs.module.scss';
 
@@ -21,7 +21,6 @@ function BreadCrumbs() {
                 const tempPath = `/${breadCrumbs
                     .slice(0, index + 1)
                     .join('/')}`;
-
                 const isActive = location.pathname.startsWith(crumb);
 
                 const label = crumb.charAt(0).toUpperCase() + crumb.slice(1);
@@ -31,8 +30,16 @@ function BreadCrumbs() {
                             <Link
                                 className={cx('bread-crumbs__item', {
                                     'bread-crumbs__item--active': isActive,
+                                    'bread-crumbs__item--del-hover':
+                                        label.toUpperCase() === 'EDIT'
+                                            ? true
+                                            : false,
                                 })}
-                                to={tempPath}
+                                to={
+                                    label.toUpperCase() === 'EDIT'
+                                        ? '#'
+                                        : tempPath
+                                }
                             >
                                 {label}
                             </Link>
@@ -43,16 +50,13 @@ function BreadCrumbs() {
                     return <Fragment key={index}></Fragment>;
                 }
             })}
-            <NavLink
-                className={(nav) =>
-                    cx('bread-crumbs__item', {
-                        'bread-crumbs__item--active': nav.isActive,
-                    })
-                }
-                to={location.pathname}
+            <span
+                className={cx('bread-crumbs__item', {
+                    'bread-crumbs__item--active': true,
+                })}
             >
                 {breadCrumbs.pop()}
-            </NavLink>
+            </span>
         </div>
     );
 }
