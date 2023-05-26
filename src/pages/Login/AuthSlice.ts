@@ -3,32 +3,32 @@ import { InitStateAPIType, ResponseAPIType } from '~/types/api.type';
 
 import { UserType } from '~/types/user.type';
 
-// import avatar from '~/assets/avatar.jpg';
-// const initLoginState: InitStateAPIType<ResponseAPIType<UserType>> = {
-//     isLoading: false,
-//     isError: false,
-//     data: {
-//         status: 200,
-//         message: 'SUCCESS',
-//         error: false,
-//         data: {
-//             id: 1,
-//             fullName: 'Lê Trần Tấn Tài',
-//             accessToken: 'a',
-//             address: 'TP. Hồ Chí Minh',
-//             avatar,
-//             email: 'Contact.DevT.1101@gmail.com',
-//             phoneNumber: '0865850073',
-//             username: 'admin',
-//         },
-//     },
-// };
-
+import avatar from '~/assets/avatar.jpg';
 const initLoginState: InitStateAPIType<ResponseAPIType<UserType>> = {
     isLoading: false,
     isError: false,
-    data: null,
+    data: {
+        status: 200,
+        message: 'SUCCESS',
+        error: false,
+        data: {
+            id: 1,
+            fullName: 'Lê Trần Tấn Tài',
+            accessToken: 'a',
+            address: 'TP. Hồ Chí Minh',
+            avatar,
+            email: 'Contact.DevT.1101@gmail.com',
+            phoneNumber: '0865850073',
+            username: 'admin',
+        },
+    },
 };
+
+// const initLoginState: InitStateAPIType<ResponseAPIType<UserType>> = {
+//     isLoading: false,
+//     isError: false,
+//     data: null,
+// };
 
 const initLogoutState = {
     isLoading: false,
