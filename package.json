@@ -2,7 +2,7 @@
     "name": "devt-blog-ui",
     "version": "0.1.0",
     "private": true,
-    "engine": {
+    "engines": {
         "node": "18.x"
     },
     "dependencies": {
