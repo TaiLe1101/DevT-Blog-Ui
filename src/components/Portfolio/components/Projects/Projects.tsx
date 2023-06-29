@@ -1,10 +1,10 @@
-import { Fragment, useEffect, useState } from 'react';
+import { Fragment, useState } from 'react';
 import classNames from 'classnames/bind';
 
 import styles from './Projects.module.scss';
 import portfolioStyles from '~/layouts/PortfolioLayout/PortfolioLayout.module.scss';
 
-import { projectNav, projects } from '../../Data';
+import { projectNav } from '../../Data';
 import ProjectItems from './ProjectItems';
 import Button from '~/components/Button/Button';
 import { useFetch } from '~/hooks/useFetch';
@@ -14,14 +14,7 @@ const cx = classNames.bind(styles);
 const cxm = classNames.bind(portfolioStyles);
 
 function Projects() {
-    let [projectAPI, isLoading, error] = useFetch<ProjectType[]>(
-        '/projects',
-        []
-    );
-
-    if (error) {
-        projectAPI = projects;
-    }
+    let [projectAPI, isLoading] = useFetch<ProjectType[]>('/projects', []);
 
     const [activeNav, setActiveNav] = useState(0);
 

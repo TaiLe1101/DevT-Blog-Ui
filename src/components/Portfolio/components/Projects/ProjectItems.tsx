@@ -9,15 +9,22 @@ interface PropsTypeProjectItems {
     data: ProjectType;
 }
 
-function ProjectItems({
-    data: { title, categoryId, id, thumbnail },
-}: PropsTypeProjectItems) {
+function ProjectItems({ data }: PropsTypeProjectItems) {
     return (
         <div className={cx('projects__card')}>
-            <img src={thumbnail} alt={title} className={cx('projects__img')} />
-            <h3 className={cx('projects__title')}>{title}</h3>
+            <img
+                src={data.thumbnail}
+                alt={data.title}
+                className={cx('projects__img')}
+            />
+            <h3 className={cx('projects__title')}>{data.title}</h3>
 
-            <a href="#!" className={cx('projects__button')}>
+            <a
+                href={data.path}
+                target="_blank"
+                className={cx('projects__button')}
+                rel="noreferrer"
+            >
                 Demo{' '}
                 <i
                     className={`bx bx-right-arrow-alt ${cx(

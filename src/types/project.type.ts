@@ -3,4 +3,5 @@ export interface ProjectType {
     thumbnail: string;
     title: string;
     categoryId: number;
+    path: string;
 }

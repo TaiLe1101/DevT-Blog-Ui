@@ -44,7 +44,7 @@ const CARD_ADMIN_POST_LIST: CardAdminPostType[] = [
 function Post() {
     const navigate = useNavigate();
     const handleChangeNav = (id: number) => {
-        navigate(`edit/${id}`, {
+        navigate(`/admin/post/edit/${id}`, {
             state: {
                 id,
             },

@@ -16,6 +16,7 @@ import Post from '~/pages/Admin/Post';
 import Setting from '~/pages/Admin/Setting';
 import { PostCreate, PostEdit } from '~/pages/Admin/Post/PostControl';
 import { RouteType } from '~/types/route.type';
+import Project from '~/pages/Admin/Project/Project';
 
 const cx = classNames.bind(styles);
 
@@ -83,6 +84,13 @@ const privateRoutes: RouteType[] = [
         icon: <i className={cx('uil', 'uil-cog', 'nav__icon')}></i>,
         path: routes.adminPostCreate,
         component: PostCreate,
+        layout: UserLayout,
+    },
+    {
+        name: 'Project',
+        icon: <i className={cx('uil', 'uil-airplay', 'nav__icon')}></i>,
+        path: routes.adminProject,
+        component: Project,
         layout: UserLayout,
     },
     {

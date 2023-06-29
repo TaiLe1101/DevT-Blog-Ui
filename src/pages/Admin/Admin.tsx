@@ -31,7 +31,7 @@ function Admin() {
                     <Col span={24} lg={{ span: 8 }}>
                         <CardAdmin
                             backgroundColor="#F9F5F6"
-                            path="#"
+                            path={routes.adminProject}
                             title="Project"
                             icon={
                                 <i
