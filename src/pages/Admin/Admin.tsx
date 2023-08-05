@@ -2,7 +2,7 @@ import { Col, Row } from 'antd';
 import classNames from 'classnames/bind';
 
 import styles from './Admin.module.scss';
-import routes from '~/configs/route';
+import ROUTES from '~/configs/route';
 import CardAdmin from '~/components/CardAdmin';
 
 const cx = classNames.bind(styles);
@@ -24,14 +24,14 @@ function Admin() {
                                     )}
                                 ></i>
                             }
-                            path={routes.adminPost}
+                            path={ROUTES.ADMIN_POST}
                             title="Post"
                         ></CardAdmin>
                     </Col>
                     <Col span={24} lg={{ span: 8 }}>
                         <CardAdmin
                             backgroundColor="#F9F5F6"
-                            path={routes.adminProject}
+                            path={ROUTES.ADMIN_PROJECT}
                             title="Project"
                             icon={
                                 <i

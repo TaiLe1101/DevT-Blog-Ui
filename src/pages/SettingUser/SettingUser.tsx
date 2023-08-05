@@ -1,19 +1,17 @@
 import classNames from 'classnames/bind';
 import { useState } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
 
-import styles from './SettingUser.module.scss';
-import { RootState } from '~/redux/store';
 import Button from '~/components/Button';
 import AvatarUser from './AvatarUser';
-import { handleUpdateUser } from '../Login/handler';
+import styles from './SettingUser.module.scss';
+import { useAppSelector } from '~/hooks/reduxHooks';
 
 const cx = classNames.bind(styles);
 
 function SettingUser() {
-    const currentUser = useSelector(
-        (state: RootState) => state.auth.login.data?.data
-    );
+    const currentUser = useAppSelector((state) => state.auth.currentUser);
+
     const [isLoadingUpdate, setIsLoadingUpdate] = useState<boolean>(false);
     const [fileUpload, setFileUpload] = useState<File | undefined | null>(null);
     const [fullName, setFullName] = useState<string | undefined>(
@@ -31,17 +29,6 @@ function SettingUser() {
 
     const handleSubmit = () => {
         setIsLoadingUpdate(true);
-        handleUpdateUser(
-            {
-                accessToken: currentUser ? currentUser.accessToken : '',
-                address,
-                email,
-                avatar: fileUpload,
-                fullName,
-                phoneNumber,
-            },
-            dispatch
-        ).finally(() => setIsLoadingUpdate(false));
     };
 
     return (

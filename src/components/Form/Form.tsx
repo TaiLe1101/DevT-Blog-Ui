@@ -1,12 +1,10 @@
 import classNames from 'classnames/bind';
 
+import { ChangeEvent, FormEvent, ReactNode, useState } from 'react';
+import { Link } from 'react-router-dom';
+import Button from '../Button';
 import styles from './Form.module.scss';
 import FormControl, { PropsTypeFormControl } from './FormControl';
-import Button from '../Button';
-import { Link } from 'react-router-dom';
-import { ChangeEvent, FormEvent, ReactNode, useState } from 'react';
-import { useSelector } from 'react-redux';
-import { RootState } from '~/redux/store';
 
 const cx = classNames.bind(styles);
 
@@ -38,9 +36,6 @@ function Form({
     onSubmit,
 }: PropsTypeForm) {
     const [formData, setFormData] = useState<any>({});
-    const isLoading = useSelector(
-        (state: RootState) => state.auth.login.isLoading
-    );
 
     const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
         e.preventDefault();
@@ -87,7 +82,7 @@ function Form({
                 </div>
 
                 <Button
-                    loading={isLoading}
+                    loading={false}
                     text={textButton}
                     className={cx('form__button')}
                     icon={iconButton}

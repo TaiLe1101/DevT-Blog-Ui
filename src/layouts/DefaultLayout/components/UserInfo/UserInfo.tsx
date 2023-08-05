@@ -3,13 +3,12 @@ import classNames from 'classnames/bind';
 import styles from './UserInfo.module.scss';
 
 import Tippy from '@tippyjs/react/headless';
-import { Wrapper as PopperWrapper } from '~/components/Popper';
-import UserInfoItem from './components/UserInfoItem/UserInfoItem';
-import { handleLogoutUser } from '~/pages/Login/handler';
 import { useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
-import routes from '~/configs/route';
+import { Wrapper as PopperWrapper } from '~/components/Popper';
+import ROUTES from '~/configs/route';
 import { PropsTypeUserInfoItem } from '~/types/prop.type';
+import UserInfoItem from './components/UserInfoItem/UserInfoItem';
 
 const cx = classNames.bind(styles);
 
@@ -20,17 +19,17 @@ interface PropsTypeUserInfo {
 const USER_ITEM_LIST: PropsTypeUserInfoItem[] = [
     {
         text: 'Admin',
-        href: routes.admin,
+        href: ROUTES.ADMIN,
         classIcon: cx('bx', 'bxs-cube-alt'),
     },
     {
         text: 'Info',
-        href: routes.userInfo,
+        href: ROUTES.USER_INFO,
         classIcon: cx('bx', 'bx-face'),
     },
     {
         text: 'Setting',
-        href: routes.setting,
+        href: ROUTES.SETTING,
         classIcon: cx('bx', 'bx-cog'),
     },
 ];
@@ -38,9 +37,7 @@ const USER_ITEM_LIST: PropsTypeUserInfoItem[] = [
 function UserInfo({ avatar }: PropsTypeUserInfo) {
     const navigate = useNavigate();
     const dispatch = useDispatch();
-    const handleLogout = async () => {
-        await handleLogoutUser(1, dispatch, navigate);
-    };
+    const handleLogout = async () => {};
 
     return (
         <div className={cx('user-info')}>

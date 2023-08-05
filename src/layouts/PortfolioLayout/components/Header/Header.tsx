@@ -3,7 +3,7 @@ import { useState } from 'react';
 
 import styles from './Header.module.scss';
 import portfolioStyles from '~/layouts/PortfolioLayout/PortfolioLayout.module.scss';
-import routes from '~/configs/route';
+import ROUTES from '~/configs/route';
 import { Link } from 'react-router-dom';
 
 const cx = classNames.bind(styles);
@@ -145,7 +145,7 @@ function Header() {
                         </li>
 
                         <li className={cx('nav__item')}>
-                            <Link to={routes.blog} className={cx('nav__link')}>
+                            <Link to={ROUTES.BLOG} className={cx('nav__link')}>
                                 <i
                                     className={`uil uil-blogger-alt ${cx(
                                         'nav__icon'

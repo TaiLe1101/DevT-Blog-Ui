@@ -1,22 +1,20 @@
-import { Fragment, useEffect, useState } from 'react';
 import classNames from 'classnames/bind';
+import { Fragment, useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 
-import styles from './Header.module.scss';
-import routes from '~/configs/route';
+import ROUTES from '~/configs/route';
 import { publicRoutes } from '~/routes';
-import { useSelector } from 'react-redux';
-import { RootState } from '~/redux/store';
 import UserInfo from '../UserInfo/UserInfo';
+import styles from './Header.module.scss';
+import { useAppSelector } from '~/hooks/reduxHooks';
 
 const cx = classNames.bind(styles);
 
 function Header() {
     const [routeList, setRouteList] = useState(publicRoutes);
     const [showMenu, setShowMenu] = useState<boolean>(false);
-    const currentUser = useSelector(
-        (state: RootState) => state.auth.login.data?.data
-    );
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+    const currentUser = useAppSelector((state) => state.auth.currentUser);
 
     useEffect(() => {
         if (currentUser) {
@@ -33,14 +31,14 @@ function Header() {
     return (
         <div className={cx('header')}>
             <nav className={cx('nav', 'container')}>
-                <Link to={routes.home} className={cx('nav__logo')}>
+                <Link to={ROUTES.HOME} className={cx('nav__logo')}>
                     DevT
                 </Link>
 
                 <div className={cx('nav__menu', { 'show-menu': showMenu })}>
                     <ul className={cx('nav__list')}>
                         {routeList.map((route, index) => {
-                            if (route.path !== routes.register) {
+                            if (route.path !== ROUTES.REGISTER) {
                                 return (
                                     <li className={cx('nav__item')} key={index}>
                                         <Link
@@ -59,7 +57,7 @@ function Header() {
                         {currentUser && (
                             <>
                                 <UserInfo
-                                    avatar={currentUser.avatar}
+                                    avatar={'/images/no-image.jpg'}
                                 ></UserInfo>
                             </>
                         )}

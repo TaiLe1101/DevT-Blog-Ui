@@ -3,16 +3,13 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 
 import { publicRoutes, privateRoutes } from './routes';
 import DefaultLayout from './layouts/DefaultLayout';
-import { useSelector } from 'react-redux';
-import { RootState } from './redux/store';
 import NotFound from './pages/NotFound';
 import './index.scss';
+import { useAppSelector } from './hooks/reduxHooks';
 
 function App() {
     const [theme] = useState<'light' | 'dark'>('light');
-    const currentUser = useSelector(
-        (state: RootState) => state.auth.login.data
-    );
+    const currentUser = useAppSelector((state) => state.auth.currentUser);
 
     return (
         <Router>
@@ -28,7 +25,7 @@ function App() {
                         } else if (route.layout === null) {
                             Layout = Fragment;
                         }
-
+                        console.log('r ->', route.name);
                         return (
                             <Route
                                 key={index}

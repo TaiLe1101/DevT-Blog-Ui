@@ -1,10 +1,8 @@
 import classNames from 'classnames/bind';
 import { Dispatch } from 'react';
-import { useSelector } from 'react-redux';
 
-import styles from './Header.module.scss';
 import UserInfo from '~/layouts/DefaultLayout/components/UserInfo';
-import { RootState } from '~/redux/store';
+import styles from './Header.module.scss';
 
 const cx = classNames.bind(styles);
 
@@ -14,10 +12,6 @@ interface PropsTypeHeader {
 }
 
 function Header({ setShowSidebar, showSidebar }: PropsTypeHeader) {
-    const currentUser = useSelector(
-        (state: RootState) => state.auth.login.data?.data
-    );
-
     return (
         <div className={cx('header')}>
             <div className={cx('header__content')}>
@@ -47,7 +41,7 @@ function Header({ setShowSidebar, showSidebar }: PropsTypeHeader) {
                     ></span>
                 </div>
                 <div className={cx('header__control')}>
-                    <UserInfo avatar={currentUser?.avatar || '/'}></UserInfo>
+                    <UserInfo avatar={'/images/no-image.jpg'}></UserInfo>
                 </div>
             </div>
         </div>

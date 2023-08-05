@@ -1,19 +1,18 @@
 import classNames from 'classnames/bind';
-import styles from './Login.module.scss';
 import Form from '~/components/Form';
-import { DataLoginType, handleLoginUser } from './handler';
-import { useDispatch } from 'react-redux';
-import { useNavigate } from 'react-router-dom';
-import routes from '~/configs/route';
+import ROUTES from '~/configs/route';
+import styles from './Login.module.scss';
+import { useAppDispatch } from '~/hooks/reduxHooks';
+import { authActions } from '~/redux/features/auth';
+import { LoginPayload } from '~/api';
 
 const cx = classNames.bind(styles);
 
 function Login() {
-    const dispatch = useDispatch();
-    const navigate = useNavigate();
-
-    const handleLogin = (value: DataLoginType) => {
-        handleLoginUser(value, dispatch, navigate);
+    const dispatch = useAppDispatch();
+    const handleLogin = (value: LoginPayload) => {
+        console.log('value ->', value);
+        dispatch(authActions.login(value));
     };
 
     return (
@@ -32,11 +31,11 @@ function Login() {
                             },
                         ]}
                         linkLeft={{
-                            path: routes.blog,
+                            path: ROUTES.BLOG,
                             title: 'Trở về trang chủ',
                         }}
                         linkRight={{
-                            path: routes.register,
+                            path: ROUTES.REGISTER,
                             title: 'Đăng ký ?',
                         }}
                         textButton="Đăng nhập"

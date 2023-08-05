@@ -1,7 +1,7 @@
 import classNames from 'classnames/bind';
 import styles from './Register.module.scss';
 import Form from '~/components/Form';
-import routes from '~/configs/route';
+import ROUTES from '~/configs/route';
 
 const cx = classNames.bind(styles);
 
@@ -23,10 +23,10 @@ function Register() {
                             },
                         ]}
                         linkLeft={{
-                            path: routes.blog,
+                            path: ROUTES.BLOG,
                             title: 'Trở về trang chủ',
                         }}
-                        linkRight={{ path: routes.login, title: 'Đăng nhập ?' }}
+                        linkRight={{ path: ROUTES.LOGIN, title: 'Đăng nhập ?' }}
                         textButton="Đăng ký"
                         iconButton={<i className="bx bx-lock-open-alt"></i>}
                     ></Form>

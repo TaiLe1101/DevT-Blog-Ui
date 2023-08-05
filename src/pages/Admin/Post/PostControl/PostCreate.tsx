@@ -1,8 +1,13 @@
 import classNames from 'classnames/bind';
+import MarkdownIt from 'markdown-it';
+import MdEditor from 'react-markdown-editor-lite';
 
-import styles from './PostControl.module.scss';
-import noImage from '~/assets/no-img.jpg';
 import { useRef, useState } from 'react';
+import noImage from '~/assets/no-img.jpg';
+import styles from './PostControl.module.scss';
+
+import 'react-markdown-editor-lite/lib/index.css';
+import Button from '~/components/Button/Button';
 
 const cx = classNames.bind(styles);
 
@@ -31,6 +36,18 @@ function PostCreate() {
             setFileImg(selectedFile);
         }
     };
+
+    const mdParser = new MarkdownIt(/* Markdown-it options */);
+
+    function handleEditorChange({
+        html,
+        text,
+    }: {
+        html: string;
+        text: string;
+    }) {
+        console.log('handleEditorChange', html, text);
+    }
 
     return (
         <div className={cx('post-control')}>
@@ -118,6 +135,22 @@ function PostCreate() {
                         ></textarea>
                     </div>
                 </div>
+            </div>
+            <div className={cx('post-control__body')}>
+                <MdEditor
+                    style={{ height: '500px' }}
+                    renderHTML={(text) => mdParser.render(text)}
+                    onChange={handleEditorChange}
+                    placeholder="Input contents"
+                    className={cx('post-control__editor')}
+                />
+            </div>
+
+            <div className={cx('post-control__bot')}>
+                <Button
+                    text="Tạo bài viết"
+                    backColor="var(--color-success)"
+                ></Button>
             </div>
         </div>
     );

@@ -73,4 +73,16 @@
 
         border-radius: 0.4rem;
     }
+
+    &__editor {
+        margin-top: 2.4rem;
+
+        section {
+            padding: 0;
+        }
+    }
+
+    &__bot {
+        margin-top: 2.4rem;
+    }
 }

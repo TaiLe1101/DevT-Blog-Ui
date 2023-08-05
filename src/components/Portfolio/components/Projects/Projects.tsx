@@ -1,21 +1,16 @@
-import { Fragment, useState } from 'react';
 import classNames from 'classnames/bind';
+import { useState } from 'react';
 
-import styles from './Projects.module.scss';
 import portfolioStyles from '~/layouts/PortfolioLayout/PortfolioLayout.module.scss';
+import styles from './Projects.module.scss';
 
-import { projectNav } from '../../Data';
-import ProjectItems from './ProjectItems';
 import Button from '~/components/Button/Button';
-import { useFetch } from '~/hooks/useFetch';
-import { ProjectType } from '~/types/project.type';
+import { projectNav } from '../../Data';
 
 const cx = classNames.bind(styles);
 const cxm = classNames.bind(portfolioStyles);
 
 function Projects() {
-    let [projectAPI, isLoading] = useFetch<ProjectType[]>('/projects', []);
-
     const [activeNav, setActiveNav] = useState(0);
 
     const handleActiveNav = (id: number) => {
@@ -48,10 +43,10 @@ function Projects() {
                     'grid'
                 )}`}
             >
-                {isLoading ? (
+                {/* {false ? (
                     <p>Loading...</p>
                 ) : (
-                    projectAPI.map((project) => {
+                    [].map((project) => {
                         if (activeNav === 0) {
                             return (
                                 <ProjectItems
@@ -72,7 +67,7 @@ function Projects() {
                             }
                         }
                     })
-                )}
+                )} */}
             </div>
         </>
     );

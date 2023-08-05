@@ -1,7 +1,7 @@
 import classNames from 'classnames/bind';
 
 import styles from './Sidebar.module.scss';
-import routes from '~/configs/route';
+import ROUTES from '~/configs/route';
 
 import SidebarMenu from './SidebarMenu';
 import { ControlNavType } from '~/types/sidebar.type';
@@ -18,7 +18,7 @@ const CONTROL_NAV_LIST: ControlNavType[] = [
         title: 'Home',
         tooltip: 'Back to home',
         classIcon: cx('bx', 'bx-home-alt-2'),
-        path: routes.home,
+        path: ROUTES.HOME,
         level: 0,
     },
     {
@@ -26,7 +26,7 @@ const CONTROL_NAV_LIST: ControlNavType[] = [
         title: 'Admin',
         tooltip: 'Admin',
         classIcon: cx('bx', 'bx-wrench'),
-        path: routes.admin,
+        path: ROUTES.ADMIN,
         level: 0,
     },
     {
@@ -35,7 +35,7 @@ const CONTROL_NAV_LIST: ControlNavType[] = [
         tooltip: 'Info',
         classIcon: cx('bx', 'bx-face', 'sidebar__icon'),
         level: 0,
-        path: routes.userInfo,
+        path: ROUTES.USER_INFO,
     },
     {
         id: 4,
@@ -43,7 +43,7 @@ const CONTROL_NAV_LIST: ControlNavType[] = [
         tooltip: 'Setting',
         classIcon: cx('bx', 'bx-cog', 'sidebar__icon'),
         level: 0,
-        path: routes.setting,
+        path: ROUTES.SETTING,
     },
 ];
 

@@ -1,12 +1,5 @@
-export interface ResponseAPIType<T> {
-    status: number;
+export interface ResponseAPIType<T = any> {
+    statusCode: number;
     message: string;
-    error: boolean;
     data: T;
-}
-
-export interface InitStateAPIType<T> {
-    isLoading: boolean;
-    isError: boolean;
-    data: T | undefined | null;
 }

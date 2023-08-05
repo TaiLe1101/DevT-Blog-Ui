@@ -1,21 +1,21 @@
-const routes = {
-    home: '/',
-    login: '/login',
-    blog: '/blog',
-    register: '/register',
+enum ROUTES {
+    HOME = '/',
+    LOGIN = '/login',
+    BLOG = '/blog',
+    REGISTER = '/register',
 
-    userInfo: '/user',
-    setting: '/setting',
+    USER_INFO = '/user',
+    SETTING = '/setting',
 
-    admin: '/admin',
+    ADMIN = '/admin',
 
-    adminPost: '/admin/post',
-    adminPostEdit: '/admin/post/edit/:id',
-    adminPostCreate: '/admin/post/create',
+    ADMIN_POST = '/admin/post',
+    ADMIN_POST_EDIT = '/admin/post/edit/:id',
+    ADMIN_POST_CREATE = '/admin/post/create',
 
-    adminProject: '/admin/project',
-    adminProjectEdit: '/admin/project/edit/:id',
-    adminProjectCreate: '/admin/project/create',
-};
+    ADMIN_PROJECT = '/admin/project',
+    ADMIN_PROJECT_EDIT = '/admin/project/edit/:id',
+    ADMIN_PROJECT_CREATE = '/admin/project/create',
+}
 
-export default routes;
+export default ROUTES;

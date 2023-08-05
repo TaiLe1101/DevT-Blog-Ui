@@ -1,62 +1,47 @@
 import classNames from 'classnames/bind';
 
-import styles from './Blog.module.scss';
-import CardBlog from '~/components/CardBlog';
-import blogTest from '~/assets/billiardcrypto.png';
 import { useEffect, useState } from 'react';
 import { useLocation } from 'react-router-dom';
+import blogTest from '~/assets/billiardcrypto.png';
+import CardBlog from '~/components/CardBlog';
+import { PostModel } from '~/models';
+import { postApi } from '~/api/postApi';
+import styles from './Blog.module.scss';
 
 const cx = classNames.bind(styles);
 
 function Blog() {
     const location = useLocation();
-    const [orderPost, setOrderPost] = useState<boolean>(true);
-
-    window.addEventListener('resize', (e) => {
-        if (window.innerWidth <= 576) {
-            setOrderPost(false);
-        }
-    });
+    const [posts, setPosts] = useState<PostModel[]>([]);
 
     useEffect(() => {
         window.scrollTo({ top: 0, behavior: 'smooth' });
     }, [location]);
 
+    useEffect(() => {
+        console.log('1 ->', 1);
+        // postApi.getAll().then((res) => setPosts(res.data));
+    }, []);
+
     return (
         <div className={cx('blog', 'section')}>
             <div className={cx('blog__container', 'container')}>
-                <CardBlog
-                    date="12/12/2012"
-                    desc="Tuyệt vời làm sao luôn á"
-                    thumbnail={blogTest}
-                    title="1 Ngày đẹp trời"
-                ></CardBlog>
-                <CardBlog
-                    order={orderPost}
-                    date="12/12/2012"
-                    desc="Tuyệt vời làm sao luôn á"
-                    thumbnail={blogTest}
-                    title="1 Ngày đẹp trời"
-                ></CardBlog>
-                <CardBlog
-                    date="12/12/2012"
-                    desc="Tuyệt vời làm sao luôn á "
-                    thumbnail={blogTest}
-                    title="1 Ngày đẹp trời"
-                ></CardBlog>
-                <CardBlog
-                    order={orderPost}
-                    date="12/12/2012"
-                    desc="Tuyệt vời làm sao luôn á"
-                    thumbnail={blogTest}
-                    title="1 Ngày đẹp trời"
-                ></CardBlog>
-                <CardBlog
-                    date="12/12/2012"
-                    desc="Tuyệt vời làm sao luôn á"
-                    thumbnail={blogTest}
-                    title="1 Ngày đẹp trời"
-                ></CardBlog>
+                {posts.map((post) => {
+                    return (
+                        <CardBlog
+                            key={post.id}
+                            date={new Date(post.createdAt).toLocaleDateString(
+                                'vi'
+                            )}
+                            desc={post.title}
+                            thumbnail={
+                                post.thumbnail ? post.thumbnail : blogTest
+                            }
+                            title={post.title}
+                            order={post.id % 2 === 0}
+                        ></CardBlog>
+                    );
+                })}
             </div>
         </div>
     );

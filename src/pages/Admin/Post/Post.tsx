@@ -6,7 +6,7 @@ import CardAdminPost from '~/components/CardAdminPost';
 import styles from './Post.module.scss';
 import { CardAdminPostType } from '~/types/postAdmin.type';
 import Button from '~/components/Button';
-import routes from '~/configs/route';
+import ROUTES from '~/configs/route';
 
 const cx = classNames.bind(styles);
 
@@ -55,7 +55,7 @@ function Post() {
             <div className={cx('post__controls')}>
                 <Button
                     backColor="#06b6d4"
-                    href={routes.adminPostCreate}
+                    href={ROUTES.ADMIN_POST_CREATE}
                     text="Tạo mới"
                     icon={<i className={cx('uil', 'uil-plus')}></i>}
                 ></Button>

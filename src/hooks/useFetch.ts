@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import * as request from '~/utils/request';
+import { axiosClient } from '~/utils';
 
 export const useFetch = <T>(
     url: string,
@@ -14,7 +14,7 @@ export const useFetch = <T>(
             try {
                 setIsLoading(true);
 
-                const result = await request.get<T>(url);
+                const result = await axiosClient.get<T>(url);
                 setData(result.data);
                 setIsLoading(false);
             } catch (error) {
