@@ -1,6 +1,8 @@
 import { PayloadAction, createSlice } from '@reduxjs/toolkit';
 import { LoginPayload } from '~/api';
+import { TOKEN } from '~/constants';
 import { UserModel } from '~/models';
+import { cookieStore } from '~/utils';
 
 // import avatar from '~/assets/avatar.jpg';
 // const initLoginState: InitStateAPIType<ResponseAPIType<UserType>> = {
@@ -39,7 +41,7 @@ export const authSlice = createSlice({
     name: 'auth',
     initialState,
     reducers: {
-        login(state, action: PayloadAction<LoginPayload>) {
+        login(state) {
             state.isLoading = true;
         },
         loginSuccess(state, action: PayloadAction<UserModel>) {
@@ -49,7 +51,6 @@ export const authSlice = createSlice({
         },
         loginFailed(state) {
             state.isLoading = false;
-            state.isLogged = false;
         },
 
         logout(state) {

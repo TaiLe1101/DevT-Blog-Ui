@@ -4,21 +4,21 @@ import axios, {
     InternalAxiosRequestConfig,
 } from 'axios';
 import jwtDecode from 'jwt-decode';
-import { persistLocalStorage } from './persist';
 import { authApi } from '~/api';
+import { TOKEN } from '~/constants';
 import { JwtModel } from '~/models';
+import { cookieStore } from '~/utils/cookieStore';
 
 const configAxios: CreateAxiosDefaults = {
-    baseURL: process.env.BASE_URL,
+    baseURL: process.env.REACT_APP_BASE_URL,
     headers: {
         'Content-Type': 'application/json',
     },
+    withCredentials: true,
 };
 
-const axiosClientToken = axios.create({
-    ...configAxios,
-    withCredentials: true,
-});
+const axiosClientToken = axios.create(configAxios);
+
 const axiosClient = axios.create(configAxios);
 
 axiosClientToken.interceptors.request.use(
@@ -28,29 +28,20 @@ axiosClientToken.interceptors.request.use(
 
         const nowTime = date.getTime() / MILLISECONDS_PER_SECOND;
 
-        const currentUser = persistLocalStorage.getAuth().currentUser;
-        let accessToken = '';
+        const accessToken = cookieStore.get(TOKEN.ACCESS_TOKEN);
 
-        if (currentUser) {
-            accessToken = currentUser.accessToken;
-        }
+        if (accessToken) {
+            const decodedToken = jwtDecode<JwtModel>(accessToken);
 
-        const decodedToken = jwtDecode<JwtModel>(accessToken);
+            if (decodedToken.exp < nowTime) {
+                const res = await authApi.refreshToken();
 
-        if (decodedToken.exp < nowTime) {
-            const res = await authApi.refreshToken();
-
-            if (res.statusCode === 200) {
-                config.headers.Authorization = `Bearer ${res.data.accessToken}`;
+                if (res.statusCode === 200) {
+                    config.headers.Authorization = `Bearer ${res.data.accessToken}`;
+                }
+            } else {
+                config.headers.Authorization = `Bearer ${accessToken}`;
             }
-        } else {
-            let accessToken = '';
-            const currentUser = persistLocalStorage.getAuth().currentUser;
-            if (currentUser) {
-                accessToken = currentUser.accessToken;
-            }
-
-            config.headers.Authorization = `Bearer ${accessToken}`;
         }
 
         return config;
@@ -72,6 +63,15 @@ axiosClientToken.interceptors.response.use(
 axiosClient.interceptors.response.use(
     function (response: AxiosResponse) {
         return response.data;
+    },
+    function (error) {
+        return Promise.reject(error);
+    }
+);
+
+axiosClient.interceptors.request.use(
+    function (config: InternalAxiosRequestConfig) {
+        return config;
     },
     function (error) {
         return Promise.reject(error);

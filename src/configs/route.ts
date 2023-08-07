@@ -2,7 +2,6 @@ enum ROUTES {
     HOME = '/',
     LOGIN = '/login',
     BLOG = '/blog',
-    REGISTER = '/register',
 
     USER_INFO = '/user',
     SETTING = '/setting',

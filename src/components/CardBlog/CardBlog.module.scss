@@ -8,6 +8,10 @@
     border: 1px solid var(--read-only-input);
     padding: 1.6rem;
 
+    &__link-img {
+        text-align: center;
+    }
+
     &-oder &__link-img {
         order: 2;
     }
@@ -15,6 +19,8 @@
     &__img {
         border-radius: 1.6rem;
         object-fit: cover;
+        width: 460px;
+        height: 306px;
     }
 
     &__header {

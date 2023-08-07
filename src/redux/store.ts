@@ -8,7 +8,8 @@ import { persistReducer, persistStore } from 'redux-persist';
 import storage from 'redux-persist/lib/storage';
 import createSagaMiddleware from 'redux-saga';
 
-import authReducer from './features/auth/authSlice';
+import authReducer from './features/auth';
+import postReducer from './features/post';
 import rootSaga from './rootSaga';
 
 const persistConfig = {
@@ -18,6 +19,7 @@ const persistConfig = {
 
 const rootReducer = combineReducers({
     auth: authReducer,
+    post: postReducer,
 });
 
 const sagaMiddleware = createSagaMiddleware();
@@ -27,7 +29,9 @@ const persistedReducer = persistReducer(persistConfig, rootReducer);
 export const store = configureStore({
     reducer: persistedReducer,
     middleware: (getDefaultMiddleware) =>
-        getDefaultMiddleware().concat(sagaMiddleware),
+        getDefaultMiddleware({
+            serializableCheck: false,
+        }).concat(sagaMiddleware),
 });
 
 sagaMiddleware.run(rootSaga);

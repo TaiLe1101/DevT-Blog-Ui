@@ -1,18 +1,25 @@
 import classNames from 'classnames/bind';
-import Form from '~/components/Form';
-import ROUTES from '~/configs/route';
-import styles from './Login.module.scss';
-import { useAppDispatch } from '~/hooks/reduxHooks';
-import { authActions } from '~/redux/features/auth';
+import { useNavigate } from 'react-router-dom';
 import { LoginPayload } from '~/api';
+import Form from '~/components/Form';
+import { authHandles } from '~/redux/features/auth';
+import { useAppDispatch } from '~/hooks';
+import styles from './Login.module.scss';
 
 const cx = classNames.bind(styles);
 
 function Login() {
     const dispatch = useAppDispatch();
+    const navigate = useNavigate();
     const handleLogin = (value: LoginPayload) => {
-        console.log('value ->', value);
-        dispatch(authActions.login(value));
+        authHandles.login(
+            {
+                username: value.username,
+                password: value.password,
+            },
+            dispatch,
+            navigate
+        );
     };
 
     return (
@@ -30,14 +37,6 @@ function Login() {
                                 name: 'password',
                             },
                         ]}
-                        linkLeft={{
-                            path: ROUTES.BLOG,
-                            title: 'Trở về trang chủ',
-                        }}
-                        linkRight={{
-                            path: ROUTES.REGISTER,
-                            title: 'Đăng ký ?',
-                        }}
                         textButton="Đăng nhập"
                         iconButton={<i className="bx bx-lock-open-alt"></i>}
                     ></Form>

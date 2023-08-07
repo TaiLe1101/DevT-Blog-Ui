@@ -1,47 +1,25 @@
-import classNames from 'classnames/bind';
 import { Col, Row } from 'antd';
+import classNames from 'classnames/bind';
 import { useNavigate } from 'react-router-dom';
 
-import CardAdminPost from '~/components/CardAdminPost';
-import styles from './Post.module.scss';
-import { CardAdminPostType } from '~/types/postAdmin.type';
+import { useEffect } from 'react';
 import Button from '~/components/Button';
+import CardAdminPost from '~/components/CardAdminPost';
 import ROUTES from '~/configs/route';
+import { postActions } from '~/redux/features/post';
+import { useAppDispatch, useAppSelector } from '~/hooks';
+import styles from './Post.module.scss';
 
 const cx = classNames.bind(styles);
 
-const CARD_ADMIN_POST_LIST: CardAdminPostType[] = [
-    {
-        id: 1,
-        title: 'Post1',
-        thumbnail:
-            'https://devt-blog.onrender.com/uploads/projects/1683914446489-kekho.png',
-        desc: 'Et fugiat consequat cupidatat amet nisi in quis consectetur amet ea eu.',
-    },
-    {
-        id: 2,
-        title: 'Post2',
-        thumbnail:
-            'https://devt-blog.onrender.com/uploads/projects/1683914446489-kekho.png',
-        desc: 'Et fugiat consequat cupidatat amet nisi in quis consectetur amet ea eu.',
-    },
-    {
-        id: 3,
-        title: 'Post3',
-        thumbnail:
-            'https://devt-blog.onrender.com/uploads/projects/1683914446489-kekho.png',
-        desc: 'Et fugiat consequat cupidatat amet nisi in quis consectetur amet ea eu.',
-    },
-    {
-        id: 4,
-        title: 'Post4',
-        thumbnail:
-            'https://devt-blog.onrender.com/uploads/projects/1683914446489-kekho.png',
-        desc: 'Et fugiat consequat cupidatat amet nisi in quis consectetur amet ea eu.',
-    },
-];
-
 function Post() {
+    const { posts, isLoading } = useAppSelector((state) => state.post);
+
+    const dispatch = useAppDispatch();
+    useEffect(() => {
+        dispatch(postActions.getPosts());
+    }, [dispatch]);
+
     const navigate = useNavigate();
     const handleChangeNav = (id: number) => {
         navigate(`/admin/post/edit/${id}`, {
@@ -49,6 +27,10 @@ function Post() {
                 id,
             },
         });
+    };
+
+    const handleDeletePost = async (id: number) => {
+        dispatch(postActions.deletePost({ id }));
     };
     return (
         <div className={cx('post')}>
@@ -62,20 +44,30 @@ function Post() {
             </div>
 
             <Row gutter={[16, 16]}>
-                {CARD_ADMIN_POST_LIST.map((card) => (
-                    <Col
-                        key={card.id}
-                        span={24}
-                        lg={{ span: 6 }}
-                        md={{ span: 12 }}
-                        sm={{ span: 12 }}
-                    >
-                        <CardAdminPost
-                            {...card}
-                            onNavigate={() => handleChangeNav(card.id)}
-                        />
-                    </Col>
-                ))}
+                {posts ? (
+                    posts.map((item) => (
+                        <Col
+                            key={item.id}
+                            span={24}
+                            lg={{ span: 6 }}
+                            md={{ span: 12 }}
+                            sm={{ span: 12 }}
+                        >
+                            <CardAdminPost
+                                id={item.id}
+                                thumbnail={item.thumbnail}
+                                title={item.title}
+                                desc={item.desc}
+                                avatar={item.user.avatar}
+                                onNavigate={() => handleChangeNav(item.id)}
+                                onDelete={() => handleDeletePost(item.id)}
+                                deleteLoading={isLoading}
+                            />
+                        </Col>
+                    ))
+                ) : (
+                    <></>
+                )}
             </Row>
         </div>
     );

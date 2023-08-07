@@ -1,11 +1,11 @@
 import { Fragment, useState } from 'react';
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { Route, BrowserRouter as Router, Routes } from 'react-router-dom';
 
-import { publicRoutes, privateRoutes } from './routes';
+import { useAppSelector } from '~/hooks';
+import './index.scss';
 import DefaultLayout from './layouts/DefaultLayout';
 import NotFound from './pages/NotFound';
-import './index.scss';
-import { useAppSelector } from './hooks/reduxHooks';
+import { privateRoutes, publicRoutes } from './routes';
 
 function App() {
     const [theme] = useState<'light' | 'dark'>('light');
@@ -25,7 +25,6 @@ function App() {
                         } else if (route.layout === null) {
                             Layout = Fragment;
                         }
-                        console.log('r ->', route.name);
                         return (
                             <Route
                                 key={index}

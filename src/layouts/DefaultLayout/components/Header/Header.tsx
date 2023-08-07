@@ -1,21 +1,19 @@
 import classNames from 'classnames/bind';
-import { Fragment, useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 
 import ROUTES from '~/configs/route';
+import { useAppSelector } from '~/hooks';
 import { publicRoutes } from '~/routes';
 import UserInfo from '../UserInfo/UserInfo';
 import styles from './Header.module.scss';
-import { useAppSelector } from '~/hooks/reduxHooks';
 
 const cx = classNames.bind(styles);
 
 function Header() {
     const [routeList, setRouteList] = useState(publicRoutes);
     const [showMenu, setShowMenu] = useState<boolean>(false);
-    // eslint-disable-next-line react-hooks/exhaustive-deps
     const currentUser = useAppSelector((state) => state.auth.currentUser);
-
     useEffect(() => {
         if (currentUser) {
             setRouteList((prev) =>
@@ -38,26 +36,25 @@ function Header() {
                 <div className={cx('nav__menu', { 'show-menu': showMenu })}>
                     <ul className={cx('nav__list')}>
                         {routeList.map((route, index) => {
-                            if (route.path !== ROUTES.REGISTER) {
-                                return (
-                                    <li className={cx('nav__item')} key={index}>
-                                        <Link
-                                            to={route.path}
-                                            className={cx('nav__link')}
-                                        >
-                                            {route.icon} {route.name}
-                                        </Link>
-                                    </li>
-                                );
-                            } else {
-                                return <Fragment key={index}></Fragment>;
-                            }
+                            return (
+                                <li className={cx('nav__item')} key={index}>
+                                    <Link
+                                        to={route.path}
+                                        className={cx('nav__link')}
+                                    >
+                                        {route.icon} {route.name}
+                                    </Link>
+                                </li>
+                            );
                         })}
 
                         {currentUser && (
                             <>
                                 <UserInfo
-                                    avatar={'/images/no-image.jpg'}
+                                    avatar={
+                                        currentUser.avatar ||
+                                        '/images/no-image.jpg'
+                                    }
                                 ></UserInfo>
                             </>
                         )}

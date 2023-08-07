@@ -1,16 +1,15 @@
 import { UserModel } from '~/models';
-import { ResponseAPIType } from './../types/api.type';
 import { axiosClient, axiosClientToken } from '~/utils';
+import { ResponseAPIType } from './../types/api.type';
 
 export interface LoginPayload {
     username: string;
     password: string;
-    fullName: string;
 }
 
 const url = 'auth';
 export const authApi = {
-    login(payload: LoginPayload): Promise<UserModel> {
+    login(payload: LoginPayload): Promise<ResponseAPIType<UserModel>> {
         return axiosClient.post(`${url}/login`, payload);
     },
 
@@ -19,6 +18,6 @@ export const authApi = {
     },
 
     refreshToken(): Promise<ResponseAPIType<{ accessToken: string }>> {
-        return axiosClientToken.post(`${url}/refresh`);
+        return axiosClient.post(`${url}/refresh`);
     },
 };

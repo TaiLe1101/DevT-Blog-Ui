@@ -3,10 +3,11 @@ import classNames from 'classnames/bind';
 import styles from './UserInfo.module.scss';
 
 import Tippy from '@tippyjs/react/headless';
-import { useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import { Wrapper as PopperWrapper } from '~/components/Popper';
 import ROUTES from '~/configs/route';
+import { useAppDispatch } from '~/hooks';
+import { authActions, authHandles } from '~/redux/features/auth';
 import { PropsTypeUserInfoItem } from '~/types/prop.type';
 import UserInfoItem from './components/UserInfoItem/UserInfoItem';
 
@@ -36,8 +37,10 @@ const USER_ITEM_LIST: PropsTypeUserInfoItem[] = [
 
 function UserInfo({ avatar }: PropsTypeUserInfo) {
     const navigate = useNavigate();
-    const dispatch = useDispatch();
-    const handleLogout = async () => {};
+    const dispatch = useAppDispatch();
+    const handleLogout = async () => {
+        authHandles.logout(dispatch, navigate);
+    };
 
     return (
         <div className={cx('user-info')}>

@@ -3,6 +3,7 @@ import { Dispatch } from 'react';
 
 import UserInfo from '~/layouts/DefaultLayout/components/UserInfo';
 import styles from './Header.module.scss';
+import { useAppSelector } from '~/hooks';
 
 const cx = classNames.bind(styles);
 
@@ -12,6 +13,8 @@ interface PropsTypeHeader {
 }
 
 function Header({ setShowSidebar, showSidebar }: PropsTypeHeader) {
+    const currenUser = useAppSelector((state) => state.auth.currentUser);
+
     return (
         <div className={cx('header')}>
             <div className={cx('header__content')}>
@@ -41,7 +44,9 @@ function Header({ setShowSidebar, showSidebar }: PropsTypeHeader) {
                     ></span>
                 </div>
                 <div className={cx('header__control')}>
-                    <UserInfo avatar={'/images/no-image.jpg'}></UserInfo>
+                    <UserInfo
+                        avatar={currenUser?.avatar || '/images/no-image.jpg'}
+                    ></UserInfo>
                 </div>
             </div>
         </div>

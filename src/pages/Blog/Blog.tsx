@@ -19,8 +19,7 @@ function Blog() {
     }, [location]);
 
     useEffect(() => {
-        console.log('1 ->', 1);
-        // postApi.getAll().then((res) => setPosts(res.data));
+        postApi.getAll().then((res) => setPosts(res.data));
     }, []);
 
     return (
@@ -34,9 +33,7 @@ function Blog() {
                                 'vi'
                             )}
                             desc={post.title}
-                            thumbnail={
-                                post.thumbnail ? post.thumbnail : blogTest
-                            }
+                            thumbnail={post.thumbnail || '/images/no-image.jpg'}
                             title={post.title}
                             order={post.id % 2 === 0}
                         ></CardBlog>

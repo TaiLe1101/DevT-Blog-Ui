@@ -8,46 +8,62 @@ import styles from './PostControl.module.scss';
 
 import 'react-markdown-editor-lite/lib/index.css';
 import Button from '~/components/Button/Button';
+import { postActions } from '~/redux/features/post';
+import { useAppDispatch, useAppSelector } from '~/hooks';
 
 const cx = classNames.bind(styles);
 
 function PostCreate() {
+    const { isLoading } = useAppSelector((state) => state.post);
     const inputFileRef = useRef<HTMLInputElement>(null);
-    const [previewImg, setPreviewImg] = useState<string | null>(null);
-
-    const [fileImg, setFileImg] = useState<File>();
+    const dispatch = useAppDispatch();
+    const [previewImage, setPreviewImage] = useState<string>('');
+    const [imageUpload, setImageUpload] = useState<File | undefined>(undefined);
     const [title, setTitle] = useState<string>('');
     const [desc, setDesc] = useState<string>('');
+    const [content, setContent] = useState<string>('');
 
     const handleAddAvatar = () => {
         inputFileRef.current?.click();
     };
 
-    const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-        const selectedFile = e.target.files?.[0];
-        if (selectedFile && selectedFile.type.startsWith('image/')) {
-            const reader = new FileReader();
-            reader.onload = () => {
-                setPreviewImg(reader.result as string);
-            };
-
-            reader.readAsDataURL(selectedFile);
-
-            setFileImg(selectedFile);
+    const handlePreviewImage = (e: React.ChangeEvent<HTMLInputElement>) => {
+        if (e.target.files) {
+            if (typeof e.target.files[0] !== 'undefined') {
+                const imageUpload = e.target.files[0];
+                setImageUpload(imageUpload);
+                const objImageUrl = URL.createObjectURL(imageUpload);
+                setPreviewImage(objImageUrl);
+            }
         }
     };
 
     const mdParser = new MarkdownIt(/* Markdown-it options */);
 
-    function handleEditorChange({
+    const handleEditorChange = ({
         html,
         text,
     }: {
         html: string;
         text: string;
-    }) {
-        console.log('handleEditorChange', html, text);
-    }
+    }) => {
+        setContent(text);
+    };
+
+    const handleCreatePost = async () => {
+        if (imageUpload) {
+            const formData = new FormData();
+            formData.append('title', title);
+            formData.append('desc', desc);
+            formData.append('thumbnail', imageUpload, 'thumbnail');
+            formData.append('content', content);
+            dispatch(
+                postActions.createPost({
+                    formData,
+                })
+            );
+        }
+    };
 
     return (
         <div className={cx('post-control')}>
@@ -58,10 +74,10 @@ function PostCreate() {
                         ref={inputFileRef}
                         type="file"
                         hidden
-                        onChange={handleFileChange}
+                        onChange={handlePreviewImage}
                     />
                     <img
-                        src={previewImg || noImage}
+                        src={previewImage || noImage}
                         alt="avatar"
                         className={cx('post-control__img')}
                     />
@@ -87,7 +103,7 @@ function PostCreate() {
                                 'post-control__btn',
                                 'post-control__btn--delete'
                             )}
-                            onClick={() => setPreviewImg(null)}
+                            onClick={() => setPreviewImage('')}
                         >
                             <i
                                 className={cx(
@@ -148,8 +164,10 @@ function PostCreate() {
 
             <div className={cx('post-control__bot')}>
                 <Button
+                    loading={isLoading}
                     text="Tạo bài viết"
                     backColor="var(--color-success)"
+                    onClick={handleCreatePost}
                 ></Button>
             </div>
         </div>

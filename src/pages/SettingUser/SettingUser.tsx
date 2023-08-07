@@ -5,7 +5,7 @@ import { useDispatch } from 'react-redux';
 import Button from '~/components/Button';
 import AvatarUser from './AvatarUser';
 import styles from './SettingUser.module.scss';
-import { useAppSelector } from '~/hooks/reduxHooks';
+import { useAppSelector } from '~/hooks';
 
 const cx = classNames.bind(styles);
 

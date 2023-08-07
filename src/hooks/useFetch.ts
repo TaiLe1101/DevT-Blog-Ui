@@ -13,8 +13,7 @@ export const useFetch = <T>(
         (async () => {
             try {
                 setIsLoading(true);
-
-                const result = await axiosClient.get<T>(url);
+                const result = await axiosClient.get(url);
                 setData(result.data);
                 setIsLoading(false);
             } catch (error) {

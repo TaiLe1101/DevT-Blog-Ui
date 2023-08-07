@@ -14,7 +14,6 @@ import Setting from '~/pages/Admin/Setting';
 import Blog from '~/pages/Blog';
 import Home from '~/pages/Home';
 import Login from '~/pages/Login';
-import Register from '~/pages/Register';
 import SettingUser from '~/pages/SettingUser';
 import { RouteType } from '~/types/route.type';
 
@@ -39,13 +38,6 @@ const publicRoutes: RouteType[] = [
         icon: <i className={cx('bx', 'bx-shield', 'nav__icon')}></i>,
         path: ROUTES.LOGIN,
         component: Login,
-        layout: null,
-    },
-    {
-        name: 'Register',
-        icon: <i className={cx('bx', 'bxs-user-check', 'nav__icon')}></i>,
-        path: ROUTES.REGISTER,
-        component: Register,
         layout: null,
     },
 ];

@@ -2,23 +2,17 @@ import classNames from 'classnames/bind';
 
 import { ChangeEvent, FormEvent, ReactNode, useState } from 'react';
 import { Link } from 'react-router-dom';
+import ROUTES from '~/configs/route';
 import Button from '../Button';
 import styles from './Form.module.scss';
 import FormControl, { PropsTypeFormControl } from './FormControl';
+import { useAppSelector } from '~/hooks';
 
 const cx = classNames.bind(styles);
 
 interface PropsTypeForm {
     title: string;
     formControls: PropsTypeFormControl[];
-    linkLeft: {
-        title: string;
-        path: string;
-    };
-    linkRight: {
-        title: string;
-        path: string;
-    };
 
     textButton: string;
     iconButton?: ReactNode;
@@ -29,13 +23,12 @@ interface PropsTypeForm {
 function Form({
     title,
     formControls,
-    linkLeft,
-    linkRight,
     textButton,
     iconButton,
     onSubmit,
 }: PropsTypeForm) {
     const [formData, setFormData] = useState<any>({});
+    const { isLoading } = useAppSelector((state) => state.auth);
 
     const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
         e.preventDefault();
@@ -67,22 +60,18 @@ function Form({
                 </div>
 
                 <div className={cx('form__nav')}>
-                    <Link className={cx('form__nav-link')} to={linkLeft.path}>
+                    <Link className={cx('form__nav-link')} to={ROUTES.BLOG}>
                         <i
                             className={`bx bx-arrow-back ${cx(
                                 'form__nav-icon'
                             )}`}
-                        ></i>{' '}
-                        {linkLeft.title}
-                    </Link>
-
-                    <Link className={cx('form__nav-link')} to={linkRight.path}>
-                        {linkRight.title}
+                        ></i>
+                        Trở về trang chủ ?
                     </Link>
                 </div>
 
                 <Button
-                    loading={false}
+                    loading={isLoading}
                     text={textButton}
                     className={cx('form__button')}
                     icon={iconButton}
