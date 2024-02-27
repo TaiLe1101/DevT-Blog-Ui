@@ -1,8 +1,5 @@
 import { PayloadAction, createSlice } from '@reduxjs/toolkit';
-import { LoginPayload } from '~/api';
-import { TOKEN } from '~/constants';
 import { UserModel } from '~/models';
-import { cookieStore } from '~/utils';
 
 // import avatar from '~/assets/avatar.jpg';
 // const initLoginState: InitStateAPIType<ResponseAPIType<UserType>> = {

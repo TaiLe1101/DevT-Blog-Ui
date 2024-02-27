@@ -5,9 +5,8 @@ import styles from './UserInfo.module.scss';
 import Tippy from '@tippyjs/react/headless';
 import { useNavigate } from 'react-router-dom';
 import { Wrapper as PopperWrapper } from '~/components/Popper';
-import ROUTES from '~/configs/route';
 import { useAppDispatch } from '~/hooks';
-import { authActions, authHandles } from '~/redux/features/auth';
+import { authHandles } from '~/redux/features/auth';
 import { PropsTypeUserInfoItem } from '~/types/prop.type';
 import UserInfoItem from './components/UserInfoItem/UserInfoItem';
 
@@ -20,17 +19,17 @@ interface PropsTypeUserInfo {
 const USER_ITEM_LIST: PropsTypeUserInfoItem[] = [
     {
         text: 'Admin',
-        href: ROUTES.ADMIN,
+        href: '#',
         classIcon: cx('bx', 'bxs-cube-alt'),
     },
     {
         text: 'Info',
-        href: ROUTES.USER_INFO,
+        href: '#',
         classIcon: cx('bx', 'bx-face'),
     },
     {
         text: 'Setting',
-        href: ROUTES.SETTING,
+        href: '#',
         classIcon: cx('bx', 'bx-cog'),
     },
 ];

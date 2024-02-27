@@ -1,10 +1,8 @@
 import classNames from 'classnames/bind';
 import { useState } from 'react';
 
-import styles from './Header.module.scss';
 import portfolioStyles from '~/layouts/PortfolioLayout/PortfolioLayout.module.scss';
-import ROUTES from '~/configs/route';
-import { Link } from 'react-router-dom';
+import styles from './Header.module.scss';
 
 const cx = classNames.bind(styles);
 const cxm = classNames.bind(portfolioStyles);
@@ -142,17 +140,6 @@ function Header() {
                                 ></i>{' '}
                                 Contact
                             </a>
-                        </li>
-
-                        <li className={cx('nav__item')}>
-                            <Link to={ROUTES.BLOG} className={cx('nav__link')}>
-                                <i
-                                    className={`uil uil-blogger-alt ${cx(
-                                        'nav__icon'
-                                    )}`}
-                                ></i>{' '}
-                                Blog
-                            </Link>
                         </li>
                     </ul>
 
