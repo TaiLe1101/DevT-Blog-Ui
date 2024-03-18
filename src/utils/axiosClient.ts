@@ -4,7 +4,7 @@ import axios, {
     InternalAxiosRequestConfig,
 } from 'axios';
 import jwtDecode from 'jwt-decode';
-import { authApi } from '~/api';
+import { authApi } from '~/api/authApi';
 import { TOKEN } from '~/constants';
 import { JwtModel } from '~/models';
 import { cookieStore } from '~/utils/cookieStore';

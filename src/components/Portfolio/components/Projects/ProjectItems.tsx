@@ -1,12 +1,12 @@
 import classNames from 'classnames/bind';
 
 import styles from './Projects.module.scss';
-import { ProjectType } from '~/types/project.type';
+import { ProjectModel } from '~/models/ProjectModel';
 
 const cx = classNames.bind(styles);
 
 interface PropsTypeProjectItems {
-    data: ProjectType;
+    data: ProjectModel;
 }
 
 function ProjectItems({ data }: PropsTypeProjectItems) {

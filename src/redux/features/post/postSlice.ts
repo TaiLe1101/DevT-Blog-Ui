@@ -1,5 +1,5 @@
 import { PayloadAction, createSlice } from '@reduxjs/toolkit';
-import { CreatePostPayload, DeletePostPayload } from '~/api';
+import { CreatePostPayload, DeletePostPayload } from '~/api/postApi';
 import { PostModel } from '~/models';
 
 interface Init {

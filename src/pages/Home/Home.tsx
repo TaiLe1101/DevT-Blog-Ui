@@ -1,3 +1,4 @@
+import { useEffect, useState } from 'react';
 import classNames from 'classnames/bind';
 
 import styles from './Home.module.scss';
@@ -14,7 +15,8 @@ import Qualification from '~/components/Qualification';
 import Testimonial from '~/components/Testimonial';
 import Contact from '~/components/Contact/Contact';
 import Portfolio from '~/components/Portfolio';
-import { useEffect } from 'react';
+import { ProjectModel } from '~/models/ProjectModel';
+import { projectApi } from '~/api/projectApi';
 
 const cx = classNames.bind(styles);
 const cxm = classNames.bind(portfolioStyles);
@@ -22,8 +24,21 @@ const cxm = classNames.bind(portfolioStyles);
 document.title = 'Portfolio page';
 
 function Home() {
+    const [projects, setProjects] = useState<ProjectModel[]>([]);
+
     useEffect(() => {
         window.scrollTo({ top: 0, behavior: 'smooth' });
+    }, []);
+
+    useEffect(() => {
+        const getProjectAPI = async () => {
+            const res = await projectApi.getAll();
+            if (res.statusCode === 200) {
+                setProjects(res.data ? res.data : []);
+                console.log(res.data);
+            }
+        };
+        getProjectAPI();
     }, []);
 
     return (
@@ -47,7 +62,7 @@ function Home() {
             <About></About>
             <Skills></Skills>
             <Services></Services>
-            <Portfolio></Portfolio>
+            <Portfolio projects={projects}></Portfolio>
             <Qualification></Qualification>
             <Testimonial></Testimonial>
             <Contact></Contact>

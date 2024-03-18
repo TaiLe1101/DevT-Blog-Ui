@@ -1,6 +1,6 @@
 import { AnyAction, Dispatch } from '@reduxjs/toolkit';
 import { NavigateFunction } from 'react-router-dom';
-import { LoginPayload, authApi } from '~/api';
+import { LoginPayload, authApi } from '~/api/authApi';
 import { TOKEN } from '~/constants';
 import { cookieStore } from '~/utils';
 import { authActions } from './authSlice';

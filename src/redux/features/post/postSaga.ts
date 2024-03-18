@@ -1,7 +1,7 @@
 import { PayloadAction } from '@reduxjs/toolkit';
 import { toast } from 'react-toastify';
 import { call, fork, put, takeEvery } from 'redux-saga/effects';
-import { CreatePostPayload, DeletePostPayload, postApi } from '~/api';
+import { CreatePostPayload, DeletePostPayload, postApi } from '~/api/postApi';
 import { PostModel } from '~/models';
 import { ResponseAPIType } from '~/types/api.type';
 import { postActions } from './postSlice';
